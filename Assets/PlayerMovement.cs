@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static Vector3 playerPos;
+
     //basic
     public Transform cam;
-    public float camDistance;
     CharacterController playerCont;
     float turnTime = 0.1f;
     float turnVelocity;
@@ -28,8 +29,16 @@ public class PlayerMovement : MonoBehaviour
     {
         playerCont = GetComponent<CharacterController>();
         trueSpeed = walkSpeed;
+        StartCoroutine(TrackPlayer());
     }
-
+    IEnumerator TrackPlayer()
+    {
+        while (true)
+        {
+            playerPos = gameObject.transform.position;
+            yield return null;
+        }
+    }
     // Update is called once per frame
     void Update()
     {
