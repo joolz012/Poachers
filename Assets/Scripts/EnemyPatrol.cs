@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
@@ -10,11 +11,6 @@ public class EnemyPatrol : MonoBehaviour
     //    public float DeathTimer, Death;
     //    public GameObject Respawn;
     //    private Animator EnemyAnimator;
-
-
-
-    //AudioSource source;
-    //public AudioClip scareSound;
 
     //wyatt sight
     public bool playerAttacking = false;
@@ -81,22 +77,29 @@ public class EnemyPatrol : MonoBehaviour
         waitTime = startWaitTime;
         GameObject.Find("PlayerStage").GetComponent<PlayerMovement>().enabled = true;
         randomSpot = Random.Range(0, moveSpots.Length);
-        //  EnemyAnimator = GetComponent<Animator>();
-        //  EnemyAnimator.Play("Walk");
-        // source = GetComponent<AudioSource>();
 
-        // Find all child GameObjects with the specified tag
-        GameObject[] waypointObjects = GameObject.FindGameObjectsWithTag("WayPoint");
+        // Get the parent's transform
+        Transform parentTransform = transform.parent;
 
-        // Resize the waypointTransforms array to match the number of waypoints found
-        moveSpots = new Transform[waypointObjects.Length];
-
-        // Assign positions to the Transform array
-        for (int i = 0; i < waypointObjects.Length; i++)
+        if (parentTransform != null)
         {
-            // Store the transform component of each waypoint GameObject
-            moveSpots[i] = waypointObjects[i].transform;
+            // Find all child GameObjects with the specified tag under the parent
+            GameObject[] waypointObjects = parentTransform.GetComponentsInChildren<Transform>()
+                                                        .Where(child => child.CompareTag("WayPoint"))
+                                                        .Select(child => child.gameObject)
+                                                        .ToArray();
+
+            // Resize the waypointTransforms array to match the number of waypoints found
+            moveSpots = new Transform[waypointObjects.Length];
+
+            // Assign positions to the Transform array
+            for (int i = 0; i < waypointObjects.Length; i++)
+            {
+                // Store the transform component of each waypoint GameObject
+                moveSpots[i] = waypointObjects[i].transform;
+            }
         }
+
     }
 
     void Update()
@@ -225,7 +228,6 @@ public class EnemyPatrol : MonoBehaviour
 
     void Patrol()
     {
-
         navEnemy.SetDestination(moveSpots[randomSpot].position);
         if (Vector3.Distance(transform.position, moveSpots[randomSpot].position) < 1f)
         {

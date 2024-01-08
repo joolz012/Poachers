@@ -10,10 +10,40 @@ public class EnemyManager : MonoBehaviour
     private int instantiations = 0;
     private bool canInstantiate = true;
     public float repeatRate;
+    public bool raidingBase;
+
+
+    public int defendTimer;
 
     void Start()
     {
-        StartCoroutine(InstantiateObjects());
+        PlayerPrefs.SetInt("animal", 0);
+        PlayerPrefs.SetInt("raid", 0);
+        raidingBase = false;
+    }
+
+    private void Update()
+    {
+        if (PlayerPrefs.GetInt("animalCounter") > 0 && PlayerPrefs.GetInt("raid") == 0)
+        {
+            defendTimer = Random.Range(10, 16);
+            StartCoroutine(DefendRaid(defendTimer));
+        }
+
+        Debug.Log(PlayerPrefs.GetInt("raid"));
+        if (PlayerPrefs.GetInt("raid") >= 1 && !raidingBase)
+        {
+            StartCoroutine(InstantiateObjects());
+            raidingBase = true;
+        }
+    }
+    IEnumerator DefendRaid(float timer)
+    {
+        Debug.LogWarning("Raiding!");
+        yield return new WaitForSeconds(timer * 60);
+        //show being raided;
+        PlayerPrefs.SetInt("raid", 1);
+        yield break;
     }
 
     IEnumerator InstantiateObjects()
@@ -31,10 +61,13 @@ public class EnemyManager : MonoBehaviour
                 Instantiate(objectToInstantiate, spawnPoints[randomIndex].position, transform.rotation);
                 instantiations++;
             }
-
         }
 
-        Debug.Log("Stopped instantiating objects.");
+        instantiations = 0;
+        raidingBase = false;
+        PlayerPrefs.SetInt("raid", 0);
+        yield break;
+        //Debug.Log("Stopped instantiating objects.");
     }
 
     // You can call this method to stop instantiating objects if needed.

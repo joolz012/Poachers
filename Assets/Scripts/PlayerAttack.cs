@@ -24,6 +24,7 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(PlayerPrefs.GetInt("raid"));
         HandleAttackInput();
         HandleAttackCooldown();
     }
@@ -47,13 +48,12 @@ public class PlayerAttack : MonoBehaviour
 
                 if (Physics.BoxCast(transform.position, boxCastHalfExtents, directionToMouse, out hit, Quaternion.identity, rayLength, mask))
                 {
+                    enemyHit = hit.collider.GetComponent<EnemyHealth>();
                     if (hit.collider.CompareTag(interactableTag))
                     {
                         if (Input.GetMouseButtonDown(0))
                         {
-                            enemyHit = hit.collider.GetComponent<EnemyHealth>();
                             enemyHit.TakeDamage(meleeDamage);
-                            Debug.Log("Attack");
                             canHit = false;
                             attackTimer = 0f;
                         }

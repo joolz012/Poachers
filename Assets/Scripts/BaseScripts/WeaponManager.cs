@@ -6,7 +6,10 @@ using UnityEngine.UI;
 public class WeaponManager : MonoBehaviour
 {
     public float currentMoney;
+    public float addMoney;
+    public float addMoneyTimer;
     public Text moneyText;
+    private bool isCoroutineRunning = false;
 
     public Text attackDmg, attackRange, attackSpeed;
 
@@ -21,12 +24,22 @@ public class WeaponManager : MonoBehaviour
         detailsPanel.SetActive(false);
         onDetails = false;
     }
+
+    IEnumerator GiveFund()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(addMoneyTimer);
+            currentMoney += addMoney;
+        }
+    }
     void Update()
     {
+        FundMechanics();
 
         moneyText.text = currentMoney.ToString();
 
-        Debug.Log(currentMoney);
+        //Debug.Log(currentMoney);
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
@@ -49,6 +62,20 @@ public class WeaponManager : MonoBehaviour
         if (currentUpgradeCanvas != null)
         {
             Debug.Log(currentUpgradeCanvas.name + " Weapon");
+        }
+    }
+
+    private void FundMechanics()
+    {
+        if (PlayerPrefs.GetInt("raid") > 0 && isCoroutineRunning)
+        {
+            StopCoroutine("GiveFund");
+            isCoroutineRunning = false;
+        }
+        else if (PlayerPrefs.GetInt("raid") == 0 && !isCoroutineRunning)
+        {
+            StartCoroutine("GiveFund");
+            isCoroutineRunning = true;
         }
     }
 

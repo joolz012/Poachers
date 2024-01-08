@@ -10,6 +10,8 @@ public class CameraScript : MonoBehaviour
     public float minDistance = 1f;
     public float maxDistance = 5f;
 
+    public GameObject player;
+
 
     private TransparencyScript raycastedObj;
     void LateUpdate()
@@ -34,7 +36,6 @@ public class CameraScript : MonoBehaviour
 
     private void Update()
     {
-        GameObject player = GameObject.Find("Player");
 
         if (player != null)
         {

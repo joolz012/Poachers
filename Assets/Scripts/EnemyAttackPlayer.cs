@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyAttackPlayer : MonoBehaviour
 {
     public float enemyDmg;
-    public PlayerHealth playerHp;
+    private PlayerHealth playerHp;
 
     //shot timing
     private float shotTimer;
@@ -31,11 +31,12 @@ public class EnemyAttackPlayer : MonoBehaviour
 
         if (Physics.SphereCast(playerPos, 0.5f, out hitPlayer, fireRadius))
         {
-            Debug.Log("Attacking");
+            //Debug.Log("Attacking");
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hitPlayer.distance, Color.green);
             if (shotTimer <= 0 && hitPlayer.transform.CompareTag("Player"))
             {
-                Debug.Log("Hitting Kurt");
+                playerHp = hitPlayer.collider.GetComponent<PlayerHealth>();
+                //Debug.Log("Hitting Kurt");
                 playerHp.TakeDamage(enemyDmg);
                 //AnimatorControl.isHit = true;
                 shotTimer = shotBtwTimer;

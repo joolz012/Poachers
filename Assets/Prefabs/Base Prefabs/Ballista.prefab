@@ -126,7 +126,7 @@ MonoBehaviour:
   shotsPerSecond: 1
   rotationSpeed: 10
   bulletPrefab: {fileID: 5185303695762950478, guid: 7ec03893d9e9a1b4f98c1a1f290795aa, type: 3}
-  baseTrans: {fileID: 5073252714583168623, guid: da91567891551254daf56c4a2a9722ae, type: 3}
+  baseTrans: {fileID: 2751255061914358973, guid: da91567891551254daf56c4a2a9722ae, type: 3}
 --- !u!1 &2965216174602482919
 GameObject:
   m_ObjectHideFlags: 0

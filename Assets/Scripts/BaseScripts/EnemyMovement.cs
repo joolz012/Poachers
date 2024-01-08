@@ -9,8 +9,12 @@ public class EnemyMovement : MonoBehaviour
     private NavMeshAgent navMeshAgent;
     private int currentWaypoint = 0;
 
+    public float stoppingRange;
+    public bool attackingBase;
+
     private void Start()
     {
+        attackingBase = false;
         navMeshAgent = GetComponent<NavMeshAgent>();
         if (navMeshAgent == null)
         {
@@ -25,8 +29,14 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
+        float distance = Vector3.Distance(waypoints[0].position, transform.position);
+        if (distance <= stoppingRange)
+        {
+            navMeshAgent.SetDestination(transform.position);
+            attackingBase = true;
+        }
         // Check if the enemy has reached the current waypoint
-        if (navMeshAgent.remainingDistance < 0.1f && !navMeshAgent.pathPending)
+        if (navMeshAgent.remainingDistance < 0.1f && !navMeshAgent.pathPending && !attackingBase)
         {
             currentWaypoint++;
 
