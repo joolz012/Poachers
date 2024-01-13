@@ -14,33 +14,36 @@ public class EnemyManager : MonoBehaviour
 
 
     public int defendTimer;
-
+    public WeaponManager weaponManager;
     void Start()
     {
-        PlayerPrefs.SetInt("animal", 0);
-        PlayerPrefs.SetInt("raid", 0);
         raidingBase = false;
     }
 
     private void Update()
     {
-        if (PlayerPrefs.GetInt("animalCounter") > 0 && PlayerPrefs.GetInt("raid") == 0)
+        Debug.Log(PlayerPrefs.GetInt("animalCounter"));
+        Debug.Log(PlayerPrefs.GetInt("raid"));
+
+        if (PlayerPrefs.GetInt("animalCounter") > 0 && PlayerPrefs.GetInt("raid") == 0 && !raidingBase)
         {
-            defendTimer = Random.Range(10, 16);
+            defendTimer = Random.Range(10, 15);
             StartCoroutine(DefendRaid(defendTimer));
         }
 
-        Debug.Log(PlayerPrefs.GetInt("raid"));
         if (PlayerPrefs.GetInt("raid") >= 1 && !raidingBase)
         {
+            PlayerPrefs.SetInt("raid", 0);
+            weaponManager.isCoroutineRunning = true;
             StartCoroutine(InstantiateObjects());
             raidingBase = true;
         }
     }
+
     IEnumerator DefendRaid(float timer)
     {
-        Debug.LogWarning("Raiding!");
-        yield return new WaitForSeconds(timer * 60);
+        //Debug.LogWarning("Raiding!");
+        yield return new WaitForSeconds(timer);
         //show being raided;
         PlayerPrefs.SetInt("raid", 1);
         yield break;
@@ -62,10 +65,10 @@ public class EnemyManager : MonoBehaviour
                 instantiations++;
             }
         }
-
+        yield return new WaitForSeconds(60.0f);
+        weaponManager.isCoroutineRunning = false;
         instantiations = 0;
         raidingBase = false;
-        PlayerPrefs.SetInt("raid", 0);
         yield break;
         //Debug.Log("Stopped instantiating objects.");
     }
@@ -73,6 +76,6 @@ public class EnemyManager : MonoBehaviour
     // You can call this method to stop instantiating objects if needed.
     public void StopInstantiating()
     {
-        canInstantiate = false;
+        weaponManager.isCoroutineRunning = false;
     }
 }

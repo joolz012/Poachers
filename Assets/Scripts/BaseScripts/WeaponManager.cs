@@ -5,23 +5,34 @@ using UnityEngine.UI;
 
 public class WeaponManager : MonoBehaviour
 {
+    [Header("Money")]
     public float currentMoney;
     public float addMoney;
     public float addMoneyTimer;
+    public float upgradeCost;
     public Text moneyText;
-    private bool isCoroutineRunning = false;
 
-    public Text attackDmg, attackRange, attackSpeed;
+    [Header("Money Text")]
+    public Text attackDmg;
+    public Text attackRange;
+    public Text attackSpeed;
 
+
+
+    [Header("Upgrade Design")]
     public string targetTag = "Weapon";
     public string canvasName = "WeaponCanvas";
     [SerializeField] LayerMask mask;
-    public GameObject currentUpgradeCanvas, detailsPanel;
+    public GameObject currentUpgradeCanvas;
+    public GameObject detailsPanel;
     public bool onDetails;
+
+
+    public bool isCoroutineRunning = false;
+    bool startFund = true;
 
     private void OnEnable()
     {
-        detailsPanel.SetActive(false);
         onDetails = false;
     }
 
@@ -31,6 +42,21 @@ public class WeaponManager : MonoBehaviour
         {
             yield return new WaitForSeconds(addMoneyTimer);
             currentMoney += addMoney;
+        }
+    }
+    public void FundMechanics()
+    {
+        if (isCoroutineRunning && !startFund)
+        {
+            Debug.Log("Stop");
+            StopCoroutine("GiveFund");
+            startFund = true;
+        }
+        else if (!isCoroutineRunning && startFund)
+        {
+            Debug.Log("Start");
+            StartCoroutine("GiveFund");
+            startFund = false;
         }
     }
     void Update()
@@ -55,27 +81,29 @@ public class WeaponManager : MonoBehaviour
                         DisableCanvas(currentUpgradeCanvas);
                     }
                     EnableCanvas(clickedObject);
+                    DeclareVariable(clickedObject);
                 }
             }
         }
-
         if (currentUpgradeCanvas != null)
         {
-            Debug.Log(currentUpgradeCanvas.name + " Weapon");
+            //Debug.Log(currentUpgradeCanvas.name + " Weapon");
         }
     }
-
-    private void FundMechanics()
+    void DeclareVariable(GameObject currentGameObject)
     {
-        if (PlayerPrefs.GetInt("raid") > 0 && isCoroutineRunning)
+        if (currentGameObject != null)
         {
-            StopCoroutine("GiveFund");
-            isCoroutineRunning = false;
-        }
-        else if (PlayerPrefs.GetInt("raid") == 0 && !isCoroutineRunning)
-        {
-            StartCoroutine("GiveFund");
-            isCoroutineRunning = true;
+            Transform detailsTrans = currentUpgradeCanvas.transform.Find("Details Panel");
+
+            Transform attackDmgText = detailsTrans.Find("Attack Damage (1)");
+            Transform attackRangeText = detailsTrans.Find("Attack Range (1)");
+            Transform attackSpeedText = detailsTrans.Find("Attack Speed (1)");
+
+            detailsPanel = detailsTrans.gameObject;
+            attackDmg = attackDmgText.GetComponent<Text>();
+            attackRange = attackRangeText.GetComponent<Text>();
+            attackSpeed = attackSpeedText.GetComponent<Text>();
         }
     }
 
@@ -114,12 +142,14 @@ public class WeaponManager : MonoBehaviour
     public void UpgradeWeapon(GameObject upgradeWeapon)
     {
         WeaponScript weapon = upgradeWeapon.GetComponent<WeaponScript>();
+        WeaponUpgradeManager upgradeManager = upgradeWeapon.GetComponent<WeaponUpgradeManager>();
 
-        if (weapon != null && currentMoney >= 100)
+        if (weapon != null && currentMoney >= upgradeCost)
         {
-            Debug.Log("Upgraded");
-            currentMoney -= 100;
-            weapon.attackDamage += 10;
+            Debug.Log("Upgrading weapon...");
+            currentMoney -= upgradeCost;
+            upgradeManager.UpgradeWeapon(weapon);
+
             attackDmg.text = weapon.attackDamage.ToString();
             attackRange.text = weapon.attackRange.ToString();
             attackSpeed.text = weapon.shotsPerSecond.ToString();
@@ -145,6 +175,24 @@ public class WeaponManager : MonoBehaviour
         else
         {
             detailsPanel.SetActive(false);
+        }
+    }
+
+    public void UpdateDetails(GameObject detailsUpdate)
+    {
+        Transform parentGameObject = currentUpgradeCanvas.transform.parent;
+        detailsUpdate = parentGameObject.gameObject;
+        WeaponScript weaponDetails = detailsUpdate.GetComponent<WeaponScript>();
+        if(weaponDetails != null)
+        {
+            Debug.Log(detailsUpdate);
+            attackDmg.text = weaponDetails.attackDamage.ToString();
+            attackRange.text = weaponDetails.attackRange.ToString();
+            attackSpeed.text = weaponDetails.shotsPerSecond.ToString();
+        }
+        else
+        {
+            Debug.LogWarning("WeaponScript component not found ");
         }
     }
 }

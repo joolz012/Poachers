@@ -24,7 +24,6 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(PlayerPrefs.GetInt("raid"));
         HandleAttackInput();
         HandleAttackCooldown();
     }

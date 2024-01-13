@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4369c0385b725a2439b1f792f2518114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animalPrefab: {fileID: 281090365981327317, guid: 00f0fed14d768f34dabbfdf03ef8444a, type: 3}
+  animalPrefab: {fileID: 2158771881017264342}
   animalSpawnerCounter: 0
   animalSpawnerTrans: {fileID: 4824509444957156549}

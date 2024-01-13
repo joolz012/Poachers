@@ -18,6 +18,8 @@ public class RescueScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(PlayerPrefs.GetInt("animalCounter"));
+        Debug.Log(PlayerPrefs.GetInt("raid"));
         rescueCanvas.transform.LookAt(lookAt.position);
     }
 
@@ -44,6 +46,7 @@ public class RescueScript : MonoBehaviour
         {
             GameObject parentGameObject = parentTransform.gameObject;
             PlayerPrefs.SetInt("animalCounter", PlayerPrefs.GetInt("animalCounter") + 1);
+            PlayerPrefs.SetInt("raid", 1);
             parentGameObject.SetActive(false);
         }
         else

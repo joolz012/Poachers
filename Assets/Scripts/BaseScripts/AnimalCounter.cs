@@ -1,17 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AnimalCounter : MonoBehaviour
 {
     public GameObject animalPrefab; // Assign your animal prefab in the Inspector
     private List<GameObject> instantiatedAnimals = new List<GameObject>();
     public int animalSpawnerCounter;
+    public static int essenceCounter;
     private int animalCounter = 0;
     public Transform animalSpawnerTrans;
 
+    private void Start()
+    {
+        essenceCounter = PlayerPrefs.GetInt("animalCounter");
+    }
     void Update()
     {
+        animalSpawnerCounter = PlayerPrefs.GetInt("animalCounter");
         animalCounter = animalSpawnerCounter;
         // Check if animalCounter has increased
         if (animalCounter > instantiatedAnimals.Count)
@@ -42,5 +49,20 @@ public class AnimalCounter : MonoBehaviour
     public void SetAnimalCounter(int newValue)
     {
         animalCounter = newValue;
+    }
+
+    public void StageOne()
+    {
+        SceneManager.LoadScene("Stage1");
+    }
+
+    public void StageTwo()
+    {
+        SceneManager.LoadScene("Stage2");
+    }
+
+    public void StageThree()
+    {
+        SceneManager.LoadScene("Stage3");
     }
 }

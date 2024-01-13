@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints:
-  - {fileID: 2751255061914358973, guid: da91567891551254daf56c4a2a9722ae, type: 3}
+  - {fileID: 7919003413701265097, guid: da91567891551254daf56c4a2a9722ae, type: 3}
   stoppingRange: 10
   attackingBase: 0
 --- !u!114 &-1217376384912810456
@@ -209,10 +209,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyDmg: 10
-  baseTrans: {fileID: 2751255061914358973, guid: da91567891551254daf56c4a2a9722ae, type: 3}
+  baseTrans: {fileID: 7919003413701265097, guid: da91567891551254daf56c4a2a9722ae, type: 3}
   shotBtwTimer: 1
   notAttacking: 0
-  fireRadius: 12
+  fireRadius: 15
 --- !u!1 &2518913680937039856
 GameObject:
   m_ObjectHideFlags: 0

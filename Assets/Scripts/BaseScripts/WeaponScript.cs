@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class WeaponScript : MonoBehaviour
 {
+    [Header("Weapon Stats")]
+    public int currentLevel;
+    public float attackDamage;
+    public float attackRange;
+    public float shotsPerSecond;
+
+    [Header("Weapon Design")]
     public GameObject attackSoundGO;
     private AudioSource attackSound;
-    public float attackRange;
-    public float attackDamage;
-    public float shotsPerSecond;
     public float rotationSpeed;
     public GameObject bulletPrefab;
     private GameObject target;
@@ -85,7 +89,9 @@ public class WeaponScript : MonoBehaviour
         }
 
         Quaternion targetRotation = Quaternion.LookRotation(target.transform.position - transform.position);
+        targetRotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
 
         float distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
 

@@ -69,9 +69,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints:
-  - {fileID: 5000587859374190329, guid: 8cddff9175d72f8419933d5d1032bacf, type: 3}
-  - {fileID: 8486169941591028661, guid: 95e33b62d7c7fc24584cc1689637af6b, type: 3}
-  - {fileID: 836164078606708393, guid: 1456da62db2f2c543bc5c2440ca82b71, type: 3}
+  - {fileID: 8298197498501857511, guid: 659f5f14eda911e41b82522fdee02295, type: 3}
+  - {fileID: 3711093395980785606, guid: d57fbcd052101fa4f8a1a43fb8f3f085, type: 3}
+  - {fileID: 152641259225960058, guid: 33f5773aa5844224db8d27e7da07683f, type: 3}
+  - {fileID: 2967689742572836535, guid: 847dd544a3ea36743bf625dd56221b3a, type: 3}
+  - {fileID: 824647065190432507, guid: 71e56ccf91134754b9486d56ce6bd65e, type: 3}
   startWaitTime: 2
 --- !u!1 &1056537576973214211
 GameObject:

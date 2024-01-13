@@ -120,13 +120,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7588a2b6ee10f42b6671d666e16a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSoundGO: {fileID: 4018592891982968312, guid: d7bbbad7e0bd6694fb95de0ee1dd14f9, type: 3}
-  attackRange: 20
+  currentLevel: 0
   attackDamage: 10
+  attackRange: 20
   shotsPerSecond: 1
+  attackSoundGO: {fileID: 4018592891982968312, guid: d7bbbad7e0bd6694fb95de0ee1dd14f9, type: 3}
   rotationSpeed: 10
   bulletPrefab: {fileID: 5185303695762950478, guid: 7ec03893d9e9a1b4f98c1a1f290795aa, type: 3}
-  baseTrans: {fileID: 2751255061914358973, guid: da91567891551254daf56c4a2a9722ae, type: 3}
+  baseTrans: {fileID: 7919003413701265097, guid: da91567891551254daf56c4a2a9722ae, type: 3}
 --- !u!1 &2965216174602482919
 GameObject:
   m_ObjectHideFlags: 0
