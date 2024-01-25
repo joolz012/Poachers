@@ -15,6 +15,7 @@ public class EnemyManager : MonoBehaviour
 
     public int defendTimer;
     public WeaponManager weaponManager;
+    public TimerScript timerScript;
     void Start()
     {
         raidingBase = false;
@@ -22,13 +23,16 @@ public class EnemyManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(PlayerPrefs.GetInt("animalCounter"));
-        Debug.Log(PlayerPrefs.GetInt("raid"));
+        Debug.Log("Animal: " + PlayerPrefs.GetInt("animalCounter"));
+        Debug.Log("Raid: " + PlayerPrefs.GetInt("raid"));
 
         if (PlayerPrefs.GetInt("animalCounter") > 0 && PlayerPrefs.GetInt("raid") == 0 && !raidingBase)
         {
+            //Debug.Log("Timer Start");
             defendTimer = Random.Range(10, 15);
+            timerScript.TimerDuration(defendTimer);
             StartCoroutine(DefendRaid(defendTimer));
+            raidingBase = true;
         }
 
         if (PlayerPrefs.GetInt("raid") >= 1 && !raidingBase)
@@ -38,14 +42,22 @@ public class EnemyManager : MonoBehaviour
             StartCoroutine(InstantiateObjects());
             raidingBase = true;
         }
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            timerScript.isRunning = false;
+            raidingBase = false;
+        }
     }
 
     IEnumerator DefendRaid(float timer)
     {
         //Debug.LogWarning("Raiding!");
-        yield return new WaitForSeconds(timer);
+        yield return new WaitForSeconds(timer * 60);
         //show being raided;
+        raidingBase = false;
         PlayerPrefs.SetInt("raid", 1);
+        PlayerPrefs.SetInt("timerCheck", 0);
         yield break;
     }
 

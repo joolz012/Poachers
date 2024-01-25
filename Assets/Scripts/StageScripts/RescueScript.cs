@@ -47,6 +47,7 @@ public class RescueScript : MonoBehaviour
             GameObject parentGameObject = parentTransform.gameObject;
             PlayerPrefs.SetInt("animalCounter", PlayerPrefs.GetInt("animalCounter") + 1);
             PlayerPrefs.SetInt("raid", 1);
+            PlayerPrefs.SetInt("essence", PlayerPrefs.GetInt("essence") + 1);
             parentGameObject.SetActive(false);
         }
         else

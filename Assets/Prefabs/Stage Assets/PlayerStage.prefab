@@ -510,7 +510,7 @@ MonoBehaviour:
   walkSpeed: 15
   sprintSpeed: 30
   jumpHeight: 10
-  gravity: 5
+  gravity: -9.8
 --- !u!65 &8988625159525204517
 BoxCollider:
   m_ObjectHideFlags: 0

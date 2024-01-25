@@ -8,15 +8,23 @@ public class AnimalCounter : MonoBehaviour
     public GameObject animalPrefab; // Assign your animal prefab in the Inspector
     private List<GameObject> instantiatedAnimals = new List<GameObject>();
     public int animalSpawnerCounter;
-    public static int essenceCounter;
     private int animalCounter = 0;
     public Transform animalSpawnerTrans;
 
     private void Start()
     {
-        essenceCounter = PlayerPrefs.GetInt("animalCounter");
     }
     void Update()
+    {
+        AnimalChecker();
+
+        if (PlayerPrefs.GetInt("animalCounter") <= 0)
+        {
+            PlayerPrefs.SetInt("raid", 0);
+        }
+    }
+
+    public void AnimalChecker()
     {
         animalSpawnerCounter = PlayerPrefs.GetInt("animalCounter");
         animalCounter = animalSpawnerCounter;

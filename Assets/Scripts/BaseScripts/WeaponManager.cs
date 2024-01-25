@@ -12,25 +12,36 @@ public class WeaponManager : MonoBehaviour
     public float upgradeCost;
     public Text moneyText;
 
-    [Header("Money Text")]
+    [Header("Weapon Text")]
     public Text attackDmg;
     public Text attackRange;
     public Text attackSpeed;
+
+    [Header("Trap Text")]
+    public Text trapDmg;
+    public Text trapCooldown;
+    public Text trapStunDuration;
 
 
 
     [Header("Upgrade Design")]
     public string targetTag = "Weapon";
+    public string targetTag2 = "Trap";
+    public string targetTag3 = "Base";
     public string canvasName = "WeaponCanvas";
     [SerializeField] LayerMask mask;
     public GameObject currentUpgradeCanvas;
     public GameObject detailsPanel;
     public bool onDetails;
 
-
+    public BaseHealth baseHealth;
     public bool isCoroutineRunning = false;
     bool startFund = true;
 
+    private void Start()
+    {
+        currentMoney = PlayerPrefs.GetFloat("currentMoney");
+    }
     private void OnEnable()
     {
         onDetails = false;
@@ -41,7 +52,7 @@ public class WeaponManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(addMoneyTimer);
-            currentMoney += addMoney;
+            PlayerPrefs.SetFloat("currentMoney", +PlayerPrefs.GetFloat("currentMoney") + addMoney);
         }
     }
     public void FundMechanics()
@@ -61,10 +72,15 @@ public class WeaponManager : MonoBehaviour
     }
     void Update()
     {
-        FundMechanics();
-
+        currentMoney = PlayerPrefs.GetFloat("currentMoney");
         moneyText.text = currentMoney.ToString();
+        FundMechanics();
+        MouseRaycast();
 
+    }
+
+    void MouseRaycast()
+    {
         //Debug.Log(currentMoney);
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -81,7 +97,21 @@ public class WeaponManager : MonoBehaviour
                         DisableCanvas(currentUpgradeCanvas);
                     }
                     EnableCanvas(clickedObject);
-                    DeclareVariable(clickedObject);
+                    DeclareVariableWeapon(clickedObject);
+                }
+                if (hit.collider.gameObject.CompareTag(targetTag2))
+                {
+                    GameObject clickedObject = hit.collider.gameObject;
+                    if (currentUpgradeCanvas != null && currentUpgradeCanvas.transform.parent != clickedObject.transform)
+                    {
+                        DisableCanvas(currentUpgradeCanvas);
+                    }
+                    EnableCanvas(clickedObject);
+                    DeclareVariableTrap(clickedObject);
+                }
+                if (hit.collider.gameObject.CompareTag(targetTag3))
+                {
+                    DisableCanvas(currentUpgradeCanvas);
                 }
             }
         }
@@ -90,7 +120,8 @@ public class WeaponManager : MonoBehaviour
             //Debug.Log(currentUpgradeCanvas.name + " Weapon");
         }
     }
-    void DeclareVariable(GameObject currentGameObject)
+
+    void DeclareVariableWeapon(GameObject currentGameObject)
     {
         if (currentGameObject != null)
         {
@@ -104,6 +135,23 @@ public class WeaponManager : MonoBehaviour
             attackDmg = attackDmgText.GetComponent<Text>();
             attackRange = attackRangeText.GetComponent<Text>();
             attackSpeed = attackSpeedText.GetComponent<Text>();
+        }
+    }
+
+    void DeclareVariableTrap(GameObject currentGameObject)
+    {
+        if (currentGameObject != null)
+        {
+            Transform detailsTrans = currentUpgradeCanvas.transform.Find("Details Panel");
+
+            Transform trapDmgText = detailsTrans.Find("Trap Damage 1");
+            Transform trapCooldownText = detailsTrans.Find("Trap Cooldown 1");
+            Transform trapStunDurationText = detailsTrans.Find("Trap Stun Duration 1");
+
+            detailsPanel = detailsTrans.gameObject;
+            trapDmg = trapDmgText.GetComponent<Text>();
+            trapCooldown = trapCooldownText.GetComponent<Text>();
+            trapStunDuration = trapStunDurationText.GetComponent<Text>();
         }
     }
 
@@ -143,20 +191,72 @@ public class WeaponManager : MonoBehaviour
     {
         WeaponScript weapon = upgradeWeapon.GetComponent<WeaponScript>();
         WeaponUpgradeManager upgradeManager = upgradeWeapon.GetComponent<WeaponUpgradeManager>();
-
-        if (weapon != null && currentMoney >= upgradeCost)
+        if (baseHealth.baseLevel > weapon.currentLevel)
         {
-            Debug.Log("Upgrading weapon...");
-            currentMoney -= upgradeCost;
-            upgradeManager.UpgradeWeapon(weapon);
+            if (weapon != null && currentMoney >= upgradeCost)
+            {
+                Debug.Log("Upgrading weapon...");
+                PlayerPrefs.SetFloat("currentMoney", +PlayerPrefs.GetFloat("currentMoney") - upgradeCost);
+                upgradeManager.UpgradeWeapon(weapon);
 
-            attackDmg.text = weapon.attackDamage.ToString();
-            attackRange.text = weapon.attackRange.ToString();
-            attackSpeed.text = weapon.shotsPerSecond.ToString();
+                attackDmg.text = weapon.attackDamage.ToString();
+                attackRange.text = weapon.attackRange.ToString();
+                attackSpeed.text = weapon.shotsPerSecond.ToString();
+            }
+            else
+            {
+                Debug.LogWarning("WeaponScript component not found in parent of " + upgradeWeapon.name);
+            }
         }
         else
         {
-            Debug.LogWarning("WeaponScript component not found in parent of " + upgradeWeapon.name);
+            Debug.LogWarning("Upgrade Base");
+        }
+
+
+    }
+
+    public void UpgradeTrap(GameObject upgradeTrap)
+    {
+        TrapScript trapScript = upgradeTrap.GetComponent<TrapScript>();
+        TrapUpgradeManager upgradeTrapManager = upgradeTrap.GetComponent<TrapUpgradeManager>();
+        if (baseHealth.baseLevel > trapScript.currentLevel)
+        {
+            if (trapScript != null && currentMoney >= upgradeCost)
+            {
+                PlayerPrefs.SetFloat("currentMoney", +PlayerPrefs.GetFloat("currentMoney") - upgradeCost);
+                upgradeTrapManager.UpgradeTrap(trapScript);
+
+                trapDmg.text = trapScript.trapDmg.ToString();
+                trapCooldown.text = trapScript.trapCooldown.ToString();
+                trapStunDuration.text = trapScript.trapStunDuration.ToString();
+            }
+            else
+            {
+                Debug.LogWarning("WeaponScript component not found in parent of " + upgradeTrap.name);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Upgrade Base");
+        }
+
+    }
+    public void TrapDetails(GameObject detailsTrap)
+    {
+        onDetails = !onDetails;
+
+        TrapScript trapDetails = detailsTrap.GetComponent<TrapScript>();
+        trapDmg.text = trapDetails.trapDmg.ToString();
+        trapCooldown.text = trapDetails.trapCooldown.ToString();
+        trapStunDuration.text = trapDetails.trapStunDuration.ToString();
+        if (trapDetails != null && onDetails)
+        {
+            detailsPanel.SetActive(true);
+        }
+        else
+        {
+            detailsPanel.SetActive(false);
         }
     }
 

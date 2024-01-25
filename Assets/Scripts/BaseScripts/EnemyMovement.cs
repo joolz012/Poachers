@@ -7,10 +7,12 @@ public class EnemyMovement : MonoBehaviour
 {
     public Transform[] waypoints;
     private NavMeshAgent navMeshAgent;
+    public float enemyMovementSpeed;
     private int currentWaypoint = 0;
 
     public float stoppingRange;
     public bool attackingBase;
+    public bool stunned = false;
 
     private void Start()
     {
@@ -28,6 +30,11 @@ public class EnemyMovement : MonoBehaviour
     }
 
     private void Update()
+    {
+        MoveEnemy();
+    }
+
+    private void MoveEnemy()
     {
         float distance = Vector3.Distance(waypoints[0].position, transform.position);
         if (distance <= stoppingRange)
@@ -52,10 +59,35 @@ public class EnemyMovement : MonoBehaviour
             }
         }
     }
-
-    private void SetDestination()
+    public void SetDestination()
     {
         // Set the destination to the current waypoint
         navMeshAgent.SetDestination(waypoints[currentWaypoint].position);
     }
+
+    public void StunEnemy(float stunDuration)
+    {
+        if (!stunned)
+        {
+            // Stun the enemy by stopping the NavMeshAgent and setting stunned to true
+            navMeshAgent.isStopped = true;
+            navMeshAgent.speed = 0;
+            navMeshAgent.acceleration = 25;
+            stunned = true;
+
+            // Invoke a method to remove the stun after a specified duration
+            Invoke("RemoveStun", stunDuration);
+        }
+    }
+
+    private void RemoveStun()
+    {
+        // Resume the NavMeshAgent movement and set stunned to false
+        navMeshAgent.isStopped = false;
+        navMeshAgent.speed = enemyMovementSpeed;
+        navMeshAgent.acceleration = 8;
+        SetDestination();
+        stunned = false;
+    }
+
 }

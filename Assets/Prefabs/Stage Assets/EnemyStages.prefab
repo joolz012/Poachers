@@ -649,7 +649,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyDmg: 10
-  playerHp: {fileID: 6900585286974554936, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
   shotBtwTimer: 1
   notAttacking: 0
   fireRadius: 4

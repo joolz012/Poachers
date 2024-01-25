@@ -168,6 +168,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3981087825886659227, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
+      propertyPath: m_Carve
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981087825886659227, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
+      propertyPath: m_Shape
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981087825886659227, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
+      propertyPath: m_Extents.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981087825886659227, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
+      propertyPath: m_Extents.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981087825886659227, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
+      propertyPath: m_Extents.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981087825886659227, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
+      propertyPath: m_CarveOnlyStationary
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5382260996847470799, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
       propertyPath: m_Name
       value: PlayerStage
@@ -184,6 +208,14 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 2035598332}
+    - target: {fileID: 9060785015136471247, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
+      propertyPath: attackRange
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9060785015136471247, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
+      propertyPath: detectionAngle
+      value: 75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3025,6 +3057,7 @@ MonoBehaviour:
   - {fileID: 1316647234}
   - {fileID: 244805060}
   defendTimer: 0
+  raidingBase: 0
 --- !u!1001 &986639164
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -150,8 +150,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 10
-  m_Acceleration: 8
+  m_Speed: 20
+  m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -193,9 +193,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints:
-  - {fileID: 7919003413701265097, guid: da91567891551254daf56c4a2a9722ae, type: 3}
+  - {fileID: 1791596583899326523, guid: 6a69b111bb7414641b0597bdfbcb0977, type: 3}
+  enemyMovementSpeed: 10
   stoppingRange: 10
   attackingBase: 0
+  stunned: 0
 --- !u!114 &-1217376384912810456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,7 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyDmg: 10
-  baseTrans: {fileID: 7919003413701265097, guid: da91567891551254daf56c4a2a9722ae, type: 3}
+  baseTrans: {fileID: 1791596583899326523, guid: 6a69b111bb7414641b0597bdfbcb0977, type: 3}
   shotBtwTimer: 1
   notAttacking: 0
   fireRadius: 15
