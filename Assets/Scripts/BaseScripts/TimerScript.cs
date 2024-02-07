@@ -40,7 +40,7 @@ public class TimerScript : MonoBehaviour
 
     public void TimerDuration(float timer)
     {
-        currentTime = timer * 60;
+        currentTime = timer;
         isRunning = true;
     }
 

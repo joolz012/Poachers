@@ -76,7 +76,6 @@ public class WeaponManager : MonoBehaviour
         moneyText.text = currentMoney.ToString();
         FundMechanics();
         MouseRaycast();
-
     }
 
     void MouseRaycast()
@@ -91,6 +90,7 @@ public class WeaponManager : MonoBehaviour
             {
                 if (hit.collider.gameObject.CompareTag(targetTag))
                 {
+                    Debug.Log("Weapon");
                     GameObject clickedObject = hit.collider.gameObject;
                     if (currentUpgradeCanvas != null && currentUpgradeCanvas.transform.parent != clickedObject.transform)
                     {
@@ -101,6 +101,7 @@ public class WeaponManager : MonoBehaviour
                 }
                 if (hit.collider.gameObject.CompareTag(targetTag2))
                 {
+                    Debug.Log("Trap");
                     GameObject clickedObject = hit.collider.gameObject;
                     if (currentUpgradeCanvas != null && currentUpgradeCanvas.transform.parent != clickedObject.transform)
                     {

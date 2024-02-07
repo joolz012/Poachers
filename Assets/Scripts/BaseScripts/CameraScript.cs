@@ -1,14 +1,14 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
     public Transform target;
-    public float smoothSpeed = 5f;
-    public float minY = 1f;
-    public float maxY = 5f;
-    public float minDistance = 1f;
-    public float maxDistance = 5f;
+    public float smoothSpeed = 0.125f;
+    public float fixedYPosition;
+    public float distanceZ;
+    private Vector3 offset;
 
     public GameObject player;
 
@@ -21,13 +21,14 @@ public class CameraScript : MonoBehaviour
             return;
         }
 
-        Vector3 targetPosition = target.position;
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, targetPosition, smoothSpeed * Time.deltaTime);
-        smoothedPosition.y = Mathf.Clamp(smoothedPosition.y, minY, maxY);
+        Vector3 targetPosition = target.position + offset;
+        targetPosition.y = fixedYPosition; // Keep Y position fixed
+        targetPosition.z += distanceZ; // Adjust Z position
 
-        float distance = Mathf.Clamp(Vector3.Distance(targetPosition, transform.position), minDistance, maxDistance);
-        transform.position = targetPosition - transform.forward * distance;
+        // Use Lerp to smoothly move the camera towards the target position
+        transform.position = Vector3.Lerp(transform.position, targetPosition, smoothSpeed * Time.deltaTime);
     }
+
 
     private void Start()
     {

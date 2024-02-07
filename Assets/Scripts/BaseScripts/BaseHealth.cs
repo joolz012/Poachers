@@ -18,6 +18,7 @@ public class BaseHealth : MonoBehaviour
     void Start()
     {
         baseHealth = baseMaxHealth;
+        healthslider.value = baseHealth;
         healthslider.maxValue = baseMaxHealth;
     }
 
@@ -26,8 +27,8 @@ public class BaseHealth : MonoBehaviour
     void Update()
     {
         CheatCodes();
-        healthbar.LookAt(isoCam.position);
         healthslider.value = baseHealth;
+        healthbar.LookAt(isoCam.position);
         if (baseHealth <= 0 && PlayerPrefs.GetInt("animalCounter") > 0)
         {
             PlayerPrefs.SetInt("animalCounter", PlayerPrefs.GetInt("animalCounter") - 1);
@@ -141,6 +142,7 @@ public class BaseHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        Debug.Log("Attacking");
         baseHealth -= damage;
     }
 

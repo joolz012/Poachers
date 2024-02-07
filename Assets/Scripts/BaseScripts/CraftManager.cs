@@ -7,8 +7,7 @@ public class CraftManager : MonoBehaviour
 {
     public int essenceCounter;
     public GameObject craftOpener, craftPanel;
-
-    public GameObject attackingPanel, defendingPanel;
+    public GameObject[] enableGameObjects, disableGameObjects;
 
     public Text essenceText;
     // Start is called before the first frame update
@@ -42,10 +41,14 @@ public class CraftManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            attackingPanel.SetActive(false); 
-            defendingPanel.SetActive(false);
-            craftOpener.SetActive(false);
-            craftPanel.SetActive(false);
+            foreach(GameObject enable in enableGameObjects)
+            {
+                enable.SetActive(true);
+            }
+            foreach (GameObject disable in disableGameObjects)
+            {
+                disable.SetActive(false);
+            }
         }
     }
 }

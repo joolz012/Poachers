@@ -7,6 +7,7 @@ public class TalismanOne : MonoBehaviour
 {
     public int currentEssenceCost;//essenceCost PlayerPrefs talismanOneInt
     public int talismanCost;
+    public int talismanCostCounter;
     public Text currentEssenceCostText, 
         talismanCostText;//essenceNeeded
 
@@ -17,7 +18,7 @@ public class TalismanOne : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.SetInt(talismanSave, 0);
+        //PlayerPrefs.SetInt(talismanSave, 0);
         PlayerPrefs.GetInt(talismanCurrentEssence);
         PlayerPrefs.GetInt(talismanSave);
         if(PlayerPrefs.GetInt(talismanSave) == 1)
@@ -61,7 +62,7 @@ public class TalismanOne : MonoBehaviour
                 talismanCost = 3;
                 currentEssenceCost = 0;
             }
-            else if (currentEssenceCost == 3 && PlayerPrefs.GetInt(talismanSave) == 1)
+            else if (currentEssenceCost == talismanCostCounter && PlayerPrefs.GetInt(talismanSave) == 1)
             {
                 //upgrade talisman
                 askUpgrade.SetActive(false);

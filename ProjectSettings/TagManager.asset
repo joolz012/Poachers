@@ -12,6 +12,8 @@ TagManager:
   - WayPoint
   - Base
   - Trap
+  - Bestiary
+  - BestiaryCanvas
   layers:
   - Default
   - TransparentFX

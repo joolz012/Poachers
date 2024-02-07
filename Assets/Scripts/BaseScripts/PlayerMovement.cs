@@ -23,11 +23,18 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight;
     public float gravity;
     Vector3 velocity;
+
+    //f1
+    [Header("Controls")]
+    public GameObject controls;
+    public float controlSpeed;
+    public bool onPress;
     // Start is called before the first frame update
     void Start()
     {
         playerCont = GetComponent<CharacterController>();
-        trueSpeed = walkSpeed;
+        trueSpeed = walkSpeed; 
+        onPress = false;
         StartCoroutine(TrackPlayer());
     }
     IEnumerator TrackPlayer()
@@ -41,7 +48,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Movement();
+        Controls();
+    }
 
+    void Movement()
+    {
         if (playerCont.isGrounded)
         {
             velocity.y = -2f; // Set to a negative value to ensure immediate contact with the.
@@ -73,6 +85,40 @@ public class PlayerMovement : MonoBehaviour
 
             Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             playerCont.Move(moveDirection.normalized * trueSpeed * Time.deltaTime);
+        }
+    }
+
+
+    void Controls()
+    {
+        if(Input.GetKey(KeyCode.F1))
+        {
+            Debug.Log("Pressing F1");
+            onPress = true;
+        }
+        else
+        {
+            onPress = false;
+        }
+
+        if (onPress)
+        {
+            controls.SetActive(onPress);
+            if (controls.transform.localPosition.y <= -200)
+            {
+                controls.transform.Translate(0, (controlSpeed * 1000) * Time.deltaTime, 0);
+            }
+        }
+        else
+        {
+            if (controls.transform.localPosition.y >= -900)
+            {
+                controls.transform.Translate(0, -(controlSpeed * 1000) * Time.deltaTime, 0);
+            }
+            else if (controls.transform.localPosition.y <= -900)
+            {
+                controls.SetActive(onPress);
+            }
         }
     }
 }

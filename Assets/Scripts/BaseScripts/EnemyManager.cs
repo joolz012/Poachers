@@ -48,12 +48,17 @@ public class EnemyManager : MonoBehaviour
             timerScript.isRunning = false;
             raidingBase = false;
         }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            timerScript.isRunning = true;
+            raidingBase = false;
+        }
     }
 
     IEnumerator DefendRaid(float timer)
     {
         //Debug.LogWarning("Raiding!");
-        yield return new WaitForSeconds(timer * 60);
+        yield return new WaitForSeconds(timer);
         //show being raided;
         raidingBase = false;
         PlayerPrefs.SetInt("raid", 1);

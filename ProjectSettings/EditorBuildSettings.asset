@@ -6,16 +6,25 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/MainMenu.unity
+    guid: 0f0805aa97f300748a6a10a4b38fb2b1
+  - enabled: 1
+    path: Assets/Scenes/DialogScenes/WildwoodHaven.unity
+    guid: ba5bdd6e1fcccc84294bf39cfb66147a
+  - enabled: 1
+    path: Assets/Scenes/DialogScenes/TutorialScene.unity
+    guid: 7c3f7616b46cf954b9fde6edd0696e94
+  - enabled: 1
+    path: Assets/Scenes/Base.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Stage1.unity
+    path: Assets/Scenes/Stages/Stage1.unity
     guid: e569c9a15e07b1041b83223d6eb51f59
   - enabled: 1
-    path: Assets/Scenes/Stage2.unity
+    path: Assets/Scenes/Stages/Stage2.unity
     guid: 4e6be56f253ad294b8be71a27bc55d0a
   - enabled: 1
-    path: Assets/Scenes/Stage3.unity
+    path: Assets/Scenes/Stages/Stage3.unity
     guid: 7c0be5d6ea920f54aaec1a9d3a7e2fe6
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
