@@ -76,6 +76,16 @@ public class TutorialDialog : MonoBehaviour
                             StopAllCoroutines();
                         }
                     }
+                    else if (index == 11)
+                    {
+                        if (!moving)
+                        {
+                            dialogCanvas.SetActive(false);
+                            highlights[0].SetActive(true);
+                            StopAllCoroutines();
+                            StartCoroutine(Countdown());
+                        }
+                    }
                     else
                     {
                         NextLine();
@@ -98,10 +108,19 @@ public class TutorialDialog : MonoBehaviour
         UpdateName();
     }
 
-    public IEnumerator Countdown()
+    public void ContinueDialogue()
+    { 
+        index++;
+        dialogCanvas.SetActive(true);
+        StartCoroutine(TypeLine());
+        UpdateImage();
+        UpdateName();
+    }
+
+    public IEnumerator Countdown()//highlights disable and wait
     {
-        HighlightsDisable();
         yield return new WaitForSeconds(3);
+        HighlightsDisable();
         dialogCanvas.SetActive(true);
         NextLine();
         moving = false;
@@ -115,7 +134,7 @@ public class TutorialDialog : MonoBehaviour
         }
     }
 
-    IEnumerator CooldownDialog()
+    IEnumerator CooldownDialog()//close dialog no movement
     {
         dialogCanvas.SetActive(false);
         yield return new WaitForSeconds(2);
@@ -134,7 +153,7 @@ public class TutorialDialog : MonoBehaviour
             yield return new WaitForSeconds(textSpeed);
         }
     }
-    void StartChangingDialog()
+    void StartChangingDialog()//change cam
     {
         if (!moving)
         {

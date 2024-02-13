@@ -81,7 +81,7 @@ public class DialogScript : MonoBehaviour
                     {
                         if (!moving)
                         {
-                            SceneManager.LoadScene("TutorialScene");
+                            SceneManager.LoadScene("StageTutorialScene");
                         }
                     }
                     else
