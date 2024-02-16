@@ -1,0 +1,7 @@
+Poacher Frames
+
+Idle 1-20
+Walk 21-45
+Run 46-70
+Attack 71-83
+Death 84-93
