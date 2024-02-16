@@ -6,7 +6,6 @@ public class RescueAnimalTutorial : MonoBehaviour
 {
     public GameObject rescueCanvas;
     public GameObject tutorialDialog;
-    public Transform lookAt;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +15,6 @@ public class RescueAnimalTutorial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rescueCanvas.transform.LookAt(lookAt.position);
     }
 
     private void OnTriggerEnter(Collider other)

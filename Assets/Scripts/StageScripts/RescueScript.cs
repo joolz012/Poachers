@@ -7,7 +7,6 @@ public class RescueScript : MonoBehaviour
 {
     private StageManager stageManager;
     public GameObject rescueCanvas;
-    public Transform lookAt;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +19,6 @@ public class RescueScript : MonoBehaviour
     {
         Debug.Log(PlayerPrefs.GetInt("animalCounter"));
         Debug.Log(PlayerPrefs.GetInt("raid"));
-        rescueCanvas.transform.LookAt(lookAt.position);
     }
 
     private void OnTriggerEnter(Collider other)

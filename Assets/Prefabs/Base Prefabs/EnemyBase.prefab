@@ -144,7 +144,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 1791596583899326523, guid: 6a69b111bb7414641b0597bdfbcb0977, type: 3}
   enemyMovementSpeed: 10
-  stoppingRange: 14
+  stoppingRange: 13
   attackingBase: 0
   stunned: 0
 --- !u!114 &-1217376384912810456
@@ -164,7 +164,7 @@ MonoBehaviour:
   baseTransform: {fileID: 1791596583899326523, guid: 6a69b111bb7414641b0597bdfbcb0977, type: 3}
   timeBetweenShots: 1
   isNotAttacking: 0
-  fireRadius: 16
+  fireRadius: 14
 --- !u!1 &2518913680937039856
 GameObject:
   m_ObjectHideFlags: 0

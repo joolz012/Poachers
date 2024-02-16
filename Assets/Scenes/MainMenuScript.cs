@@ -21,4 +21,9 @@ public class MainMenuScript : MonoBehaviour
     {
         SceneManager.LoadScene("WildwoodHaven");
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

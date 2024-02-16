@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Animator playerAnim; 
+    private bool isRunning = false;
+
     public static Vector3 playerPos;
 
     //basic
@@ -50,6 +53,24 @@ public class PlayerMovement : MonoBehaviour
     {
         Movement();
         Controls();
+
+        // Update the Animator based on the player's movement speed
+        float moveSpeed = playerCont.velocity.magnitude;
+
+        // Update running state based on player input
+        isRunning = Input.GetKey(KeyCode.LeftShift) && moveSpeed > 0.1f;
+        if(moveSpeed <= 0.1f)
+        {
+            playerAnim.Play("Idle");
+        }
+        else if (moveSpeed > 0.1f && !isRunning)
+        {
+            playerAnim.Play("Walk");
+        }
+        else if(moveSpeed > 0.1f && isRunning)
+        {
+            playerAnim.Play("Run");
+        }
     }
 
     void Movement()
@@ -65,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
 
         playerCont.Move(velocity * Time.deltaTime);
 
+        //run
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             trueSpeed = sprintSpeed;
@@ -74,6 +96,7 @@ public class PlayerMovement : MonoBehaviour
             trueSpeed = walkSpeed;
         }
 
+        //walk
         movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         Vector3 direction = new Vector3(movement.x, 0, movement.y).normalized;
 

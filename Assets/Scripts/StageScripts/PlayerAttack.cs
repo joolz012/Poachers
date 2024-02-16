@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     private EnemyHealth enemyHit;
+    public Animator playerAnim;
     public float meleeDamage;
     public string enemyTag = "Enemy";
 

@@ -37,6 +37,7 @@ public class EnemyAttackBase : MonoBehaviour
             Debug.DrawRay(transform.position, directionToBase * hitBase.distance, Color.green);
             if (timeUntilNextShot <= 0 && hitBase.transform.CompareTag("Base"))
             {
+                Debug.Log("Attacking");
                 baseHealth.TakeDamage(enemyDamage);
                 //AnimatorControl.isHit = true;
                 timeUntilNextShot = timeBetweenShots;

@@ -85,13 +85,12 @@ public class BaseUpgrade : MonoBehaviour
 
     private void Update()
     {
+        // Cast a ray from the mouse position into the scene
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
         // Check if the left mouse button is clicked
         if (Input.GetMouseButtonDown(0))
         {
-            // Cast a ray from the mouse position into the scene
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
             // Check if the ray hits a collider of this GameObject
             if (Physics.Raycast(ray, out hit))
             {

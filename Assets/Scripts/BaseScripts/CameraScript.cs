@@ -4,24 +4,22 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
-    public Transform target;
+    public Transform playerTarget;
     public float smoothSpeed = 0.125f;
     public float fixedYPosition;
     public float distanceZ;
     private Vector3 offset;
 
-    public GameObject player;
-
 
     private TransparencyScript raycastedObj;
     void LateUpdate()
     {
-        if (target == null)
+        if (playerTarget == null)
         {
             return;
         }
 
-        Vector3 targetPosition = target.position + offset;
+        Vector3 targetPosition = playerTarget.position + offset;
         targetPosition.y = fixedYPosition; // Keep Y position fixed
         targetPosition.z += distanceZ; // Adjust Z position
 
@@ -38,9 +36,9 @@ public class CameraScript : MonoBehaviour
     private void Update()
     {
 
-        if (player != null)
+        if (playerTarget.gameObject != null)
         {
-            Vector3 direction = player.transform.position - transform.position;
+            Vector3 direction = playerTarget.position - transform.position;
             Ray ray = new Ray(transform.position, direction);
 
             if (Physics.Raycast(ray, out RaycastHit hit))
@@ -49,7 +47,7 @@ public class CameraScript : MonoBehaviour
 
                 if (hitObject != null)
                 {
-                    if (hit.collider.gameObject != player)
+                    if (hit.collider.gameObject != playerTarget.gameObject)
                     {
                         // Other object is hit, enable fading
                         if (raycastedObj != hitObject)

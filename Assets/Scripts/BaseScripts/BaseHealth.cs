@@ -142,7 +142,6 @@ public class BaseHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        Debug.Log("Attacking");
         baseHealth -= damage;
     }
 
