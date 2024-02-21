@@ -61,7 +61,7 @@ public class BulletController : MonoBehaviour
     {
         if (collision.transform == target && collision.gameObject.CompareTag("Enemy"))
         {
-            EnemyHealth enemy = target.GetComponent<EnemyHealth>();
+            EnemyHealthBase enemy = target.GetComponent<EnemyHealthBase>();
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);

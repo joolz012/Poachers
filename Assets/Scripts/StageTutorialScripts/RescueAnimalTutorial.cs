@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class RescueAnimalTutorial : MonoBehaviour
 {
+    public GameObject player;
+    //private PlayerSkills playerSkills;
+
     public GameObject rescueCanvas;
     public GameObject tutorialDialog;
     // Start is called before the first frame update
     void Start()
     {
+        //playerSkills = GetComponent<PlayerSkills>();
+
         rescueCanvas.SetActive(false);
     }
 
@@ -39,6 +44,9 @@ public class RescueAnimalTutorial : MonoBehaviour
         {
             GameObject parentGameObject = parentTransform.gameObject;
             tutorialDialog.GetComponent<TutorialDialog>().ContinueDialogue();
+            player.GetComponent<PlayerMovement>().enabled = false;
+            player.GetComponent<PlayerAttack>().enabled = false;
+            player.GetComponent<PlayerHealth>().enabled = false;
             parentGameObject.SetActive(false);
         }
         else

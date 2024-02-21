@@ -19,7 +19,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("WildwoodHaven");
+        SceneManager.LoadScene("CutScene1");
     }
 
     public void QuitGame()

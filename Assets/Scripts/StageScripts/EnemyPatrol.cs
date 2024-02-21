@@ -10,20 +10,20 @@ public class EnemyPatrol : MonoBehaviour
 {
     //    public float DeathTimer, Death;
     //    public GameObject Respawn;
-    //    private Animator EnemyAnimator;
+    public Animator enemyAnimator;
 
-    //wyatt sight
+    //enemy sight
     public bool playerAttacking = false;
     public bool playerIsInLOS = false;
     public float fieldOfViewAngle = 160f;
     public float losRadius = 20f;
 
-    //wyatt memory
+    //enemy memory
     private bool aiMemorizePlayer = false;
     public float memoryStartTime = 10f;
     private float increasingMemoryTime;
 
-    //wyatt sound
+    //enemy sound
     Vector3 noisePosition;
     private bool aiHeardPlayer = false;
     public float noiseTravelDistance = 50f;
@@ -32,7 +32,7 @@ public class EnemyPatrol : MonoBehaviour
     private float isSpinningTime;
     public float spinTime = 5f;
 
-    //patrol Wyatt
+    //patrol enemy
     public Transform[] moveSpots;
     private int randomSpot;
 
@@ -58,7 +58,7 @@ public class EnemyPatrol : MonoBehaviour
     private float waitTime;
     public float startWaitTime = 2f;
 
-
+    public float walkSpeed, runSpeed;
     public void respawnPlayer()
     {
         //SceneManager.LoadScene("Stage1");
@@ -75,7 +75,7 @@ public class EnemyPatrol : MonoBehaviour
     {
         Time.timeScale = 1;
         waitTime = startWaitTime;
-        GameObject.Find("PlayerStage").GetComponent<PlayerMovement>().enabled = true;
+        //GameObject.Find("PlayerStage").GetComponent<PlayerMovement>().enabled = true;
         randomSpot = Random.Range(0, moveSpots.Length);
 
         // Get the parent's transform
@@ -104,8 +104,6 @@ public class EnemyPatrol : MonoBehaviour
 
     void Update()
     {
-
-
         float distance = Vector3.Distance(PlayerMovement.playerPos, transform.position);
         if (distance <= losRadius)
         {
@@ -124,11 +122,6 @@ public class EnemyPatrol : MonoBehaviour
                 NoiseCheck();
                 StopCoroutine(AiMemory());
             }
-            else if (playerIsInLOS == false && aiMemorizePlayer == false && aiHeardPlayer == true)
-            {
-                canSpin = true;
-                GoToNoisePosition();
-            }
             else if (playerIsInLOS == true)
             {
                 aiMemorizePlayer = true;
@@ -137,9 +130,25 @@ public class EnemyPatrol : MonoBehaviour
             }
             else if (aiMemorizePlayer == true && playerIsInLOS == false)
             {
+                EnemyLost();
                 ChasePlayer();
                 StartCoroutine(AiMemory());
+
             }
+            else if (playerIsInLOS == false && aiMemorizePlayer == false && aiHeardPlayer == true)
+            {
+                canSpin = true;
+                GoToNoisePosition();
+            }
+        }
+    }
+
+    void EnemyLost()
+    {
+        if (Vector3.Distance(transform.position, navEnemy.destination) <= 3.5f)
+        {
+            Debug.Log("Idle");
+            enemyAnimator.Play("Idle");
         }
     }
 
@@ -156,7 +165,7 @@ public class EnemyPatrol : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Y))
             {
                 //  EnemyAnimator.Play("Run");
-                navEnemy.speed = 4.0f;
+                navEnemy.speed = runSpeed;
                 ScareSounds();
                 noisePosition = PlayerMovement.playerPos;
                 aiHeardPlayer = true;
@@ -184,7 +193,7 @@ public class EnemyPatrol : MonoBehaviour
                 aiHeardPlayer = false;
                 isSpinningTime = 0f;
                 //  EnemyAnimator.Play("Walk");
-                navEnemy.speed = 2.0f;
+                navEnemy.speed = walkSpeed;
             }
         }
     }
@@ -228,21 +237,25 @@ public class EnemyPatrol : MonoBehaviour
 
     void Patrol()
     {
-        navEnemy.SetDestination(moveSpots[randomSpot].position);
-        if (Vector3.Distance(transform.position, moveSpots[randomSpot].position) < 1f)
+        if (Vector3.Distance(transform.position, moveSpots[randomSpot].position) < 5f)
         {
-            // EnemyAnimator.Play("Idle");
             if (waitTime <= 0)
             {
                 randomSpot = Random.Range(0, moveSpots.Length);
                 waitTime = startWaitTime;
-                // EnemyAnimator.Play("Walk");
-                navEnemy.speed = 2.0f;
+                navEnemy.speed = walkSpeed;
             }
             else
             {
+                navEnemy.SetDestination(transform.position);
+                enemyAnimator.Play("Idle");
                 waitTime -= Time.deltaTime;
             }
+        }
+        else
+        {
+            navEnemy.SetDestination(moveSpots[randomSpot].position);
+            enemyAnimator.Play("Walk");
         }
     }
 
@@ -253,11 +266,13 @@ public class EnemyPatrol : MonoBehaviour
         if (distance <= chaseRadius && distance > distToPlayer && !playerAttacking)
         {
             // Chase the player
+            enemyAnimator.Play("Run");
             navEnemy.SetDestination(PlayerMovement.playerPos);
-            navEnemy.speed = 4.0f;
+            navEnemy.speed = runSpeed;
         }
-        if (distance <= distToPlayer + 0.5f)
+        else if (distance <= distToPlayer + 0.5f)
         {
+            enemyAnimator.Play("Attack");
             navEnemy.SetDestination(transform.position);
             playerAttacking = true;
         }
@@ -266,7 +281,6 @@ public class EnemyPatrol : MonoBehaviour
             playerAttacking = false;
         }
     }
-
 
     void FacePlayer()
     {

@@ -24,7 +24,9 @@ public class DialogScript : MonoBehaviour
     public bool moving;
     private bool cantClick = true;
 
-    private int index;
+    public int index;
+
+    public AudioSource[] audioSource;
 
     void Start()
     {
@@ -66,15 +68,49 @@ public class DialogScript : MonoBehaviour
                             dialogCanvas.SetActive(false);
                             mouseScript.gameObject.SetActive(true);
                             highlights[0].SetActive(true);
+                            cantClick = true;
                         }
                     }
                     else if (index == 12)
                     {
                         if (!moving)
                         {
+                            StopAllCoroutines();
                             GameObject bestiaryCanvas = GameObject.FindGameObjectWithTag("BestiaryCanvas");
                             bestiaryCanvas.SetActive(false);
                             StartChangingDialog();
+                        }
+                    }
+                    else if (index == 14)
+                    {
+                        if (!moving)
+                        {
+                            NextLine();
+                            audioSource[3].Play();
+                        }
+                    }
+                    else if (index == 16)
+                    {
+                        if (!moving)
+                        {
+                            NextLine();
+                            audioSource[0].Play();
+                        }
+                    }
+                    else if (index == 17)
+                    {
+                        if (!moving)
+                        {
+                            NextLine();
+                            audioSource[0].Play();
+                        }
+                    }
+                    else if (index == 21)
+                    {
+                        if (!moving)
+                        {
+                            NextLine();
+                            audioSource[0].Play();
                         }
                     }
                     else if (index == 28)
@@ -108,11 +144,12 @@ public class DialogScript : MonoBehaviour
 
     public IEnumerator Countdown()
     {
+        Debug.Log("Countdown");
         HighlightsDisable();
         yield return new WaitForSeconds(3);
         dialogCanvas.SetActive(true);
         NextLine();
-        moving = false;
+        cantClick = false;
     }
 
     public void HighlightsDisable()

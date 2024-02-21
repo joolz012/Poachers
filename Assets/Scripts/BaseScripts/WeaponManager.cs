@@ -86,7 +86,8 @@ public class WeaponManager : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, mask))
         {
-            if (Input.GetMouseButtonUp(0))
+            Debug.Log("Can Click");
+            if (Input.GetMouseButtonDown(0))
             {
                 if (hit.collider.gameObject.CompareTag(targetTag))
                 {

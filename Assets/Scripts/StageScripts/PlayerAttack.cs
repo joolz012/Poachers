@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private EnemyHealth enemyHit;
+    //private EnemyHealth enemyHit;
     public Animator playerAnim;
     public float meleeDamage;
     public string enemyTag = "Enemy";
@@ -13,7 +13,7 @@ public class PlayerAttack : MonoBehaviour
     public float attackRange;
     public float detectionAngle;
     private float attackTimer;
-    private bool attacking = true;
+    public bool attacking;
 
     // Update is called once per frame
     void Update()
@@ -29,6 +29,7 @@ public class PlayerAttack : MonoBehaviour
 
             if (attackTimer >= attackCooldown)
             {
+                DetectEnemy();
                 attackTimer = 0;
                 attacking = false;
             }
@@ -38,7 +39,6 @@ public class PlayerAttack : MonoBehaviour
     public void Attack()
     {
         attacking = true;
-        DetectEnemy();
     }
 
     void DetectEnemy()

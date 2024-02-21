@@ -21,7 +21,7 @@ public class TutorialDialog : MonoBehaviour
     public MouseScriptTutorial mouseScriptTutorial;
     public GameObject player;
     public GameObject cameraGameObject;
-    public GameObject dialogCanvas;
+    public GameObject dialogCanvas, talismanGameObject;
     public GameObject[] highlights;
     public bool moving;
     private bool cantClick = true;
@@ -69,7 +69,6 @@ public class TutorialDialog : MonoBehaviour
                         {
                             dialogCanvas.SetActive(false); 
                             player.GetComponent<PlayerMovement>().enabled = true;
-                            player.GetComponent<PlayerAttack>().enabled = true;
                             cameraGameObject.GetComponent<CameraScript>().enabled = true;
                             tutorialDialogManager.GetComponent<TutorialDialogManager>().enabled = false;
                             Time.timeScale = 1;
@@ -84,6 +83,20 @@ public class TutorialDialog : MonoBehaviour
                             highlights[0].SetActive(true);
                             StopAllCoroutines();
                             StartCoroutine(Countdown());
+                        }
+                    }
+                    else if (index == 12)
+                    {
+                        if (!moving)
+                        {
+                            dialogCanvas.SetActive(false);
+                            player.GetComponent<PlayerMovement>().enabled = true;
+                            player.GetComponent<PlayerAttack>().enabled = true;
+                            player.GetComponent<PlayerHealth>().enabled = true;
+                            //player.GetComponent<PlayerSKills>().enabled = true;
+                            cameraGameObject.GetComponent<CameraScript>().enabled = true;
+                            talismanGameObject.SetActive(true);
+                            highlights[0].SetActive(true);
                         }
                     }
                     else

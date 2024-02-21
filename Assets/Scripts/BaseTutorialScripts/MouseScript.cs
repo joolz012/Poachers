@@ -36,6 +36,7 @@ public class MouseScript : MonoBehaviour
                     GameObject clickedObject = hit.collider.gameObject;
                     EnableCanvas(clickedObject);
                     dialogScript.StartCoroutine(dialogScript.Countdown());
+                    gameObject.SetActive(false);
                 }
             }
         }

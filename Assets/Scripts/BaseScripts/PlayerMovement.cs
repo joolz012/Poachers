@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    PlayerAttack playerAttack;
     public Animator playerAnim; 
     private bool isRunning = false;
 
@@ -35,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerAttack = GetComponent<PlayerAttack>();
         playerCont = GetComponent<CharacterController>();
         trueSpeed = walkSpeed; 
         onPress = false;
@@ -51,26 +53,34 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        if (!playerAttack.attacking)
+        {
+            Movement();
+            float moveSpeed = playerCont.velocity.magnitude;
+            isRunning = Input.GetKey(KeyCode.LeftShift) && moveSpeed > 0.1f; 
+            
+            if (moveSpeed <= 0.1f && !playerAttack.attacking)
+            {
+                playerAnim.Play("Idle");
+            }
+            else if (moveSpeed > 0.1f && !isRunning)
+            {
+                playerAnim.Play("Walk");
+            }
+            else if (moveSpeed > 0.1f && isRunning)
+            {
+                playerAnim.Play("Run");
+            }
+        }
+        else
+        {
+            if (playerAttack.attacking)
+            {
+                playerAnim.Play("Attack");
+            }
+        }
+
         Controls();
-
-        // Update the Animator based on the player's movement speed
-        float moveSpeed = playerCont.velocity.magnitude;
-
-        // Update running state based on player input
-        isRunning = Input.GetKey(KeyCode.LeftShift) && moveSpeed > 0.1f;
-        if(moveSpeed <= 0.1f)
-        {
-            playerAnim.Play("Idle");
-        }
-        else if (moveSpeed > 0.1f && !isRunning)
-        {
-            playerAnim.Play("Walk");
-        }
-        else if(moveSpeed > 0.1f && isRunning)
-        {
-            playerAnim.Play("Run");
-        }
     }
 
     void Movement()

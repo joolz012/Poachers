@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class EnemyAttackBase : MonoBehaviour
 {
+    public Animator enemyAnimator;
     public float enemyDamage;
-    public BaseHealth baseHealth;
+    private BaseHealth baseHealth;
     public Transform baseTransform;
 
     // Shot timing
@@ -15,6 +16,11 @@ public class EnemyAttackBase : MonoBehaviour
 
     public float fireRadius;
 
+
+    private void Start()
+    {
+        timeUntilNextShot = timeBetweenShots;
+    }
     private void Update()
     {
         float distance = Vector3.Distance(baseTransform.position, transform.position);
@@ -34,10 +40,11 @@ public class EnemyAttackBase : MonoBehaviour
 
         if (Physics.Raycast(transform.position, directionToBase, out hitBase, fireRadius))
         {
+            enemyAnimator.Play("Attack");
             Debug.DrawRay(transform.position, directionToBase * hitBase.distance, Color.green);
             if (timeUntilNextShot <= 0 && hitBase.transform.CompareTag("Base"))
             {
-                Debug.Log("Attacking");
+                baseHealth = hitBase.collider.GetComponent<BaseHealth>();
                 baseHealth.TakeDamage(enemyDamage);
                 //AnimatorControl.isHit = true;
                 timeUntilNextShot = timeBetweenShots;

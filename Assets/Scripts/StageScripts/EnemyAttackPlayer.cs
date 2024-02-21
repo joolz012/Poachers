@@ -14,6 +14,12 @@ public class EnemyAttackPlayer : MonoBehaviour
 
     public float fireRadius;
 
+
+    private void OnEnable()
+    {
+        shotTimer = shotBtwTimer;
+
+    }
     private void Update()
     {
         float distance = Vector3.Distance(PlayerMovement.playerPos, transform.position);
@@ -31,15 +37,13 @@ public class EnemyAttackPlayer : MonoBehaviour
 
         if (Physics.SphereCast(playerPos, 0.5f, out hitPlayer, fireRadius))
         {
-            //Debug.Log("Attacking");
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hitPlayer.distance, Color.green);
             if (shotTimer <= 0 && hitPlayer.transform.CompareTag("Player"))
             {
+                shotTimer = shotBtwTimer;
                 playerHp = hitPlayer.collider.GetComponent<PlayerHealth>();
-                //Debug.Log("Hitting Kurt");
                 playerHp.TakeDamage(enemyDmg);
                 //AnimatorControl.isHit = true;
-                shotTimer = shotBtwTimer;
             }
             else
             {

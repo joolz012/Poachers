@@ -17,19 +17,19 @@ public class EnemyGroupSpawner : MonoBehaviour
         //InstantiateWaypoints();
     }
 
-    void InstantiateWaypoints()
-    {
-        int waypointsToInstantiate = Mathf.Min(waypointPrefabs.Length, spawnPositions.Length);
+    //void InstantiateWaypoints()
+    //{
+    //    int waypointsToInstantiate = Mathf.Min(waypointPrefabs.Length, spawnPositions.Length);
 
-        for (int i = 0; i < waypointsToInstantiate; i++)
-        {
-            // Instantiate the waypoint as a child of the parentTransform
-            GameObject waypointGo = Instantiate(waypointPrefabs[i], parentTransform);
+    //    for (int i = 0; i < waypointsToInstantiate; i++)
+    //    {
+    //        // Instantiate the waypoint as a child of the parentTransform
+    //        GameObject waypointGo = Instantiate(waypointPrefabs[i], parentTransform);
 
-            // Set the local position to the spawn position (relative to the parent)
-            waypointGo.transform.localPosition = spawnPositions[i].position - parentTransform.position;
-        }
-    }
+    //        // Set the local position to the spawn position (relative to the parent)
+    //        waypointGo.transform.localPosition = spawnPositions[i].position - parentTransform.position;
+    //    }
+    //}
 
     void Update()
     {
@@ -53,7 +53,7 @@ public class EnemyGroupSpawner : MonoBehaviour
             hasSpawned = true;
         }
 
-        InvokeRepeating("CheckAndSpawn", 0f, 1f); // Check and spawn every second
+        //InvokeRepeating(nameof(CheckAndSpawn), 0f, 1f); // Check and spawn every second
     }
 
     void CheckAndSpawn()

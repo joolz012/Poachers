@@ -357,7 +357,7 @@ MonoBehaviour:
   healthslider: {fileID: 776489309012664888}
   baseLevel: 0
   baseMaxHealth: 100
-  baseHealth: 100
+  baseHealth: 0
   healthbar: {fileID: 1841984007905886454}
   isoCam: {fileID: 4565039704201174169, guid: 5bf3fde9b09188d4a81dec7a6af507f6, type: 3}
   enemyManager: {fileID: 0}

@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
+    public Animator enemyAnimator;
     public Transform[] waypoints;
     private NavMeshAgent navMeshAgent;
     public float enemyMovementSpeed;
@@ -31,18 +32,25 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        MoveEnemy();
+        if(!stunned)
+        {
+            MoveEnemy();
+        }
     }
 
     private void MoveEnemy()
     {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            stunned = true;
+            StunEnemy(2);
+        }
         float distance = Vector3.Distance(waypoints[0].position, transform.position);
         if (distance <= stoppingRange)
         {
             navMeshAgent.SetDestination(transform.position);
             attackingBase = true;
         }
-        // Check if the enemy has reached the current waypoint
         if (navMeshAgent.remainingDistance < 0.1f && !navMeshAgent.pathPending && !attackingBase)
         {
             currentWaypoint++;
@@ -61,33 +69,35 @@ public class EnemyMovement : MonoBehaviour
     }
     public void SetDestination()
     {
+        enemyAnimator.Play("Walk");
         // Set the destination to the current waypoint
         navMeshAgent.SetDestination(waypoints[currentWaypoint].position);
     }
 
     public void StunEnemy(float stunDuration)
     {
-        if (!stunned)
+        if (stunned)
         {
-            // Stun the enemy by stopping the NavMeshAgent and setting stunned to true
+            enemyAnimator.Play("Idle");
+            gameObject.GetComponent<EnemyAttackBase>().enabled = false;
             navMeshAgent.isStopped = true;
             navMeshAgent.speed = 0;
             navMeshAgent.acceleration = 25;
-            stunned = true;
+            stunned = false;
 
             // Invoke a method to remove the stun after a specified duration
-            Invoke("RemoveStun", stunDuration);
+            Invoke(nameof(RemoveStun), stunDuration);
         }
     }
 
     private void RemoveStun()
     {
         // Resume the NavMeshAgent movement and set stunned to false
+        gameObject.GetComponent<EnemyAttackBase>().enabled = true;
         navMeshAgent.isStopped = false;
         navMeshAgent.speed = enemyMovementSpeed;
         navMeshAgent.acceleration = 8;
         SetDestination();
-        stunned = false;
     }
 
 }
