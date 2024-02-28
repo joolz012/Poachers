@@ -630,7 +630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dbf1662086398041859529ce7f70ca8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CutsceneTimer: 75
+  CutsceneTimer: 5
   changeSceneString: WildwoodHaven
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

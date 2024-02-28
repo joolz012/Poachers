@@ -14,6 +14,7 @@ TagManager:
   - Trap
   - Bestiary
   - BestiaryCanvas
+  - MainOffice
   layers:
   - Default
   - TransparentFX
@@ -24,8 +25,8 @@ TagManager:
   - Objects
   - Weapon
   - Enemy
-  - 
-  - 
+  - PlayerMask
+  - Obstacle
   - 
   - 
   - 

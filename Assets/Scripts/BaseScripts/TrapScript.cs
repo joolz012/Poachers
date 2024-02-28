@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class TrapScript : MonoBehaviour
 {
+    private AudioSource audioSource;
+    public AudioClip clip;
+
     private bool canStun = true;
 
     [Header("Trap Stats")]
@@ -11,6 +14,11 @@ public class TrapScript : MonoBehaviour
     public float trapCooldown;
     public float trapStunDuration;
 
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
@@ -20,6 +28,7 @@ public class TrapScript : MonoBehaviour
 
             if (enemyHealth != null && enemy != null && canStun)
             {
+                audioSource.PlayOneShot(clip);
                 enemy.stunned = true;
                 enemy.StunEnemy(trapStunDuration);
                 enemyHealth.TakeDamage(trapDmg);

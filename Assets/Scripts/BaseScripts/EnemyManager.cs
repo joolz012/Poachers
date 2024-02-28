@@ -18,6 +18,7 @@ public class EnemyManager : MonoBehaviour
     public TimerScript timerScript;
     void Start()
     {
+        //PlayerPrefs.SetInt("animalCounter", 2);
         raidingBase = false;
     }
 
@@ -43,16 +44,18 @@ public class EnemyManager : MonoBehaviour
             raidingBase = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            timerScript.isRunning = false;
-            raidingBase = false;
-        }
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            timerScript.isRunning = true;
-            raidingBase = false;
-        }
+        //if (Input.GetKeyDown(KeyCode.O))
+        //{
+        //    timerScript.isRunning = false;
+        //    raidingBase = false;
+        //}
+        //if (Input.GetKeyDown(KeyCode.M))
+        //{
+        //    timerScript.isRunning = true;
+        //    raidingBase = false;
+        //}
+
+
     }
 
     IEnumerator DefendRaid(float timer)
@@ -82,10 +85,10 @@ public class EnemyManager : MonoBehaviour
                 instantiations++;
             }
         }
-        yield return new WaitForSeconds(60.0f);
-        weaponManager.isCoroutineRunning = false;
-        instantiations = 0;
-        raidingBase = false;
+        //yield return new WaitForSeconds(60.0f);
+        //weaponManager.isCoroutineRunning = false;
+        //instantiations = 0;
+        //raidingBase = false;
         yield break;
         //Debug.Log("Stopped instantiating objects.");
     }

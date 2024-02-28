@@ -35,7 +35,7 @@ public class BaseUpgrade : MonoBehaviour
 
     public void UpgradeBase(BaseHealth baseHealth)
     {
-        if(PlayerPrefs.GetFloat("currentMoney") >= upgradeCost)
+        if (PlayerPrefs.GetFloat("currentMoney") >= upgradeCost)
         {
             PlayerPrefs.SetFloat("currentMoney", +PlayerPrefs.GetFloat("currentMoney") - upgradeCost);
             if (currentUpgradeLevel < upgrades.Length)
@@ -94,38 +94,53 @@ public class BaseUpgrade : MonoBehaviour
             // Check if the ray hits a collider of this GameObject
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.CompareTag("Base"))
+                if (hit.collider.CompareTag("MainOffice") && !onCanvas)
                 {
                     // If the GameObject is clicked, activate the method
-                    ActivateObject();
+                    BaseCanvas();
                 }
                 if (hit.collider.CompareTag("Weapon") || hit.collider.CompareTag("Trap"))
                 {
                     // If the GameObject is clicked, activate the method
                     onCanvas = false;
                     baseUpgradeCanvas.SetActive(false);
-                    baseUpgradeCanvas.SetActive(false);
                 }
             }
         }
-    }
 
-    public void BaseDetails()
-    {
-        baseDetailsCanvas.SetActive(true);
-    }
-
-    private void ActivateObject()
-    {
         if (!onCanvas)
         {
-            onCanvas = true;
-            baseUpgradeCanvas.SetActive(true);
+            baseUpgradeCanvas.SetActive(onCanvas);
+        }
+        else
+        {
+            baseUpgradeCanvas.SetActive(onCanvas);
+        }
+
+        if (!onDetails)
+        {
+            baseDetailsCanvas.SetActive(onDetails);
+        }
+        else
+        {
+            baseDetailsCanvas.SetActive(onDetails);
         }
     }
 
-    public void DeactivateObject()
+    public void OnDetails()
+    {
+        onDetails = !onDetails;
+    }
+
+    public void BaseCanvas()
+    {
+        onCanvas = !onCanvas;
+    }
+
+    public void CloseCanvas()
     {
         onCanvas = false;
+        onDetails = false;
     }
+
 }

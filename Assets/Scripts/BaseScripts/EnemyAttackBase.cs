@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyAttackBase : MonoBehaviour
 {
+    private AudioSource audioSource;
+    public AudioClip clip;
     public Animator enemyAnimator;
     public float enemyDamage;
     private BaseHealth baseHealth;
@@ -19,6 +21,7 @@ public class EnemyAttackBase : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         timeUntilNextShot = timeBetweenShots;
     }
     private void Update()
@@ -44,6 +47,7 @@ public class EnemyAttackBase : MonoBehaviour
             Debug.DrawRay(transform.position, directionToBase * hitBase.distance, Color.green);
             if (timeUntilNextShot <= 0 && hitBase.transform.CompareTag("Base"))
             {
+                audioSource.PlayOneShot(clip);
                 baseHealth = hitBase.collider.GetComponent<BaseHealth>();
                 baseHealth.TakeDamage(enemyDamage);
                 //AnimatorControl.isHit = true;

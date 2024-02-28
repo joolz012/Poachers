@@ -353,7 +353,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rescueCanvas: {fileID: 1029529864}
-  lookAt: {fileID: 294413657}
 --- !u!136 &64539473
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2642,11 +2641,11 @@ PrefabInstance:
     - target: {fileID: 3906390132912049358, guid: d5d6f7ef5e823b447a0a2316ba954505, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 2086129206}
+      objectReference: {fileID: 0}
     - target: {fileID: 3906390132912049358, guid: d5d6f7ef5e823b447a0a2316ba954505, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 2086129205}
+      objectReference: {fileID: 0}
     - target: {fileID: 4662752195605591776, guid: d5d6f7ef5e823b447a0a2316ba954505, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4802,7 +4801,7 @@ Transform:
   m_GameObject: {fileID: 1416239913}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 31.700623, y: 6.7, z: -10.287751}
+  m_LocalPosition: {x: 42.5, y: 6.7, z: -34.4}
   m_LocalScale: {x: 4.8449, y: 11.512937, z: 4.8449}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5032,7 +5031,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rescueCanvas: {fileID: 899325997}
-  lookAt: {fileID: 294413657}
 --- !u!136 &1634212393
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5526,7 +5524,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rescueCanvas: {fileID: 1885397962}
-  lookAt: {fileID: 294413657}
 --- !u!136 &1735185582
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6800,16 +6797,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
---- !u!4 &2086129205 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2821798045296147072, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
-  m_PrefabInstance: {fileID: 2086129204}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2086129206 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5382260996847470799, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
-  m_PrefabInstance: {fileID: 2086129204}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2091644264
 GameObject:
   m_ObjectHideFlags: 0

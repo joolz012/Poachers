@@ -9,7 +9,8 @@ public class AnimalCounter : MonoBehaviour
     private List<GameObject> instantiatedAnimals = new List<GameObject>();
     public int animalSpawnerCounter;
     private int animalCounter = 0;
-    public Transform animalSpawnerTrans;
+    public Transform[] animalSpawnerTrans;
+    private int respawnRandom;
 
     private void Start()
     {
@@ -35,7 +36,8 @@ public class AnimalCounter : MonoBehaviour
             int numToInstantiate = animalCounter - instantiatedAnimals.Count;
             for (int i = 0; i < numToInstantiate; i++)
             {
-                GameObject newAnimal = Instantiate(animalPrefab, animalSpawnerTrans.position, Quaternion.identity);
+                respawnRandom = Random.Range(0, animalSpawnerTrans.Length);
+                GameObject newAnimal = Instantiate(animalPrefab, animalSpawnerTrans[respawnRandom].position, Quaternion.identity);
                 instantiatedAnimals.Add(newAnimal);
             }
         }

@@ -44,7 +44,7 @@ public class RescueAnimalTutorial : MonoBehaviour
         {
             GameObject parentGameObject = parentTransform.gameObject;
             tutorialDialog.GetComponent<TutorialDialog>().ContinueDialogue();
-            player.GetComponent<PlayerMovement>().enabled = false;
+            player.GetComponent<PlayerMovementStage>().enabled = false;
             player.GetComponent<PlayerAttack>().enabled = false;
             player.GetComponent<PlayerHealth>().enabled = false;
             parentGameObject.SetActive(false);

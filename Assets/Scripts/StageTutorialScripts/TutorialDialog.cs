@@ -68,7 +68,7 @@ public class TutorialDialog : MonoBehaviour
                         if (!moving)
                         {
                             dialogCanvas.SetActive(false); 
-                            player.GetComponent<PlayerMovement>().enabled = true;
+                            player.GetComponent<PlayerMovementStage>().enabled = true;
                             cameraGameObject.GetComponent<CameraScript>().enabled = true;
                             tutorialDialogManager.GetComponent<TutorialDialogManager>().enabled = false;
                             Time.timeScale = 1;
@@ -90,7 +90,7 @@ public class TutorialDialog : MonoBehaviour
                         if (!moving)
                         {
                             dialogCanvas.SetActive(false);
-                            player.GetComponent<PlayerMovement>().enabled = true;
+                            player.GetComponent<PlayerMovementStage>().enabled = true;
                             player.GetComponent<PlayerAttack>().enabled = true;
                             player.GetComponent<PlayerHealth>().enabled = true;
                             //player.GetComponent<PlayerSKills>().enabled = true;

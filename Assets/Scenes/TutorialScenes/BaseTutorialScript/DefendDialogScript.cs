@@ -77,7 +77,7 @@ public class DefendDialogScript : MonoBehaviour
                         {
                             dialogCanvas.SetActive(false);
                             thorfin.SetActive(true);
-                            player.GetComponent<PlayerMovement>().enabled = true;
+                            player.GetComponent<PlayerMovementBase>().enabled = true;
                             //player.GetComponent<PlayerAttack>().enabled = true;
                             cameraGameObject.GetComponent<CameraScript>().enabled = true;
                             defendManagerScript.GetComponent<DefendManagerScript>().enabled = false;
@@ -101,7 +101,6 @@ public class DefendDialogScript : MonoBehaviour
                         if (!moving)
                         {
                             enemyGameObject[0].SetActive(true);
-                            enemyGameObject[1].SetActive(true);
                             defendManagerScript.AddIndex();
                             talismanCanvas.SetActive(true);
                             dialogCanvas.SetActive(false);
@@ -113,6 +112,8 @@ public class DefendDialogScript : MonoBehaviour
                     }
                     else if (index == 12)
                     {
+                        player.GetComponent<PlayerMovementBase>().enabled = true;
+                        player.GetComponent<PlayerAttackBase>().enabled = true;
                         if (!moving)
                         {
                             GameObject[] weapons = GameObject.FindGameObjectsWithTag("Weapon");
@@ -132,10 +133,17 @@ public class DefendDialogScript : MonoBehaviour
                                     enemyAttack.enabled = true;
                                 }
                             }
-                            waitTime = 7;
+                            dialogCanvas.SetActive(false);
+                            //waitTime = 7;
                             StopAllCoroutines();
-                            StartCoroutine(WaitAttack());
+                            //StartCoroutine(WaitAttack());
                         }
+                    }
+                    else if (index == 13)
+                    {
+                        NextLine();
+                        player.GetComponent<PlayerMovementBase>().enabled = false;
+                        player.GetComponent<PlayerAttackBase>().enabled = false;
                     }
                     else if (index == 19)
                     {
@@ -186,6 +194,16 @@ public class DefendDialogScript : MonoBehaviour
                     }
                 }
             }
+            if(index == 12 && enemyGameObject[0] == null)
+            {
+                player.GetComponent<PlayerMovementBase>().playerAnim.Play("Idle");
+                player.GetComponent<PlayerMovementBase>().enabled = false;
+                dialogCanvas.SetActive(true);
+                NextLine();
+                moving = false;
+                cantClick = false;
+                Debug.Log("Cooldown");
+            }
         }
     }
 
@@ -206,7 +224,7 @@ public class DefendDialogScript : MonoBehaviour
         UpdateName();
 
         //reset to dialog mode
-        player.GetComponent<PlayerMovement>().enabled = false;
+        player.GetComponent<PlayerMovementBase>().enabled = false;
         //player.GetComponent<PlayerAttack>().enabled = false;
         cameraGameObject.GetComponent<CameraScript>().enabled = false;
         defendManagerScript.GetComponent<DefendManagerScript>().enabled = true;
@@ -233,6 +251,7 @@ public class DefendDialogScript : MonoBehaviour
         cantClick = true;
         dialogCanvas.SetActive(false);
         yield return new WaitForSeconds(waitTime);
+        defendManagerScript.AddIndex();
         dialogCanvas.SetActive(true);
         NextLine();
         moving = false;

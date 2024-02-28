@@ -10,15 +10,15 @@ public class RescueScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.SetInt("animalCounter", 0);
+        //PlayerPrefs.SetInt("animalCounter", 0);
         rescueCanvas.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(PlayerPrefs.GetInt("animalCounter"));
-        Debug.Log(PlayerPrefs.GetInt("raid"));
+        //Debug.Log(PlayerPrefs.GetInt("animalCounter"));
+        //Debug.Log(PlayerPrefs.GetInt("raid"));
     }
 
     private void OnTriggerEnter(Collider other)

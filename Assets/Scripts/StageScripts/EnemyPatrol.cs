@@ -1,22 +1,23 @@
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class EnemyPatrol : MonoBehaviour
 {
-    //    public float DeathTimer, Death;
-    //    public GameObject Respawn;
     public Animator enemyAnimator;
+
+    public AudioClip chasePlayerSfx;
+    private AudioSource audioSource;
+    public bool isChasing;
 
     //enemy sight
     public bool playerAttacking = false;
     public bool playerIsInLOS = false;
-    public float fieldOfViewAngle = 160f;
-    public float losRadius = 20f;
+    public float fieldOfViewAngle;
+    public float losRadius;
+    public LayerMask layerMask;
+    public string excludeLayerName;
 
     //enemy memory
     private bool aiMemorizePlayer = false;
@@ -40,8 +41,8 @@ public class EnemyPatrol : MonoBehaviour
 
     public float distToPlayer = 2f;
 
-    private float randomStrafeStartTime;
-    private float waitStrafeTime;
+    //private float randomStrafeStartTime;
+    //private float waitStrafeTime;
     public float t_minStrafe;
     public float t_maxStrafe;
 
@@ -73,10 +74,10 @@ public class EnemyPatrol : MonoBehaviour
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         Time.timeScale = 1;
         waitTime = startWaitTime;
         //GameObject.Find("PlayerStage").GetComponent<PlayerMovement>().enabled = true;
-        randomSpot = Random.Range(0, moveSpots.Length);
 
         // Get the parent's transform
         Transform parentTransform = transform.parent;
@@ -100,11 +101,13 @@ public class EnemyPatrol : MonoBehaviour
             }
         }
 
+        randomSpot = Random.Range(0, moveSpots.Length);
+
     }
 
     void Update()
     {
-        float distance = Vector3.Distance(PlayerMovement.playerPos, transform.position);
+        float distance = Vector3.Distance(PlayerMovementStage.playerPos, transform.position);
         if (distance <= losRadius)
         {
             CheckLOS();
@@ -141,12 +144,25 @@ public class EnemyPatrol : MonoBehaviour
                 GoToNoisePosition();
             }
         }
+
+        PoacherSfx();
+
+    }
+
+    void PoacherSfx()
+    {
+        if(playerIsInLOS && !isChasing)
+        {
+            audioSource.PlayOneShot(chasePlayerSfx);
+            isChasing = true;
+        }
     }
 
     void EnemyLost()
     {
         if (Vector3.Distance(transform.position, navEnemy.destination) <= 3.5f)
         {
+            isChasing = false;
             Debug.Log("Idle");
             enemyAnimator.Play("Idle");
         }
@@ -158,7 +174,7 @@ public class EnemyPatrol : MonoBehaviour
     }
     void NoiseCheck()
     {
-        float distance = Vector3.Distance(PlayerMovement.playerPos, transform.position);
+        float distance = Vector3.Distance(PlayerMovementStage.playerPos, transform.position);
 
         if (distance <= noiseTravelDistance)
         {
@@ -167,7 +183,7 @@ public class EnemyPatrol : MonoBehaviour
                 //  EnemyAnimator.Play("Run");
                 navEnemy.speed = runSpeed;
                 ScareSounds();
-                noisePosition = PlayerMovement.playerPos;
+                noisePosition = PlayerMovementStage.playerPos;
                 aiHeardPlayer = true;
             }
             else
@@ -213,16 +229,18 @@ public class EnemyPatrol : MonoBehaviour
 
     void CheckLOS()
     {
-        Vector3 direction = PlayerMovement.playerPos - transform.position;
+        Vector3 direction = PlayerMovementStage.playerPos - transform.position;
         float angle = Vector3.Angle(direction, transform.forward);
+        int mask = 1 << LayerMask.NameToLayer(excludeLayerName) | layerMask.value;
 
         if (angle < fieldOfViewAngle * 0.5f)
         {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, direction.normalized, out hit, losRadius))
+            if (Physics.Raycast(transform.position, direction.normalized, out RaycastHit hit, losRadius, mask))
             {
+                Debug.DrawRay(transform.position, direction.normalized * losRadius, Color.green);
                 if (hit.collider.CompareTag("Player"))
                 {
+                    Debug.Log("Hit");
                     playerIsInLOS = true;
                     aiMemorizePlayer = true;
                 }
@@ -261,13 +279,13 @@ public class EnemyPatrol : MonoBehaviour
 
     void ChasePlayer()
     {
-        float distance = Vector3.Distance(PlayerMovement.playerPos, transform.position);
+        float distance = Vector3.Distance(PlayerMovementStage.playerPos, transform.position);
 
         if (distance <= chaseRadius && distance > distToPlayer && !playerAttacking)
         {
             // Chase the player
             enemyAnimator.Play("Run");
-            navEnemy.SetDestination(PlayerMovement.playerPos);
+            navEnemy.SetDestination(PlayerMovementStage.playerPos);
             navEnemy.speed = runSpeed;
         }
         else if (distance <= distToPlayer + 0.5f)
@@ -284,7 +302,7 @@ public class EnemyPatrol : MonoBehaviour
 
     void FacePlayer()
     {
-        Vector3 direction = (PlayerMovement.playerPos - transform.position).normalized;
+        Vector3 direction = (PlayerMovementStage.playerPos - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * facePlayerFactor);
     }

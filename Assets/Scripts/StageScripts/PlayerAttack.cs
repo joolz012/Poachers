@@ -15,6 +15,7 @@ public class PlayerAttack : MonoBehaviour
     private float attackTimer;
     public bool attacking;
 
+
     // Update is called once per frame
     void Update()
     {
@@ -64,6 +65,7 @@ public class PlayerAttack : MonoBehaviour
                     enemyHealth.TakeDamage(meleeDamage);
                 }
             }
+
         }
     }
 

@@ -20,7 +20,7 @@ public class CameraScript : MonoBehaviour
         }
 
         Vector3 targetPosition = playerTarget.position + offset;
-        targetPosition.y = fixedYPosition; // Keep Y position fixed
+        targetPosition.y = playerTarget.position.y + fixedYPosition; // Keep Y position fixed
         targetPosition.z += distanceZ; // Adjust Z position
 
         // Use Lerp to smoothly move the camera towards the target position
@@ -52,6 +52,7 @@ public class CameraScript : MonoBehaviour
                         // Other object is hit, enable fading
                         if (raycastedObj != hitObject)
                         {
+                            Debug.Log("Fade");
                             raycastedObj = hitObject;
                             raycastedObj.doFade = true;
                         }

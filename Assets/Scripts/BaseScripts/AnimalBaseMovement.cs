@@ -13,6 +13,8 @@ public class AnimalBaseMovement : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        waitTime = startWaitTime;
+        randomSpot = Random.Range(0, waypoints.Length);
         navEnemy = GetComponent<NavMeshAgent>();
         navEnemy.enabled = true;
     }
@@ -25,20 +27,18 @@ public class AnimalBaseMovement : MonoBehaviour
     void Patrol()
     {
         navEnemy.SetDestination(waypoints[randomSpot].position);
-        if (Vector3.Distance(transform.position, waypoints[randomSpot].position) < 1f)
+        if (Vector3.Distance(transform.position, waypoints[randomSpot].position) < 1.5f)
         {
             // EnemyAnimator.Play("Idle");
             if (waitTime <= 0)
             {
                 randomSpot = Random.Range(0, waypoints.Length);
                 waitTime = startWaitTime;
-                // EnemyAnimator.Play("Walk");
                 navEnemy.speed = 2.0f;
+                // EnemyAnimator.Play("Walk");
             }
-            else
-            {
+                Debug.Log("waiting");
                 waitTime -= Time.deltaTime;
-            }
         }
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyAttackPlayer : MonoBehaviour
 {
+    private AudioSource audioSource;
+    public AudioClip clip;
     public float enemyDmg;
     private PlayerHealth playerHp;
 
@@ -17,12 +19,13 @@ public class EnemyAttackPlayer : MonoBehaviour
 
     private void OnEnable()
     {
+        audioSource = GetComponent<AudioSource>();
         shotTimer = shotBtwTimer;
 
     }
     private void Update()
     {
-        float distance = Vector3.Distance(PlayerMovement.playerPos, transform.position);
+        float distance = Vector3.Distance(PlayerMovementStage.playerPos, transform.position);
 
         if (distance <= fireRadius)
         {
@@ -40,6 +43,7 @@ public class EnemyAttackPlayer : MonoBehaviour
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hitPlayer.distance, Color.green);
             if (shotTimer <= 0 && hitPlayer.transform.CompareTag("Player"))
             {
+                audioSource.PlayOneShot(clip);
                 shotTimer = shotBtwTimer;
                 playerHp = hitPlayer.collider.GetComponent<PlayerHealth>();
                 playerHp.TakeDamage(enemyDmg);

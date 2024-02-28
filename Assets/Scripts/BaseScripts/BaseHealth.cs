@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 
 public class BaseHealth : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class BaseHealth : MonoBehaviour
     public float baseMaxHealth;
     public float baseHealth;
     public Transform healthbar, isoCam;
+    public float distanceToEnemy;
 
     public EnemyManager enemyManager;
 
@@ -43,6 +45,34 @@ public class BaseHealth : MonoBehaviour
             baseHealth = baseMaxHealth;
         }
 
+        HealthBar();
+
+    }
+
+    private void HealthBar()
+    {
+        GameObject[] targets = GameObject.FindGameObjectsWithTag("Enemy");
+
+        foreach (GameObject target in targets)
+        {
+            if (Vector3.Distance(transform.position, target.transform.position) <= distanceToEnemy)
+            {
+                Debug.Log("Show");
+                healthbar.gameObject.SetActive(true);
+            }
+            else if (target == null)
+            {
+                Debug.Log("Hide");
+                healthbar.gameObject.SetActive(false);
+            }
+            else
+            {
+                Debug.Log("Hide");
+                healthbar.gameObject.SetActive(false);
+            }
+
+
+        }
     }
 
     private void DegradeBase()
