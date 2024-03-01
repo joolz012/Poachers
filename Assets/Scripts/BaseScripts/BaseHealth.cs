@@ -221,18 +221,18 @@ public class BaseHealth : MonoBehaviour
             PlayerPrefs.SetInt("baseLevel", 0);
             PlayerPrefs.SetFloat("currentMoney", 100);
         }
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            PlayerPrefs.SetInt("animalCounter", 1);
-        }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            PlayerPrefs.SetInt("talismanOne", 0);
-            PlayerPrefs.SetInt("essence", 5);
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            PlayerPrefs.SetInt("raid", 1);
-        }
+        //if (Input.GetKeyDown(KeyCode.I))
+        //{
+        //    PlayerPrefs.SetInt("animalCounter", 1);
+        //}
+        //if (Input.GetKeyDown(KeyCode.K))
+        //{
+        //    PlayerPrefs.SetInt("talismanOne", 0);
+        //    PlayerPrefs.SetInt("essence", 5);
+        //}
+        //if (Input.GetKeyDown(KeyCode.L))
+        //{
+        //    PlayerPrefs.SetInt("raid", 1);
+        //}
     }
 }

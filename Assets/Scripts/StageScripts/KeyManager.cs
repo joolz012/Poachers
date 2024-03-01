@@ -6,6 +6,7 @@ public class KeyManager : MonoBehaviour
 {
     public GameObject getKeyCanvas;
     public string keySave = "keySave";
+    public float unlockKeyCost;
     public int checkKey = 0;
     // Start is called before the first frame update
     void Start()
@@ -45,7 +46,7 @@ public class KeyManager : MonoBehaviour
         if (parentTransform != null)
         {
             GameObject parentGameObject = parentTransform.gameObject;
-            PlayerPrefs.SetInt("keySave", PlayerPrefs.GetInt("keySave") + 1);
+            PlayerPrefs.SetFloat("keySave", PlayerPrefs.GetFloat("keySave") + unlockKeyCost);
             parentGameObject.SetActive(false);
         }
         else

@@ -6,13 +6,15 @@ using UnityEngine;
 public class RescueScript : MonoBehaviour
 {
     //private StageManager stageManager;
-    public int animalInt;
+    public QuestManager questManager;
+    public int questAdd;
 
     public string whatAnimal;
     public GameObject rescueCanvas;
     // Start is called before the first frame update
     void Start()
     {
+        questManager = GameObject.Find("QuestCanvas").GetComponent<QuestManager>();
         //PlayerPrefs.SetInt("animalCounter", 0);
         rescueCanvas.SetActive(false);
     }
@@ -31,6 +33,7 @@ public class RescueScript : MonoBehaviour
             rescueCanvas.SetActive(true);
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -45,6 +48,7 @@ public class RescueScript : MonoBehaviour
 
         if (parentTransform != null)
         {
+            questManager.currentTarsier += 1;
             GameObject parentGameObject = parentTransform.gameObject;
             PlayerPrefs.SetInt("animalCounter", PlayerPrefs.GetInt("animalCounter") + 1);
             PlayerPrefs.SetInt(whatAnimal, PlayerPrefs.GetInt(whatAnimal) + 1);

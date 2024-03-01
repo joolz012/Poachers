@@ -27,5 +27,9 @@ public class StageManagerBase : MonoBehaviour
         {
             stages[1].SetActive(true);
         }
+        if (keyCounter >= 3)
+        {
+            stages[2].SetActive(true);
+        }
     }
 }

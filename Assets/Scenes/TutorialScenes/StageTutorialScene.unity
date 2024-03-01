@@ -3912,19 +3912,19 @@ MonoBehaviour:
   nameText: {fileID: 915885040}
   textSpeed: 0.04
   characterNames:
-  - THORFIN (SERIOUS)
-  - ROCKY (SHOCKED)
-  - THORFIN (SOLEMN)
-  - ROCKY (SHOCKED)
-  - THORFIN (GRIN)
-  - ROCKY (=_=)
-  - THORFIN (SMILE)
-  - THORFIN (SMILE)
-  - ROCKY (CONFUSED)
-  - THORFIN (=_=)
-  - ROCKY (GAME FACE)
-  - THORFIN (GRIN)
-  - THORFIN (SMILE)
+  - THORFIN
+  - ROCKY
+  - THORFIN
+  - ROCKY
+  - THORFIN
+  - ROCKY
+  - THORFIN
+  - THORFIN
+  - ROCKY
+  - THORFIN
+  - ROCKY
+  - THORFIN
+  - THORFIN
   lines:
   - "This here\u2019s what we call a Poacher base, sport. Since poachers have hunted
     down almost every species known in the nation, they decided to forcefully breed
@@ -3959,19 +3959,19 @@ MonoBehaviour:
     But use it wisely because it has a cooldown time for it to charge back up. Now,
     off you go!
   images:
+  - {fileID: 2800000, guid: 093bafc31d845914c932dc527bb63629, type: 3}
+  - {fileID: 2800000, guid: 77fdb0219525bed46b354ea9ea8c4df0, type: 3}
   - {fileID: 2800000, guid: 8f117d95d3c267a449653b3975960c0f, type: 3}
-  - {fileID: 2800000, guid: e631aa4c138f3e146bd133e53c3be373, type: 3}
-  - {fileID: 2800000, guid: 8f117d95d3c267a449653b3975960c0f, type: 3}
-  - {fileID: 2800000, guid: e631aa4c138f3e146bd133e53c3be373, type: 3}
-  - {fileID: 2800000, guid: 8f117d95d3c267a449653b3975960c0f, type: 3}
-  - {fileID: 2800000, guid: e631aa4c138f3e146bd133e53c3be373, type: 3}
-  - {fileID: 2800000, guid: 8f117d95d3c267a449653b3975960c0f, type: 3}
-  - {fileID: 2800000, guid: 8f117d95d3c267a449653b3975960c0f, type: 3}
-  - {fileID: 2800000, guid: e631aa4c138f3e146bd133e53c3be373, type: 3}
-  - {fileID: 2800000, guid: 8f117d95d3c267a449653b3975960c0f, type: 3}
-  - {fileID: 2800000, guid: e631aa4c138f3e146bd133e53c3be373, type: 3}
-  - {fileID: 2800000, guid: 8f117d95d3c267a449653b3975960c0f, type: 3}
-  - {fileID: 2800000, guid: 8f117d95d3c267a449653b3975960c0f, type: 3}
+  - {fileID: 2800000, guid: 77fdb0219525bed46b354ea9ea8c4df0, type: 3}
+  - {fileID: 2800000, guid: dc1660fb6938da74eb8f8974ab513dd8, type: 3}
+  - {fileID: 2800000, guid: ce8e50fb6aa178c4da947b87233c5a88, type: 3}
+  - {fileID: 2800000, guid: 6680a78e5facde847bba24a9fd3eda3d, type: 3}
+  - {fileID: 2800000, guid: 6680a78e5facde847bba24a9fd3eda3d, type: 3}
+  - {fileID: 2800000, guid: cc0b5b57a2d8f8f439cd6b809bae582f, type: 3}
+  - {fileID: 2800000, guid: 382650a4b75b3014aa988cfd665d6a17, type: 3}
+  - {fileID: 2800000, guid: d6ce949b92aebe24487a38bc5d0a70de, type: 3}
+  - {fileID: 2800000, guid: dc1660fb6938da74eb8f8974ab513dd8, type: 3}
+  - {fileID: 2800000, guid: 6680a78e5facde847bba24a9fd3eda3d, type: 3}
   rawImage: {fileID: 747994258}
   tutorialDialogManager: {fileID: 1235001954}
   mouseScriptTutorial: {fileID: 1985408424}

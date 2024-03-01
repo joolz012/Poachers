@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 public class WeaponScript : MonoBehaviour
@@ -19,6 +21,9 @@ public class WeaponScript : MonoBehaviour
     private float timeSinceLastShot;
     public Transform ballista, bulletSpawn;
 
+    public GameObject[] towerDesign;
+    private GameObject currentTower;
+
     public Transform baseTrans;
 
     private void Start()
@@ -28,6 +33,21 @@ public class WeaponScript : MonoBehaviour
     }
     void Update()
     {
+        // Check if index is within the bounds of the array
+        if (currentLevel >= 0 && currentLevel - 1 < towerDesign.Length)
+        {
+            // Loop through all tower designs
+            for (int i = 0; i < towerDesign.Length; i++)
+            {
+                // Activate the tower design at the specified index and disable others
+                towerDesign[i].SetActive(i == currentLevel - 1);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Index is out of range for towerDesign array.");
+        }
+
         GameObject enemyNearBase = FindEnemyNearBase();
 
         if (enemyNearBase != null)
