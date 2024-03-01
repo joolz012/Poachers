@@ -17,6 +17,7 @@ public class WeaponScript : MonoBehaviour
     public GameObject bulletPrefab;
     private GameObject target;
     private float timeSinceLastShot;
+    public Transform ballista, bulletSpawn;
 
     public Transform baseTrans;
 
@@ -88,16 +89,16 @@ public class WeaponScript : MonoBehaviour
             return;
         }
 
-        Quaternion targetRotation = Quaternion.LookRotation(target.transform.position - transform.position);
-        targetRotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        Quaternion targetRotation = Quaternion.LookRotation(target.transform.position - ballista.position);
+        //targetRotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
+        ballista.rotation = Quaternion.Lerp(ballista.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
 
         float distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
 
         if (distanceToTarget <= attackRange && Time.time - timeSinceLastShot >= 1 / shotsPerSecond)
         {
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
             attackSound.Play();
             BulletController bulletController = bullet.GetComponent<BulletController>();
             if (bulletController != null)

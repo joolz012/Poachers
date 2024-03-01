@@ -7371,6 +7371,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d17f2e4ce48686478ad64cee16c9da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalInt: 0
+  whatAnimal: tamaraw
   rescueCanvas: {fileID: 414749984}
 --- !u!136 &509073940
 CapsuleCollider:
@@ -8413,6 +8415,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d17f2e4ce48686478ad64cee16c9da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalInt: 0
+  whatAnimal: 
   rescueCanvas: {fileID: 551324233}
 --- !u!136 &557027152
 CapsuleCollider:
@@ -9489,6 +9493,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d17f2e4ce48686478ad64cee16c9da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalInt: 0
+  whatAnimal: tamaraw
   rescueCanvas: {fileID: 1964894926}
 --- !u!136 &616732869
 CapsuleCollider:
@@ -9963,6 +9969,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d17f2e4ce48686478ad64cee16c9da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalInt: 0
+  whatAnimal: 
   rescueCanvas: {fileID: 1015504508}
 --- !u!136 &646129661
 CapsuleCollider:
@@ -10683,6 +10691,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d17f2e4ce48686478ad64cee16c9da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalInt: 0
+  whatAnimal: tamaraw
   rescueCanvas: {fileID: 1168246344}
 --- !u!136 &681077928
 CapsuleCollider:
@@ -12044,6 +12054,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d17f2e4ce48686478ad64cee16c9da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalInt: 0
+  whatAnimal: tamaraw
   rescueCanvas: {fileID: 937599694}
 --- !u!136 &815332149
 CapsuleCollider:
@@ -14193,6 +14205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d17f2e4ce48686478ad64cee16c9da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalInt: 0
+  whatAnimal: tamaraw
   rescueCanvas: {fileID: 1330152845}
 --- !u!136 &976589944
 CapsuleCollider:
@@ -18034,6 +18048,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d17f2e4ce48686478ad64cee16c9da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalInt: 0
+  whatAnimal: tamaraw
   rescueCanvas: {fileID: 213023190}
 --- !u!136 &1207398390
 CapsuleCollider:
@@ -19438,6 +19454,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d17f2e4ce48686478ad64cee16c9da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalInt: 0
+  whatAnimal: tamaraw
   rescueCanvas: {fileID: 575507334}
 --- !u!136 &1286794550
 CapsuleCollider:
@@ -23118,6 +23136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d17f2e4ce48686478ad64cee16c9da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalInt: 0
+  whatAnimal: tamaraw
   rescueCanvas: {fileID: 1542638552}
 --- !u!136 &1538758867
 CapsuleCollider:
@@ -24053,6 +24073,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d17f2e4ce48686478ad64cee16c9da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalInt: 0
+  whatAnimal: tamaraw
   rescueCanvas: {fileID: 659679954}
 --- !u!136 &1623417201
 CapsuleCollider:
@@ -26112,6 +26134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d17f2e4ce48686478ad64cee16c9da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalInt: 0
+  whatAnimal: tamaraw
   rescueCanvas: {fileID: 95917235}
 --- !u!136 &1779312577
 CapsuleCollider:

@@ -22,7 +22,9 @@ public class WeaponManager : MonoBehaviour
     public Text trapCooldown;
     public Text trapStunDuration;
 
-
+    [Header("Audio")]
+    public AudioClip[] clips;
+    AudioSource audioSource;
 
     [Header("Upgrade Design")]
     public string targetTag = "Weapon";
@@ -40,6 +42,7 @@ public class WeaponManager : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         currentMoney = PlayerPrefs.GetFloat("currentMoney");
     }
     private void OnEnable()
@@ -59,13 +62,12 @@ public class WeaponManager : MonoBehaviour
     {
         if (isCoroutineRunning && !startFund)
         {
-            Debug.Log("Stop");
+            //Debug.Log("Stop");
             StopCoroutine("GiveFund");
             startFund = true;
         }
         else if (!isCoroutineRunning && startFund)
         {
-            Debug.Log("Start");
             StartCoroutine("GiveFund");
             startFund = false;
         }
@@ -86,7 +88,7 @@ public class WeaponManager : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, mask))
         {
-            Debug.Log("Can Click");
+            //Debug.Log("Can Click");
             if (Input.GetMouseButtonDown(0))
             {
                 if (hit.collider.gameObject.CompareTag(targetTag))
@@ -197,6 +199,7 @@ public class WeaponManager : MonoBehaviour
         {
             if (weapon != null && currentMoney >= upgradeCost)
             {
+                audioSource.PlayOneShot(clips[0]);
                 Debug.Log("Upgrading weapon...");
                 PlayerPrefs.SetFloat("currentMoney", +PlayerPrefs.GetFloat("currentMoney") - upgradeCost);
                 upgradeManager.UpgradeWeapon(weapon);
@@ -226,6 +229,7 @@ public class WeaponManager : MonoBehaviour
         {
             if (trapScript != null && currentMoney >= upgradeCost)
             {
+                audioSource.PlayOneShot(clips[0]);
                 PlayerPrefs.SetFloat("currentMoney", +PlayerPrefs.GetFloat("currentMoney") - upgradeCost);
                 upgradeTrapManager.UpgradeTrap(trapScript);
 

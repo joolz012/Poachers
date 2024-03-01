@@ -25,12 +25,12 @@ public class EnemyManager : MonoBehaviour
     private void Update()
     {
         Debug.Log("Animal: " + PlayerPrefs.GetInt("animalCounter"));
-        Debug.Log("Raid: " + PlayerPrefs.GetInt("raid"));
+        //Debug.Log("Raid: " + PlayerPrefs.GetInt("raid"));
 
         if (PlayerPrefs.GetInt("animalCounter") > 0 && PlayerPrefs.GetInt("raid") == 0 && !raidingBase)
         {
             //Debug.Log("Timer Start");
-            defendTimer = Random.Range(10, 15);
+            defendTimer = Random.Range(7, 8);
             timerScript.TimerDuration(defendTimer);
             StartCoroutine(DefendRaid(defendTimer));
             raidingBase = true;
@@ -61,7 +61,7 @@ public class EnemyManager : MonoBehaviour
     IEnumerator DefendRaid(float timer)
     {
         //Debug.LogWarning("Raiding!");
-        yield return new WaitForSeconds(timer);
+        yield return new WaitForSeconds(timer * 60);
         //show being raided;
         raidingBase = false;
         PlayerPrefs.SetInt("raid", 1);
@@ -96,6 +96,6 @@ public class EnemyManager : MonoBehaviour
     // You can call this method to stop instantiating objects if needed.
     public void StopInstantiating()
     {
-        weaponManager.isCoroutineRunning = false;
+        StopAllCoroutines();
     }
 }

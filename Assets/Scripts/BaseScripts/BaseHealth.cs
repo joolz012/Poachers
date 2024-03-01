@@ -7,6 +7,8 @@ using static UnityEngine.GraphicsBuffer;
 
 public class BaseHealth : MonoBehaviour
 {
+    private AudioSource audioSource;
+    public AudioClip[] clip;
     public Slider healthslider;
     public int baseLevel;
     public float baseMaxHealth;
@@ -14,11 +16,15 @@ public class BaseHealth : MonoBehaviour
     public Transform healthbar, isoCam;
     public float distanceToEnemy;
 
+
+    public GameObject[] targets;
+
     public EnemyManager enemyManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         baseHealth = baseMaxHealth;
         healthslider.value = baseHealth;
         healthslider.maxValue = baseMaxHealth;
@@ -28,16 +34,20 @@ public class BaseHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log("Key: " + PlayerPrefs.GetInt("keySave"));
         CheatCodes();
         healthslider.value = baseHealth;
         healthbar.LookAt(isoCam.position);
         if (baseHealth <= 0 && PlayerPrefs.GetInt("animalCounter") > 0)
         {
             PlayerPrefs.SetInt("animalCounter", PlayerPrefs.GetInt("animalCounter") - 1);
+            audioSource.PlayOneShot(clip[0]);
             baseHealth = baseMaxHealth;
+
         }
         else if(baseHealth <= 0 && PlayerPrefs.GetInt("animalCounter") <= 0)
         {
+            audioSource.PlayOneShot(clip[0]);
             DegradeBase();
             DegradeWeaponBase();
             DegradeWeaponTrap();
@@ -46,33 +56,43 @@ public class BaseHealth : MonoBehaviour
         }
 
         HealthBar();
-
     }
 
     private void HealthBar()
     {
-        GameObject[] targets = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject closestEnemy = FindClosestEnemy();
 
-        foreach (GameObject target in targets)
+        if (closestEnemy != null)
         {
-            if (Vector3.Distance(transform.position, target.transform.position) <= distanceToEnemy)
+            float distance = Vector3.Distance(transform.position, closestEnemy.transform.position);
+            if (distance < distanceToEnemy)
             {
                 Debug.Log("Show");
                 healthbar.gameObject.SetActive(true);
-            }
-            else if (target == null)
-            {
-                Debug.Log("Hide");
-                healthbar.gameObject.SetActive(false);
             }
             else
             {
                 Debug.Log("Hide");
                 healthbar.gameObject.SetActive(false);
             }
-
-
         }
+    }
+    GameObject FindClosestEnemy()
+    {
+        GameObject closestEnemy = null;
+        float closestDistance = Mathf.Infinity;
+
+        foreach (GameObject target in targets)
+        {
+            float distance = Vector3.Distance(transform.position, target.transform.position);
+            if (distance < closestDistance)
+            {
+                closestEnemy = target;
+                closestDistance = distance;
+            }
+        }
+
+        return closestEnemy;
     }
 
     private void DegradeBase()
@@ -185,12 +205,21 @@ public class BaseHealth : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.O))
         {
+            //animals
+            PlayerPrefs.SetInt("tarsier", 0);
+            PlayerPrefs.SetInt("tarsierEssence", 0);
+            PlayerPrefs.SetInt("tarsierVision", 0);
+            PlayerPrefs.SetInt("tamaraw", 0);
+            PlayerPrefs.SetInt("crocodileEssence", 0);
+            PlayerPrefs.SetFloat("stunDuration", 2);
+
+            PlayerPrefs.SetInt("keySave", 0);
             PlayerPrefs.SetInt("animalCounter", 0);
             PlayerPrefs.SetInt("raid", 0);
             PlayerPrefs.SetInt("essence", 0);
             PlayerPrefs.SetInt("talisman", 0);
             PlayerPrefs.SetInt("baseLevel", 0);
-            PlayerPrefs.SetFloat("currentMoney", 500);
+            PlayerPrefs.SetFloat("currentMoney", 100);
         }
         if (Input.GetKeyDown(KeyCode.I))
         {

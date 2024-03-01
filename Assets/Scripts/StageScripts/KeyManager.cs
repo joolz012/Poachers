@@ -6,6 +6,7 @@ public class KeyManager : MonoBehaviour
 {
     public GameObject getKeyCanvas;
     public string keySave = "keySave";
+    public int checkKey = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,8 +16,13 @@ public class KeyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(PlayerPrefs.GetInt("keySave") == checkKey)
+        {
+            Transform parent = transform.parent;
+            parent.gameObject.SetActive(false);
+        }
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))

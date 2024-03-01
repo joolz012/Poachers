@@ -37,7 +37,7 @@ public class AnimalBaseMovement : MonoBehaviour
                 navEnemy.speed = 2.0f;
                 // EnemyAnimator.Play("Walk");
             }
-                Debug.Log("waiting");
+                //Debug.Log("waiting");
                 waitTime -= Time.deltaTime;
         }
     }

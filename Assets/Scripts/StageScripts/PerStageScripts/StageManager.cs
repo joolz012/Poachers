@@ -11,13 +11,15 @@ public class StageManager : MonoBehaviour
     public int defendTimer;
     public bool raidingBase;
 
+    public TimerScript timerScript;
+
 
     // Start is called before the first frame update
     void Start()
     {
         raidingBase = false;
         Time.timeScale = 1;
-        if(PlayerPrefs.GetInt("animalCounter") >= 0)
+        if(PlayerPrefs.GetInt("animalCounter") > 0)
         {
             defendTimer = Random.Range(7, 8);
             StartCoroutine(BackToBase(defendTimer));
@@ -54,22 +56,22 @@ public class StageManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(PlayerPrefs.GetInt("animalCounter"));
         if(PlayerPrefs.GetInt("animalCounter") > 0 && !raidingBase)
         {
-            defendTimer = Random.Range(10, 16);
+            defendTimer = Random.Range(7, 8);
+            timerScript.TimerDuration(defendTimer);
             StartCoroutine(BackToBase(defendTimer));
             raidingBase = true;
         }
-        //Debug.Log(PlayerPrefs.GetInt("animalCounter"));
         GatePass();
     }
 
     IEnumerator BackToBase(float timer)
     {
         yield return new WaitForSeconds(timer * 60);
-        //show being raided;
+        SceneManager.LoadScene("Base");
         PlayerPrefs.SetInt("raid", 1);
-        SceneManager.LoadScene("SampleScene");
     }
 
 

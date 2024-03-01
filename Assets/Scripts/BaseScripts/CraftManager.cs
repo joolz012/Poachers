@@ -20,6 +20,7 @@ public class CraftManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Tarsier: " + PlayerPrefs.GetInt("tarsier"));
         essenceText.text = PlayerPrefs.GetInt("essence").ToString();
 
     }

@@ -13,6 +13,7 @@ public class TimerScript : MonoBehaviour
 
     void Start()
     {
+        isRunning = false;
         // Load the timer from PlayerPrefs
     }
 
@@ -40,7 +41,7 @@ public class TimerScript : MonoBehaviour
 
     public void TimerDuration(float timer)
     {
-        currentTime = timer;
+        currentTime = timer * 60;
         isRunning = true;
     }
 

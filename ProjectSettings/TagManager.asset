@@ -15,6 +15,8 @@ TagManager:
   - Bestiary
   - BestiaryCanvas
   - MainOffice
+  - tarsier
+  - tamaraw
   layers:
   - Default
   - TransparentFX

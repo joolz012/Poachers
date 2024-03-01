@@ -517,6 +517,8 @@ MonoBehaviour:
   attackSoundGO: {fileID: 4018592891982968312, guid: d7bbbad7e0bd6694fb95de0ee1dd14f9, type: 3}
   rotationSpeed: 10
   bulletPrefab: {fileID: 5185303695762950478, guid: 7ec03893d9e9a1b4f98c1a1f290795aa, type: 3}
+  ballista: {fileID: 0}
+  bulletSpawn: {fileID: 0}
   baseTrans: {fileID: 924907398}
 --- !u!23 &16492098
 MeshRenderer:
@@ -11897,6 +11899,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a848e66b884654ba67e052c7577668, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip:
+  - {fileID: 8300000, guid: d3daca2a3a8993f46ad0bcef984df082, type: 3}
   enemyMovements: []
   talismanOneDefaultCd: 30
   stunDuration: 2
@@ -14356,6 +14360,8 @@ MonoBehaviour:
   attackSoundGO: {fileID: 4018592891982968312, guid: d7bbbad7e0bd6694fb95de0ee1dd14f9, type: 3}
   rotationSpeed: 10
   bulletPrefab: {fileID: 5185303695762950478, guid: 7ec03893d9e9a1b4f98c1a1f290795aa, type: 3}
+  ballista: {fileID: 0}
+  bulletSpawn: {fileID: 0}
   baseTrans: {fileID: 924907398}
 --- !u!23 &471004883
 MeshRenderer:
@@ -25899,6 +25905,8 @@ MonoBehaviour:
   attackSoundGO: {fileID: 4018592891982968312, guid: d7bbbad7e0bd6694fb95de0ee1dd14f9, type: 3}
   rotationSpeed: 10
   bulletPrefab: {fileID: 5185303695762950478, guid: 7ec03893d9e9a1b4f98c1a1f290795aa, type: 3}
+  ballista: {fileID: 0}
+  bulletSpawn: {fileID: 0}
   baseTrans: {fileID: 1791596584388616039}
 --- !u!65 &899609553
 BoxCollider:
@@ -26478,6 +26486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4ace556ef1b0140aee96188c3f06e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: []
   healthslider: {fileID: 2026855081}
   baseLevel: 0
   baseMaxHealth: 100
@@ -31752,6 +31761,8 @@ MonoBehaviour:
   attackSoundGO: {fileID: 4018592891982968312, guid: d7bbbad7e0bd6694fb95de0ee1dd14f9, type: 3}
   rotationSpeed: 10
   bulletPrefab: {fileID: 5185303695762950478, guid: 7ec03893d9e9a1b4f98c1a1f290795aa, type: 3}
+  ballista: {fileID: 0}
+  bulletSpawn: {fileID: 0}
   baseTrans: {fileID: 1791596584388616039}
 --- !u!65 &1086149918
 BoxCollider:
@@ -37623,26 +37634,26 @@ MonoBehaviour:
   nameText: {fileID: 49730225}
   textSpeed: 0.04
   characterNames:
-  - bubbles (shocked)
-  - rocky (smug)
-  - thorfin (grin)
-  - rocky (confused)
-  - thorfin (smile)
-  - thorfin (smile)
-  - rocky (shocked)
-  - thorfin (grin)
-  - thorfin (smile)
-  - thorfin (grin)
-  - rocky (huh FACE)
-  - thorfin (grin)
-  - Thorfin (grin)
-  - thorfin (smile)
-  - mayor
-  - thorfin (grin)
-  - bubbles (game face)
-  - rocky (bleh)
-  - bubbles (angry)
-  - thorfin (smile)
+  - BUBBLES (shocked)
+  - ROCKY (smug)
+  - THORFIN (grin)
+  - ROCKY (confused)
+  - THORFIN (smile)
+  - THORFIN (smile)
+  - ROCKY (shocked)
+  - THORFIN (grin)
+  - THORFIN (smile)
+  - THORFIN (grin)
+  - ROCKY (huh FACE)
+  - THORFIN (grin)
+  - THORFIN (grin)
+  - THORFIN (smile)
+  - MAYOR
+  - THORFIN (grin)
+  - BUBBLES (game face)
+  - ROCKY (bleh)
+  - BUBBLES (angry)
+  - THORFIN (smile)
   lines:
   - "Guys, you\u2019re back! You won\u2019t believe what happened! Some animals just
     waltzed in here and stayed in the rehabilitation center!"
@@ -43501,6 +43512,8 @@ MonoBehaviour:
   attackSoundGO: {fileID: 4018592891982968312, guid: d7bbbad7e0bd6694fb95de0ee1dd14f9, type: 3}
   rotationSpeed: 10
   bulletPrefab: {fileID: 5185303695762950478, guid: 7ec03893d9e9a1b4f98c1a1f290795aa, type: 3}
+  ballista: {fileID: 0}
+  bulletSpawn: {fileID: 0}
   baseTrans: {fileID: 924907398}
 --- !u!23 &1524684669
 MeshRenderer:
@@ -48944,6 +48957,8 @@ MonoBehaviour:
   attackSoundGO: {fileID: 4018592891982968312, guid: d7bbbad7e0bd6694fb95de0ee1dd14f9, type: 3}
   rotationSpeed: 10
   bulletPrefab: {fileID: 5185303695762950478, guid: 7ec03893d9e9a1b4f98c1a1f290795aa, type: 3}
+  ballista: {fileID: 0}
+  bulletSpawn: {fileID: 0}
   baseTrans: {fileID: 924907398}
 --- !u!23 &1716408660
 MeshRenderer:
@@ -56056,6 +56071,8 @@ MonoBehaviour:
   attackSoundGO: {fileID: 4018592891982968312, guid: d7bbbad7e0bd6694fb95de0ee1dd14f9, type: 3}
   rotationSpeed: 10
   bulletPrefab: {fileID: 5185303695762950478, guid: 7ec03893d9e9a1b4f98c1a1f290795aa, type: 3}
+  ballista: {fileID: 0}
+  bulletSpawn: {fileID: 0}
   baseTrans: {fileID: 924907398}
 --- !u!23 &1969350902
 MeshRenderer:
@@ -61807,6 +61824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4ace556ef1b0140aee96188c3f06e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: []
   healthslider: {fileID: 776489309602616676}
   baseLevel: 0
   baseMaxHealth: 100

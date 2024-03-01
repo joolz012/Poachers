@@ -46,7 +46,7 @@ public class PlayerMovementStage : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("Tracking");
+            //Debug.Log("Tracking");
             playerPos = gameObject.transform.position;
             yield return null;
         }

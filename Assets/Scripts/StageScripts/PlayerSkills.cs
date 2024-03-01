@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PlayerSkills : MonoBehaviour
 {
+    AudioSource audioSource;
+    public AudioClip[] clip;
     public Camera playerCamera;
 
     [Header("Talisman One")]
     public float talismanOneDefaultCd;
-    public float VisionDuration;
+    public float visionDuration;
     private float talismanOneCd;
     private bool talismanOneBool;
 
@@ -26,14 +28,23 @@ public class PlayerSkills : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         talismanOneCd = talismanOneDefaultCd;
     }
 
     // Update is called once per frame
     void Update()
     {
+        TalismanGetUpgrade();
+
         TalismanController();
         TalismanCooldown();
+    }
+
+
+    void TalismanGetUpgrade()
+    {
+        visionDuration = PlayerPrefs.GetFloat("tarsierVision");
     }
 
     void TalismanController()
@@ -45,6 +56,7 @@ public class PlayerSkills : MonoBehaviour
         }
         if (talismanOneBool)
         {
+            audioSource.PlayOneShot(clip[0]);
             StartCoroutine(TalismanOne());
             talismanOneCd = 0;
             talismanOneBool = false;
@@ -65,7 +77,7 @@ public class PlayerSkills : MonoBehaviour
         {
             playerCamera.orthographicSize += Time.deltaTime;
         }
-        yield return new WaitForSeconds(VisionDuration);
+        yield return new WaitForSeconds(visionDuration);
         while (playerCamera.orthographicSize >= 15.0f)
         {
             playerCamera.orthographicSize -= Time.deltaTime;

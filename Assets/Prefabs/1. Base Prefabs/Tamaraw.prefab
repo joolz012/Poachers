@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7965384413106332286}
   - component: {fileID: 4311958321400639257}
   m_Layer: 0
-  m_Name: Animal
-  m_TagString: Untagged
+  m_Name: Tamaraw
+  m_TagString: tamaraw
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,11 +70,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints:
-  - {fileID: 8298197498501857511, guid: 659f5f14eda911e41b82522fdee02295, type: 3}
-  - {fileID: 3711093395980785606, guid: d57fbcd052101fa4f8a1a43fb8f3f085, type: 3}
-  - {fileID: 152641259225960058, guid: 33f5773aa5844224db8d27e7da07683f, type: 3}
-  - {fileID: 2967689742572836535, guid: 847dd544a3ea36743bf625dd56221b3a, type: 3}
-  - {fileID: 824647065190432507, guid: 71e56ccf91134754b9486d56ce6bd65e, type: 3}
+  - {fileID: 944193426174782610, guid: 659f5f14eda911e41b82522fdee02295, type: 3}
+  - {fileID: 1194101799990446587, guid: d57fbcd052101fa4f8a1a43fb8f3f085, type: 3}
+  - {fileID: 4917096677638236886, guid: 33f5773aa5844224db8d27e7da07683f, type: 3}
+  - {fileID: 2097425241663936531, guid: 847dd544a3ea36743bf625dd56221b3a, type: 3}
+  - {fileID: 4264274622969646385, guid: 71e56ccf91134754b9486d56ce6bd65e, type: 3}
   startWaitTime: 2
 --- !u!1 &937648187322953232
 GameObject:

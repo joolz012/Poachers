@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class RescueScript : MonoBehaviour
 {
-    private StageManager stageManager;
+    //private StageManager stageManager;
+    public int animalInt;
+
+    public string whatAnimal;
     public GameObject rescueCanvas;
     // Start is called before the first frame update
     void Start()
@@ -44,6 +47,7 @@ public class RescueScript : MonoBehaviour
         {
             GameObject parentGameObject = parentTransform.gameObject;
             PlayerPrefs.SetInt("animalCounter", PlayerPrefs.GetInt("animalCounter") + 1);
+            PlayerPrefs.SetInt(whatAnimal, PlayerPrefs.GetInt(whatAnimal) + 1);
             PlayerPrefs.SetInt("raid", 1);
             PlayerPrefs.SetInt("essence", PlayerPrefs.GetInt("essence") + 1);
             parentGameObject.SetActive(false);

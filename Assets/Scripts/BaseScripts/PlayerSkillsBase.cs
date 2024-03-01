@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class PlayerSkillsBase : MonoBehaviour
 {
+    AudioSource audioSource;
+    public AudioClip[] clip;
+
     public EnemyMovement[] enemyMovements;
 
     // Find all GameObjects with the "Enemy" tag
@@ -30,15 +33,23 @@ public class PlayerSkillsBase : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         talismanOneCd = talismanOneDefaultCd;
         talismanTwoCd = talismanTwoDefaultCd;
         talismanThreeCd = talismanThreeDefaultCd;
     }
     void Update()
     {
+
+        TalismanGetUpgrade();
+
         TalismanController();
         TalismanCooldown();
 
+    }
+    void TalismanGetUpgrade()
+    {
+        stunDuration = PlayerPrefs.GetFloat("stunDuration");
     }
 
     void TalismanController()
@@ -50,7 +61,8 @@ public class PlayerSkillsBase : MonoBehaviour
         }
         if (talismanOneBool)
         {
-            foreach(EnemyMovement movement in enemyMovements)
+            audioSource.PlayOneShot(clip[0]);
+            foreach (EnemyMovement movement in enemyMovements)
             {
                 if (movement != null)
                 {
