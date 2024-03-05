@@ -40524,8 +40524,8 @@ MonoBehaviour:
   essenceSpentAnimal: tarsierEssence
   talismanDuration: tarsierVision
   whatAnimal: tarsier
-  maxLevel: 0
-  whatAnimalMax: 
+  maxLevel: 8
+  whatAnimalMax: tarsierMax
   talismanCost: 5
   talismanSave: Talisman1Atk
   unlockCost: 5
@@ -48594,6 +48594,7 @@ MonoBehaviour:
   animalPrefab:
   - {fileID: 281090365981327317, guid: 419d91e79f009214dbfc35952438d912, type: 3}
   - {fileID: 281090365981327317, guid: 00f0fed14d768f34dabbfdf03ef8444a, type: 3}
+  - {fileID: 281090365981327317, guid: 7a84f199e26a96e44bd6d7de5ac0c15d, type: 3}
   counters: 000000000000000000000000000000000000000000000000
 --- !u!1 &1640024822
 GameObject:
@@ -54893,14 +54894,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   essenceSpent: 0
-  essenceSpentAnimal: 
-  talismanDuration: 
-  whatAnimal: 
-  maxLevel: 0
-  whatAnimalMax: 
-  talismanCost: 0
+  essenceSpentAnimal: pangolinEssence
+  talismanDuration: pangolinVision
+  whatAnimal: pangolin
+  maxLevel: 5
+  whatAnimalMax: pangolinMax
+  talismanCost: 10
   talismanSave: Talisman3Def
-  unlockCost: 0
+  unlockCost: 10
   isUnlocked: 0
   currentEssenceCostText: {fileID: 106746355}
   talismanCostText: {fileID: 1082985073}

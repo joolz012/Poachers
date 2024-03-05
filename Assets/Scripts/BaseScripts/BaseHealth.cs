@@ -212,12 +212,20 @@ public class BaseHealth : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.O))
         {
             //animals
+            //tarsier
             PlayerPrefs.SetInt("tarsier", 0);
             PlayerPrefs.SetInt("tarsierEssence", 0);
             PlayerPrefs.SetInt("tarsierVision", 0);
+
+            //tamaraw
             PlayerPrefs.SetInt("tamaraw", 0);
+
+            //crocodile
             PlayerPrefs.SetInt("crocodileEssence", 0);
             PlayerPrefs.SetFloat("stunDuration", 2);
+
+            //haribon
+            PlayerPrefs.SetInt("haribon", 0);
 
             PlayerPrefs.SetInt("keySave", 0);
             PlayerPrefs.SetInt("animalCounter", 0);

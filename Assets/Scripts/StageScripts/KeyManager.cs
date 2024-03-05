@@ -8,10 +8,11 @@ public class KeyManager : MonoBehaviour
     public string keySave = "keySave";
     public float unlockKeyCost;
     public int checkKey = 0;
+    public int defaultKeySave;
     // Start is called before the first frame update
     void Start()
     {
-        
+        PlayerPrefs.SetInt(keySave, defaultKeySave);
     }
 
     // Update is called once per frame

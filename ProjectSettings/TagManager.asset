@@ -18,6 +18,7 @@ TagManager:
   - tarsier
   - tamaraw
   - crocodile
+  - haribon
   layers:
   - Default
   - TransparentFX

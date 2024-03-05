@@ -33,6 +33,7 @@ public class AnimalCounter : MonoBehaviour
     {
         counters[0] = PlayerPrefs.GetInt("tarsier");
         counters[1] = PlayerPrefs.GetInt("tamaraw");
+        counters[2] = PlayerPrefs.GetInt("haribon");
         //get last animal
         if (instantiatedAnimals.Count > 0)
         {
