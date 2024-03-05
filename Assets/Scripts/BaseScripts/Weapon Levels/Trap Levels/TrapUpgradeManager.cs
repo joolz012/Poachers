@@ -29,6 +29,14 @@ public class TrapUpgradeManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            PlayerPrefs.SetInt(saveTrap, 0);
+        }
+    }
+
     public void UpgradeTrap(TrapScript trap)
     {
         if (currentUpgradeLevel < upgrades.Length)

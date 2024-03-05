@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class RescueScript : MonoBehaviour
+public class RescueScript2 : MonoBehaviour
 {
-    //private StageManager stageManager;
-    public QuestManager questManager;
+    private StageManager stageManager;
+    public QuestManager2 questManager2;
     public int questAdd;
 
     public string whatAnimal;
@@ -14,7 +13,7 @@ public class RescueScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        questManager = GameObject.Find("QuestCanvas").GetComponent<QuestManager>();
+        questManager2 = GameObject.Find("QuestCanvas").GetComponent<QuestManager2>();
         //PlayerPrefs.SetInt("animalCounter", 0);
         rescueCanvas.SetActive(false);
     }
@@ -48,7 +47,7 @@ public class RescueScript : MonoBehaviour
 
         if (parentTransform != null)
         {
-            questManager.currentTarsier += 1;
+            questManager2.currentAnimal2 += 1;
             GameObject parentGameObject = parentTransform.gameObject;
             PlayerPrefs.SetInt("animalCounter", PlayerPrefs.GetInt("animalCounter") + 1);
             PlayerPrefs.SetInt(whatAnimal, PlayerPrefs.GetInt(whatAnimal) + 1);

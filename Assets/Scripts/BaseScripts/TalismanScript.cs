@@ -10,6 +10,8 @@ public class TalismanScript : MonoBehaviour
     public string essenceSpentAnimal;
     public string talismanDuration;
     public string whatAnimal;
+    public int maxLevel;
+    public string whatAnimalMax;
 
     [Header("For Talisman Cost Upgrade")]
     public int talismanCost;
@@ -22,6 +24,11 @@ public class TalismanScript : MonoBehaviour
     [Header("Text")]
     public Text currentEssenceCostText;
     public Text talismanCostText;
+
+
+    [Header("Tamaraw")]
+    public string talismanDmgSave;
+    public float talismanDmgIncrease;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +54,7 @@ public class TalismanScript : MonoBehaviour
     public void TalismanDefOne()
     {
         Debug.Log("Click");
-        if(PlayerPrefs.GetInt(whatAnimal) > 0)
+        if(PlayerPrefs.GetInt(whatAnimal) > 0 && PlayerPrefs.GetInt(whatAnimalMax) < maxLevel)
         {
             PlayerPrefs.SetInt(whatAnimal, PlayerPrefs.GetInt(whatAnimal) - 1);
             PlayerPrefs.SetInt(essenceSpentAnimal, PlayerPrefs.GetInt(essenceSpentAnimal) + 1);
@@ -72,20 +79,26 @@ public class TalismanScript : MonoBehaviour
 
     public void UpgradeTalisman()
     {
+        //attacking
         if(whatAnimal == "tarsier")
         {
             PlayerPrefs.SetFloat(talismanDuration, PlayerPrefs.GetFloat(talismanDuration) + 0.5f);
             Debug.Log("Tarsier Upgraded");
         }
-        if (whatAnimal == "tamaraw")
-        {
 
-        }
-
+        //defending
         if (whatAnimal == "crocodile")
         {
             PlayerPrefs.SetFloat(talismanDuration, PlayerPrefs.GetFloat(talismanDuration) + 1);
             Debug.Log("Crocodile Upgraded");
+        }
+
+        if (whatAnimal == "tamaraw")
+        {
+            PlayerPrefs.SetFloat(talismanDuration, PlayerPrefs.GetFloat(talismanDuration) + 1);
+            PlayerPrefs.SetFloat(talismanDmgSave, PlayerPrefs.GetFloat(talismanDmgSave) + talismanDmgIncrease);
+
+            Debug.Log("Tamaraw Upgraded");
         }
 
     }

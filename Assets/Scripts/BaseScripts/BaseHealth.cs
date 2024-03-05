@@ -60,6 +60,7 @@ public class BaseHealth : MonoBehaviour
 
     private void HealthBar()
     {
+        targets = GameObject.FindGameObjectsWithTag("Enemy");
         GameObject closestEnemy = FindClosestEnemy();
 
         if (closestEnemy != null)
@@ -75,6 +76,11 @@ public class BaseHealth : MonoBehaviour
                 Debug.Log("Hide");
                 healthbar.gameObject.SetActive(false);
             }
+        }
+        else
+        {
+            Debug.Log("Hide");
+            healthbar.gameObject.SetActive(false);
         }
     }
     GameObject FindClosestEnemy()

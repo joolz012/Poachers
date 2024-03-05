@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class TrapScript : MonoBehaviour
 {
     private AudioSource audioSource;
@@ -14,11 +14,19 @@ public class TrapScript : MonoBehaviour
     public float trapCooldown;
     public float trapStunDuration;
 
+    [Header("UI")]
+    public Text levelText;
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
     }
+
+    private void Update()
+    {
+        levelText.text = currentLevel.ToString();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))

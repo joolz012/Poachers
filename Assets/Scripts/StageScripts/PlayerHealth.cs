@@ -41,6 +41,10 @@ public class PlayerHealth : MonoBehaviour
     {
         SceneManager.LoadScene(playAgainScene);
     }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 
     public void TakeDamage(float damage)
     {

@@ -38,6 +38,7 @@ public class EnemyManager : MonoBehaviour
 
         if (PlayerPrefs.GetInt("raid") >= 1 && !raidingBase)
         {
+            //back to base
             PlayerPrefs.SetInt("raid", 0);
             weaponManager.isCoroutineRunning = true;
             StartCoroutine(InstantiateObjects());
@@ -55,7 +56,6 @@ public class EnemyManager : MonoBehaviour
         //    raidingBase = false;
         //}
 
-
     }
 
     IEnumerator DefendRaid(float timer)
@@ -71,6 +71,8 @@ public class EnemyManager : MonoBehaviour
 
     IEnumerator InstantiateObjects()
     {
+        timerScript.TimerDuration(0.5f);
+        yield return new WaitForSeconds(30);
         while (instantiations < maxInstantiations)
         {
             yield return new WaitForSeconds(repeatRate); // Wait for 4 seconds before the next instantiation.

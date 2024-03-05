@@ -17,7 +17,7 @@ public class KeyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(PlayerPrefs.GetInt("keySave") == checkKey)
+        if(PlayerPrefs.GetInt("keySave") >= checkKey)
         {
             Transform parent = transform.parent;
             parent.gameObject.SetActive(false);

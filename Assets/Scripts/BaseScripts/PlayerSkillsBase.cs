@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerSkillsBase : MonoBehaviour
 {
@@ -9,9 +10,14 @@ public class PlayerSkillsBase : MonoBehaviour
     public AudioClip[] clip;
 
     public EnemyMovement[] enemyMovements;
+    public WeaponScript[] weaponScript;
 
     // Find all GameObjects with the "Enemy" tag
-    GameObject[] enemyObjects;
+    //GameObject[] enemyObjects;
+    [Header("Talisman Details")]
+    public GameObject talismanDetailsObject;
+    public Text talismanText;
+    private string[] talismanDetails = new string[3];
 
     [Header("Talisman One")]
     public float talismanOneDefaultCd;
@@ -21,7 +27,8 @@ public class PlayerSkillsBase : MonoBehaviour
 
     [Header("Talisman Two")]
     public float talismanTwoDefaultCd;
-    public float talismanTwoDuration;
+    public float buffDuration;
+    public float dmgIncrease;
     private float talismanTwoCd;
     private bool talismanTwoBool;
 
@@ -33,6 +40,9 @@ public class PlayerSkillsBase : MonoBehaviour
 
     private void Start()
     {
+        talismanDetails[0] = "<b>Tarsier Talisman</b> \nStun All Enemies";
+        talismanDetails[1] = "<b>Tamaraw Talisman</b> \nBuff Defensive Towers";
+        talismanDetails[2] = "<b>Pangolin Talisman</b> \nIncrease Health Points of Towers";
         audioSource = GetComponent<AudioSource>();
         talismanOneCd = talismanOneDefaultCd;
         talismanTwoCd = talismanTwoDefaultCd;
@@ -47,13 +57,39 @@ public class PlayerSkillsBase : MonoBehaviour
         TalismanCooldown();
 
     }
+    public void CrocodileDetails()
+    {
+        talismanDetailsObject.SetActive(true);
+        talismanText.text = talismanDetails[0].ToString();
+    }
+    public void TamaraweDetails()
+    {
+        talismanDetailsObject.SetActive(true);
+        talismanText.text = talismanDetails[1].ToString();
+    }
+    public void PangolinDetails()
+    {
+        talismanDetailsObject.SetActive(true);
+        talismanText.text = talismanDetails[2].ToString();
+    }
+
+    public void ExitPointer()
+    {
+        talismanDetailsObject.SetActive(false);
+        talismanText.text = "";
+    }
+
     void TalismanGetUpgrade()
     {
         stunDuration = PlayerPrefs.GetFloat("stunDuration");
+        //tamaraw
+        buffDuration = PlayerPrefs.GetFloat("buffDuration");
+        dmgIncrease = PlayerPrefs.GetFloat("tamarawDmg");
     }
 
     void TalismanController()
     {
+        //Talisman 1
         CheckEnemy();
         if (Input.GetKeyDown(KeyCode.Alpha1) && talismanOneCd >= talismanOneDefaultCd)
         {
@@ -77,7 +113,41 @@ public class PlayerSkillsBase : MonoBehaviour
             talismanOneCd = 0;
             talismanOneBool = false;
         }
+
+
+        //Talisman 2
+        if (Input.GetKeyDown(KeyCode.Alpha2) && talismanTwoCd >= talismanTwoDefaultCd)
+        {
+            if(PlayerPrefs.GetInt("Talisman2Def") == 1)
+            {
+                Debug.Log("Tamaraw Talisman");
+                talismanTwoBool = true;
+            }
+            else
+            {
+                Debug.Log("Tamaraw Not Unlocked");
+            }
+        }
+        if (talismanTwoBool)
+        {
+            audioSource.PlayOneShot(clip[1]);
+            foreach (WeaponScript weapon in weaponScript)
+            {
+                if (weapon != null)
+                {
+                    weapon.attackDamage += dmgIncrease;
+                    StartCoroutine(TamarawDuration(weapon));
+                }
+                else
+                {
+                    Debug.Log("No Tower");
+                }
+            }
+            talismanTwoCd = 0;
+            talismanTwoBool = false;
+        }
     }
+
 
     void TalismanCooldown()
     {
@@ -85,8 +155,14 @@ public class PlayerSkillsBase : MonoBehaviour
         {
             talismanOneCd += Time.deltaTime;
         }
+
+        if (talismanTwoCd <= talismanTwoDefaultCd)
+        {
+            talismanTwoCd += Time.deltaTime;
+        }
     }
 
+    //talisman 1
     void CheckEnemy()
     {
         GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("Enemy");
@@ -107,4 +183,11 @@ public class PlayerSkillsBase : MonoBehaviour
         enemyMovements = foundScripts.ToArray();
     }
 
+    //talisman 2
+    IEnumerator TamarawDuration(WeaponScript weapon)
+    {
+        yield return new WaitForSeconds(buffDuration);
+        weapon.attackDamage -= dmgIncrease;
+        yield break;
+    }
 }

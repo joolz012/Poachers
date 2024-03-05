@@ -28,6 +28,13 @@ public class WeaponUpgradeManager : MonoBehaviour
             Debug.LogWarning("Didn't Set Level");
         }
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            PlayerPrefs.SetInt(saveWeapon, 0);
+        }
+    }
 
     public void UpgradeWeapon(WeaponScript weapon)
     {

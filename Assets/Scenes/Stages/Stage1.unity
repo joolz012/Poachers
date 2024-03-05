@@ -1620,11 +1620,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questTextBox: {fileID: 1580528250}
-  currentTarsierText: {fileID: 512393043}
-  totalTarsierText: {fileID: 901089451}
-  currentTarsier: 0
-  totalTarsier: 5
-  finalTarsierCost: 15
+  currentAnimalText: {fileID: 512393043}
+  totalAnimalText: {fileID: 901089451}
+  currentAnimal: 0
+  totalAnimal: 5
+  finalAnimalCost: 15
 --- !u!1 &37534259
 GameObject:
   m_ObjectHideFlags: 0
@@ -6568,8 +6568,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   getKeyCanvas: {fileID: 78785061}
   keySave: keySave
-  unlockKeyCost: 16.66667
-  checkKey: 0
+  unlockKeyCost: 0.16666667
+  checkKey: 1
 --- !u!136 &124644886
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7419,8 +7419,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   getKeyCanvas: {fileID: 1483338375}
   keySave: keySave
-  unlockKeyCost: 16.66667
-  checkKey: 0
+  unlockKeyCost: 0.16666667
+  checkKey: 1
 --- !u!1 &143399073
 GameObject:
   m_ObjectHideFlags: 0
@@ -33336,8 +33336,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   getKeyCanvas: {fileID: 1696130261}
   keySave: keySave
-  unlockKeyCost: 16.66667
-  checkKey: 0
+  unlockKeyCost: 0.16666667
+  checkKey: 1
 --- !u!136 &671969661
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -46348,8 +46348,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   getKeyCanvas: {fileID: 652582583}
   keySave: keySave
-  unlockKeyCost: 16.66667
-  checkKey: 0
+  unlockKeyCost: 0.16666667
+  checkKey: 1
 --- !u!136 &966196429
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -53668,8 +53668,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   getKeyCanvas: {fileID: 1775961438}
   keySave: keySave
-  unlockKeyCost: 16.66667
-  checkKey: 0
+  unlockKeyCost: 0.16666667
+  checkKey: 1
 --- !u!136 &1086794176
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -77532,8 +77532,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   getKeyCanvas: {fileID: 868241186}
   keySave: keySave
-  unlockKeyCost: 16.66667
-  checkKey: 0
+  unlockKeyCost: 0.16666667
+  checkKey: 1
 --- !u!136 &1580955774
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -78973,17 +78973,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1912551838}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1609042798 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 116059836182523423, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
-  m_PrefabInstance: {fileID: 3832270524148400127}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6627339f649138f4d9d6e78bfa6096b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1610776466
 GameObject:
   m_ObjectHideFlags: 0
@@ -99557,11 +99546,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 118441043}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2035124496 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8141705614598466827, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
-  m_PrefabInstance: {fileID: 3832270524148400127}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2035155715
 GameObject:
   m_ObjectHideFlags: 0
@@ -105315,22 +105299,10 @@ PrefabInstance:
       propertyPath: controls
       value: 
       objectReference: {fileID: 2109163779}
-    - target: {fileID: 116059836182523423, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
-      propertyPath: deathCanvas
-      value: 
-      objectReference: {fileID: 2035124496}
-    - target: {fileID: 116059836182523423, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
-      propertyPath: playAgainScene
-      value: Stage1
-      objectReference: {fileID: 0}
     - target: {fileID: 221528322460434686, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 533488387}
-    - target: {fileID: 1018203525675518025, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1564873830700813952, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -105342,34 +105314,6 @@ PrefabInstance:
     - target: {fileID: 4127489030889074927, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7024074384113286991, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7024074384113286991, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7024074384113286991, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1609042798}
-    - target: {fileID: 7024074384113286991, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7024074384113286991, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayAgain
-      objectReference: {fileID: 0}
-    - target: {fileID: 7024074384113286991, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayerHealth, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7024074384113286991, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7342144903444774375, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
       propertyPath: m_LocalPosition.x

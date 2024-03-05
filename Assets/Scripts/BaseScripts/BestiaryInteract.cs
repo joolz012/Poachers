@@ -5,6 +5,8 @@ using UnityEngine;
 public class BestiaryInteract : MonoBehaviour
 {
     public GameObject bestiaryCanvas, bestiaryButton;
+    public GameObject[] bestiaryPages;
+    public int index;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +16,33 @@ public class BestiaryInteract : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+    }
+    public void Next()
+    {
+        if(index < 2)
+        {
+            index++;
+            SwitchPage();
+        }
+    }
+    public void Back()
+    {
+        if (index > 0)
+        {
+            index--;
+            SwitchPage();
+
+        }
+    }
+
+    void SwitchPage()
+    {
+        for (int i = 0; i < bestiaryPages.Length; i++)
+        {
+            bestiaryPages[i].SetActive(false);
+        }
+        // Activate the current GameObject
+        bestiaryPages[index].SetActive(true);
     }
 
     public void BestiaryButton()

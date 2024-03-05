@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class QuestManager : MonoBehaviour
 {
     public GameObject questTextBox;
-    public Text currentTarsierText, totalTarsierText;
-    public float currentTarsier, totalTarsier, finalTarsierCost;
+    public Text currentAnimalText, totalAnimalText;
+    public float currentAnimal, totalAnimal, finalAnimalCost;
     private int questCounter;
     // Start is called before the first frame update
     void Start()
@@ -16,28 +16,28 @@ public class QuestManager : MonoBehaviour
         questTextBox.SetActive(false);
         gameObject.SetActive(true);
         questCounter = 0;
-        currentTarsier = -1;
+        currentAnimal = -1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(currentTarsier >= 0)
+        if(currentAnimal >= 0)
         {
             questTextBox.SetActive(true);
-            currentTarsierText.text = currentTarsier.ToString();
+            currentAnimalText.text = currentAnimal.ToString();
         }
-        else if(currentTarsier < 0)
+        else if(currentAnimal < 0)
         {
-            currentTarsierText.text = "0";
+            currentAnimalText.text = "0";
         }
-        totalTarsierText.text = totalTarsier.ToString();
+        totalAnimalText.text = totalAnimal.ToString();
 
-        if (currentTarsier >= totalTarsier && questCounter != 2)
+        if (currentAnimal >= totalAnimal && questCounter != 2)
         {
             questCounter += 1;
-            currentTarsier = 0;
-            totalTarsier = finalTarsierCost;
+            currentAnimal = 0;
+            totalAnimal = finalAnimalCost;
         }
         else if(questCounter == 2)
         {

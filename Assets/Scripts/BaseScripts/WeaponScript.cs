@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponScript : MonoBehaviour
 {
@@ -26,6 +27,9 @@ public class WeaponScript : MonoBehaviour
 
     public Transform baseTrans;
 
+    [Header("UI")]
+    public Text levelText;
+
     private void Start()
     {
         GameObject soundObject = Instantiate(attackSoundGO, transform.position, Quaternion.identity);
@@ -33,6 +37,9 @@ public class WeaponScript : MonoBehaviour
     }
     void Update()
     {
+        //Level UI
+        levelText.text = currentLevel.ToString();
+
         // Check if index is within the bounds of the array
         if (currentLevel >= 0 && currentLevel - 1 < towerDesign.Length)
         {
