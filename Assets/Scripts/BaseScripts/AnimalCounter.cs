@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class AnimalCounter : MonoBehaviour
 {
@@ -16,8 +15,11 @@ public class AnimalCounter : MonoBehaviour
     private string whatAnimal;
     public int[] counters = new int[6];
 
+    private bool doOnce = false;
+
     private void Start()
     {
+
     }
     private void Update()
     {
@@ -34,6 +36,13 @@ public class AnimalCounter : MonoBehaviour
         counters[0] = PlayerPrefs.GetInt("tarsier");
         counters[1] = PlayerPrefs.GetInt("tamaraw");
         counters[2] = PlayerPrefs.GetInt("haribon");
+        counters[3] = PlayerPrefs.GetInt("python");
+        counters[4] = PlayerPrefs.GetInt("crocodile");
+        counters[5] = PlayerPrefs.GetInt("pangolin");
+
+        animalSpawnerCounter = PlayerPrefs.GetInt("animalCounter");
+        animalCounter = animalSpawnerCounter;
+
         //get last animal
         if (instantiatedAnimals.Count > 0)
         {
@@ -42,14 +51,12 @@ public class AnimalCounter : MonoBehaviour
             Debug.Log("Last Animal: " + whatAnimal);
         }
 
-        animalSpawnerCounter = PlayerPrefs.GetInt("animalCounter");
-        animalCounter = animalSpawnerCounter;
 
         // Check if animalCounter has increased
         if (animalCounter > instantiatedAnimals.Count)
         {
             // Instantiate new animals
-            int numToInstantiate = animalCounter - instantiatedAnimals.Count;
+            //int numToInstantiate = animalCounter - instantiatedAnimals.Count;
 
             // Loop through the counters array
             for (int j = 0; j < counters.Length; j++)
@@ -66,18 +73,42 @@ public class AnimalCounter : MonoBehaviour
                 }
             }
         }
-        // Check if animalCounter has decreased
         else if (animalCounter < instantiatedAnimals.Count)
         {
-            // Remove excess animals
-            int numToRemove = instantiatedAnimals.Count - animalCounter;
-            for (int i = 0; i < numToRemove; i++)
+            // Ensure there are animals to remove
+            if (instantiatedAnimals.Count > 0)
             {
-                GameObject removedAnimal = instantiatedAnimals[instantiatedAnimals.Count - 1];
-                instantiatedAnimals.RemoveAt(instantiatedAnimals.Count - 1);
-                PlayerPrefs.SetInt(whatAnimal, PlayerPrefs.GetInt(whatAnimal) - 1);
-                Destroy(removedAnimal);
+                doOnce = true;
             }
+        }
+
+        if (doOnce)
+        {
+            // Determine the last instantiated animal
+            GameObject removedAnimal = instantiatedAnimals[instantiatedAnimals.Count - 1];
+
+            // Update the specific animal counter instead of all counters
+            int removedAnimalIndex = -1;
+            for (int i = 0; i < counters.Length; i++)
+            {
+                if (counters[i] > 0 && removedAnimal.tag == animalPrefab[i].tag)
+                {
+                    removedAnimalIndex = i;
+                    break;
+                }
+            }
+
+            if (removedAnimalIndex >= 0)
+            {
+                counters[removedAnimalIndex]--;
+                PlayerPrefs.SetInt(animalPrefab[removedAnimalIndex].tag, counters[removedAnimalIndex]);
+            }
+
+            instantiatedAnimals.RemoveAt(instantiatedAnimals.Count - 1);
+            // Destroy the removed animal
+            Destroy(removedAnimal);
+
+            doOnce = false;
         }
     }
 

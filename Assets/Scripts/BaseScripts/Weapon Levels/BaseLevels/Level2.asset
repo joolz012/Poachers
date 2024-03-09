@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Level2
   m_EditorClassIdentifier: 
   level: 2
-  baseHealth: 200
+  baseHealth: 700

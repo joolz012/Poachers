@@ -10,10 +10,16 @@ public class RescueScript2 : MonoBehaviour
 
     public string whatAnimal;
     public GameObject rescueCanvas;
+
+    [Header("Per Stage Animal (Don't Fill)")]
+    public string animal1;
+    public string animal2;
     // Start is called before the first frame update
     void Start()
     {
         questManager2 = GameObject.Find("QuestCanvas").GetComponent<QuestManager2>();
+        animal1 = questManager2.animal1;
+        animal2 = questManager2.animal2;
         //PlayerPrefs.SetInt("animalCounter", 0);
         rescueCanvas.SetActive(false);
     }
@@ -47,7 +53,17 @@ public class RescueScript2 : MonoBehaviour
 
         if (parentTransform != null)
         {
-            questManager2.currentAnimal2 += 1;
+            if (whatAnimal == animal1)
+            {
+                Debug.Log("Add Tamaraw");
+                questManager2.currentAnimal += 1;
+            }
+            else if (whatAnimal == animal2)
+            {
+                Debug.Log("Add Haribon");
+                questManager2.currentAnimal2 += 1;
+            }
+            Debug.Log("Add Animal");
             GameObject parentGameObject = parentTransform.gameObject;
             PlayerPrefs.SetInt("animalCounter", PlayerPrefs.GetInt("animalCounter") + 1);
             PlayerPrefs.SetInt(whatAnimal, PlayerPrefs.GetInt(whatAnimal) + 1);

@@ -13,6 +13,8 @@ public class Stage2Manager : MonoBehaviour
     public int defendTimer;
     public bool raidingBase;
 
+    public QuestManager2 questManager2;
+
 
     // Start is called before the first frame update
     void Start()
@@ -58,7 +60,7 @@ public class Stage2Manager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("animalCounter") > 0 && !raidingBase)
         {
-            defendTimer = Random.Range(10, 16);
+            defendTimer = Random.Range(7, 8);
             StartCoroutine(BackToBase(defendTimer));
             raidingBase = true;
         }
@@ -76,21 +78,21 @@ public class Stage2Manager : MonoBehaviour
         yield return new WaitForSeconds(timer * 60);
         //show being raided;
         PlayerPrefs.SetInt("raid", 1);
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Base");
     }
 
 
     void GatePass()
     {
-        if (!animalsGameObjects[0].activeInHierarchy)
+        if (!animalsGameObjects[0].activeInHierarchy && questManager2.questCounter == 0)
         {
             gateGameObjects[0].SetActive(false);
         }
-        if (!animalsGameObjects[1].activeInHierarchy)
+        if (questManager2.questCounter == 1)
         {
             gateGameObjects[1].SetActive(false);
         }
-        if (!animalsGameObjects[2].activeInHierarchy)
+        if (questManager2.questCounter == 2)
         {
             gateGameObjects[2].SetActive(false);
         }

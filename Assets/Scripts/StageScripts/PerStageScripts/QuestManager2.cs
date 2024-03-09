@@ -15,7 +15,13 @@ public class QuestManager2 : MonoBehaviour
     public GameObject questTextBox2;
     public Text currentAnimalText2, totalAnimalText2;
     public float currentAnimal2, totalAnimal2, finalAnimalCost2;
-    private int questCounter;
+
+    [Header("Per Stage Needs")]
+    public string animal1;
+    public string animal2;
+
+    [Header("QuestCounter")]
+    public int questCounter;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,24 +40,28 @@ public class QuestManager2 : MonoBehaviour
         {
             questTextBox.SetActive(true);
             currentAnimalText.text = currentAnimal.ToString();
-            if (currentAnimal >= 10)
-            {
-                questTextBox2.SetActive(true);
-                currentAnimalText2.text = currentAnimal.ToString();
-            }
         }
         else if (currentAnimal < 0)
         {
             currentAnimalText.text = "0";
         }
         totalAnimalText.text = totalAnimal.ToString();
-        totalAnimalText2.text = totalAnimal.ToString();
+        totalAnimalText2.text = totalAnimal2.ToString();
 
-        if (currentAnimal >= totalAnimal && questCounter != 2)
+        if (currentAnimal >= totalAnimal && questCounter == 0)
         {
             questCounter += 1;
             currentAnimal = 0;
             totalAnimal = finalAnimalCost;
+        }
+        else if (questCounter == 1)
+        {
+            questTextBox2.SetActive(true);
+            currentAnimalText2.text = currentAnimal2.ToString();
+            if (currentAnimal >= totalAnimal && currentAnimal2 >= totalAnimal2)
+            {
+                questCounter += 1;
+            }
         }
         else if (questCounter == 2)
         {

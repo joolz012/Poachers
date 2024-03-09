@@ -24,6 +24,7 @@ public class PlayerSkillsBase : MonoBehaviour
     public float stunDuration;
     private float talismanOneCd;
     private bool talismanOneBool;
+    public Slider talisman1Slider;
 
     [Header("Talisman Two")]
     public float talismanTwoDefaultCd;
@@ -31,26 +32,32 @@ public class PlayerSkillsBase : MonoBehaviour
     public float dmgIncrease;
     private float talismanTwoCd;
     private bool talismanTwoBool;
+    public Slider talisman2Slider;
 
     [Header("Talisman Three")]
     public float talismanThreeDefaultCd;
-    public float talismanThreeDuration;
+    public float talismanHealthIncrease;
     private float talismanThreeCd;
     private bool talismanThreeBool;
+    public Slider talisman3Slider;
 
     private void Start()
     {
-        talismanDetails[0] = "<b>Tarsier Talisman</b> \nStun All Enemies";
+        talismanDetails[0] = "<b>Crocodile Talisman</b> \nStun All Enemies";
         talismanDetails[1] = "<b>Tamaraw Talisman</b> \nBuff Defensive Towers";
         talismanDetails[2] = "<b>Pangolin Talisman</b> \nIncrease Health Points of Towers";
         audioSource = GetComponent<AudioSource>();
-        talismanOneCd = talismanOneDefaultCd;
-        talismanTwoCd = talismanTwoDefaultCd;
-        talismanThreeCd = talismanThreeDefaultCd;
+
+        talismanOneCd = 0;
+        talisman1Slider.maxValue = 30;
+
+        talismanTwoCd = 0;
+        talisman2Slider.maxValue = 50;
+
+        talismanThreeCd = 0;
     }
     void Update()
     {
-
         TalismanGetUpgrade();
 
         TalismanController();
@@ -82,16 +89,20 @@ public class PlayerSkillsBase : MonoBehaviour
     void TalismanGetUpgrade()
     {
         stunDuration = PlayerPrefs.GetFloat("stunDuration");
+
         //tamaraw
         buffDuration = PlayerPrefs.GetFloat("buffDuration");
         dmgIncrease = PlayerPrefs.GetFloat("tamarawDmg");
+
+        //pangolin
+        talismanHealthIncrease = PlayerPrefs.GetFloat("pangolinHp");
     }
 
     void TalismanController()
     {
         //Talisman 1
         CheckEnemy();
-        if (Input.GetKeyDown(KeyCode.Alpha1) && talismanOneCd >= talismanOneDefaultCd)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && talismanOneCd <= 0)
         {
             talismanOneBool = true;
         }
@@ -110,15 +121,15 @@ public class PlayerSkillsBase : MonoBehaviour
                     Debug.Log("No Enemy");
                 }
             }
-            talismanOneCd = 0;
+            talismanOneCd = talismanOneDefaultCd;
             talismanOneBool = false;
         }
 
 
         //Talisman 2
-        if (Input.GetKeyDown(KeyCode.Alpha2) && talismanTwoCd >= talismanTwoDefaultCd)
+        if (Input.GetKeyDown(KeyCode.Alpha2) && talismanTwoCd <= 0)
         {
-            if(PlayerPrefs.GetInt("Talisman2Def") == 1)
+            if(PlayerPrefs.GetInt("Talisman2Def") >= 1)
             {
                 Debug.Log("Tamaraw Talisman");
                 talismanTwoBool = true;
@@ -143,22 +154,55 @@ public class PlayerSkillsBase : MonoBehaviour
                     Debug.Log("No Tower");
                 }
             }
-            talismanTwoCd = 0;
+            talismanThreeCd = talismanTwoDefaultCd;
             talismanTwoBool = false;
+        }
+
+        //Talisman 3
+        if (Input.GetKeyDown(KeyCode.Alpha3) && talismanThreeCd <= 0)
+        {
+            if (PlayerPrefs.GetInt("Talisman3Def") >= 1)
+            {
+                Debug.Log("Tamaraw Pangolin");
+                talismanThreeBool = true;
+            }
+            else
+            {
+                Debug.Log("Pangolin Not Unlocked");
+            }
+        }
+        if (talismanThreeBool)
+        {
+            audioSource.PlayOneShot(clip[2]);
+
+            GameObject baseObject = GameObject.FindGameObjectWithTag("Base");
+            BaseHealth baseHealth = baseObject.GetComponent<BaseHealth>();
+            baseHealth.baseHealth += talismanHealthIncrease;
+
+            talismanThreeCd = talismanThreeDefaultCd;
+            talismanThreeBool = false;
         }
     }
 
 
     void TalismanCooldown()
     {
-        if (talismanOneCd <= talismanOneDefaultCd)
+        talisman1Slider.value = talismanOneCd;
+        if (talismanOneCd >= 0)
         {
-            talismanOneCd += Time.deltaTime;
+            talismanOneCd -= Time.deltaTime;
         }
 
-        if (talismanTwoCd <= talismanTwoDefaultCd)
+        talisman2Slider.value = talismanTwoCd;
+        if (talismanTwoCd >= 0)
         {
-            talismanTwoCd += Time.deltaTime;
+            talismanTwoCd -= Time.deltaTime;
+        }
+
+        talisman3Slider.value = talismanThreeCd;
+        if (talismanThreeCd >= 0)
+        {
+            talismanThreeCd -= Time.deltaTime;
         }
     }
 

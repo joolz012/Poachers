@@ -8,7 +8,6 @@ public class TalismanScript : MonoBehaviour
     [Header("Essence Spent")]
     public int essenceSpent;
     public string essenceSpentAnimal;
-    public string talismanDuration;
     public string whatAnimal;
     public int maxLevel;
     public string whatAnimalMax;
@@ -25,10 +24,15 @@ public class TalismanScript : MonoBehaviour
     public Text currentEssenceCostText;
     public Text talismanCostText;
 
-
-    [Header("Tamaraw")]
+    [Header("For Tamaraw Only")]
     public string talismanDmgSave;
+    public string talismanDuration;
     public float talismanDmgIncrease;
+
+
+    [Header("For Pangolin Only")]
+    public string talismanHealthSave;
+    public float talismanHealthIncrease;
 
     // Start is called before the first frame update
     void Start()

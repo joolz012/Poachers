@@ -227,6 +227,15 @@ public class BaseHealth : MonoBehaviour
             //haribon
             PlayerPrefs.SetInt("haribon", 0);
 
+            //python
+            PlayerPrefs.SetInt("python", 0);
+
+            //crocodile
+            PlayerPrefs.SetInt("crocodile", 0);
+
+            //pangolin
+            PlayerPrefs.SetInt("pangolin", 0);
+
             PlayerPrefs.SetInt("keySave", 0);
             PlayerPrefs.SetInt("animalCounter", 0);
             PlayerPrefs.SetInt("raid", 0);
