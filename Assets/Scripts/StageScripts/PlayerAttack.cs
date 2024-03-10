@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    private PlayerHealth health;
     //private EnemyHealth enemyHit;
     public Animator playerAnim;
     public float meleeDamage;
@@ -15,7 +16,10 @@ public class PlayerAttack : MonoBehaviour
     private float attackTimer;
     public bool attacking;
 
-
+    private void Start()
+    {
+        health = GetComponent<PlayerHealth>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -64,6 +68,11 @@ public class PlayerAttack : MonoBehaviour
                     // You can add your logic to handle the detected enemy here
                     enemyHealth.TakeDamage(meleeDamage);
                 }
+            }
+            if (collider.gameObject.CompareTag("Crates"))
+            {
+                health.playerHealth += 20;
+                Destroy(collider.gameObject);
             }
 
         }

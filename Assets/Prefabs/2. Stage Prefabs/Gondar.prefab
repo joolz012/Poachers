@@ -1366,12 +1366,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAnim: {fileID: 8504805157016864400}
-  health: 0
+  health: 300
   maxHealth: 300
   slider: {fileID: 40965328219394435}
   healthbar: {fileID: 1378217643013536458}
   isoCam: {fileID: 4565039704201174169, guid: 5bf3fde9b09188d4a81dec7a6af507f6, type: 3}
   nextWave: 0
+  bossPlayerPrefs: ragnarPlayerPrefs
 --- !u!114 &4124637616255218101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1385,10 +1386,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAnimator: {fileID: 8504805157016864400}
+  chasePlayerSfx: {fileID: 0}
+  isChasing: 0
   playerAttacking: 0
   playerIsInLOS: 0
   fieldOfViewAngle: 160
   losRadius: 20
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  excludeLayerName: 
   memoryStartTime: 10
   noiseTravelDistance: 50
   spinSpeed: 2
@@ -1416,8 +1423,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e495e5a54e7f38d4692035d813fe57e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: b94b6be810ebbe744aa6a85a37c69352, type: 3}
   enemyDmg: 10
-  shotBtwTimer: 1
+  shotBtwTimer: 0.73
   notAttacking: 0
   fireRadius: 7.2
 --- !u!1 &8680582381439061901

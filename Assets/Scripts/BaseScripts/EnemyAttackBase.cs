@@ -13,7 +13,7 @@ public class EnemyAttackBase : MonoBehaviour
 
     // Shot timing
     private float timeUntilNextShot;
-    public float timeBetweenShots = 1.0f;
+    public float timeBetweenShots;
     public bool isNotAttacking = false;
 
     public float fireRadius;
@@ -36,6 +36,7 @@ public class EnemyAttackBase : MonoBehaviour
 
     void AttackPlayer()
     {
+        enemyAnimator.Play("Attack");
         RaycastHit hitBase;
 
         // Direction from enemy to base
@@ -43,13 +44,12 @@ public class EnemyAttackBase : MonoBehaviour
 
         if (Physics.Raycast(transform.position, directionToBase, out hitBase, fireRadius))
         {
-            enemyAnimator.Play("Attack");
             Debug.DrawRay(transform.position, directionToBase * hitBase.distance, Color.green);
             if (timeUntilNextShot <= 0 && hitBase.transform.CompareTag("Base"))
             {
-                audioSource.PlayOneShot(clip);
                 baseHealth = hitBase.collider.GetComponent<BaseHealth>();
                 baseHealth.TakeDamage(enemyDamage);
+                audioSource.PlayOneShot(clip);
                 //AnimatorControl.isHit = true;
                 timeUntilNextShot = timeBetweenShots;
             }

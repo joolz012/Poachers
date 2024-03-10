@@ -19,6 +19,11 @@ public class Stage2Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (PlayerPrefs.GetFloat(gondarPlayerPrefs) >= 1)
+        {
+            Destroy(gondarGameObject);
+        }
+
         raidingBase = false;
         Time.timeScale = 1;
         if (PlayerPrefs.GetInt("animalCounter") >= 0)
@@ -60,25 +65,19 @@ public class Stage2Manager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("animalCounter") > 0 && !raidingBase)
         {
+            PlayerPrefs.SetInt("raid", 1);
             defendTimer = Random.Range(7, 8);
             StartCoroutine(BackToBase(defendTimer));
             raidingBase = true;
         }
         //Debug.Log(PlayerPrefs.GetInt("animalCounter"));
         GatePass();
-
-        if (!gondarGameObject.activeInHierarchy)
-        {
-            PlayerPrefs.SetInt(gondarPlayerPrefs, 1);
-        }
     }
 
     IEnumerator BackToBase(float timer)
     {
         yield return new WaitForSeconds(timer * 60);
         //show being raided;
-        PlayerPrefs.SetInt("raid", 1);
-        SceneManager.LoadScene("Base");
     }
 
 

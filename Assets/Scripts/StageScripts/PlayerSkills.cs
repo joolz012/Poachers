@@ -23,23 +23,24 @@ public class PlayerSkills : MonoBehaviour
 
     [Header("Talisman Two")]
     public float talismanTwoDefaultCd;
-
+    public float attackIncrease;
     private float talismanTwoCd;
     private bool talismanTwoBool;
     public Slider talisman2Slider;
 
     [Header("Talisman Three")]
     public float talismanThreeDefaultCd;
+    public float healIncrease;
     private float talismanThreeCd;
     private bool talismanThreeBool;
     public Slider talisman3Slider;
     // Start is called before the first frame update
     void Start()
     {
-        talismanDetails[0] = "<b>Tarsier Talisman</b> \nStun All Enemies";
-        talismanDetails[1] = "<b>Haribon Talisman</b> \nBuff Defensive Towers";
-        talismanDetails[2] = "<b>Python Talisman</b> \nIncrease Health Points of Towers";
-        //PlayerPrefs.SetFloat("tarsierVision", 20);
+        talismanDetails[0] = "<b>Tarsier Talisman</b> \nIncrease Vision";
+        talismanDetails[1] = "<b>Haribon Talisman</b> \nIncrease Damage";
+        talismanDetails[2] = "<b>Turtle Talisman</b> \nIncrease Health";
+
         audioSource = GetComponent<AudioSource>();
         talismanOneCd = 0;
     }
@@ -62,7 +63,7 @@ public class PlayerSkills : MonoBehaviour
         talismanDetailsObject.SetActive(true);
         talismanText.text = talismanDetails[1].ToString();
     }
-    public void PythonDetails()
+    public void TurtleDetails()
     {
         talismanDetailsObject.SetActive(true);
         talismanText.text = talismanDetails[2].ToString();
@@ -77,11 +78,13 @@ public class PlayerSkills : MonoBehaviour
     void TalismanGetUpgrade()
     {
         visionDuration = PlayerPrefs.GetFloat("tarsierVision");
+        attackIncrease = PlayerPrefs.GetFloat("haribonAtk");
+        healIncrease = PlayerPrefs.GetFloat("turtleHeal");
     }
 
     void TalismanController()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1) && talismanOneCd <= 0) 
+        if(Input.GetKeyDown(KeyCode.Alpha1) && talismanOneCd <= 0)
         {
             Debug.Log("talisman One");
             talismanOneBool = true;
@@ -93,6 +96,52 @@ public class PlayerSkills : MonoBehaviour
             talismanOneCd = talismanOneDefaultCd;
             talismanOneBool = false;
         }
+        //talisman 2
+        if (Input.GetKeyDown(KeyCode.Alpha2) && talismanTwoCd <= 0)
+        {
+            if (PlayerPrefs.GetInt("Talisman2Atk") >= 1)
+            {
+                Debug.Log("talisman two");
+                talismanTwoBool = true;
+            }
+            else
+            {
+                Debug.Log("Talisman Two Locked");
+            }
+        }
+        if (talismanTwoBool)
+        {
+            audioSource.PlayOneShot(clip[1]);
+            GameObject haribonAtk = GameObject.FindGameObjectWithTag("Player");
+            PlayerAttack playerAtk = haribonAtk.GetComponent<PlayerAttack>();
+            playerAtk.meleeDamage += attackIncrease;
+            StartCoroutine(TalismanTwo(playerAtk));
+            talismanTwoCd = talismanTwoDefaultCd;
+            talismanTwoBool = false;
+        }        
+        
+        //talisman 3
+        if (Input.GetKeyDown(KeyCode.Alpha3) && talismanThreeCd <= 0)
+        {
+            if (PlayerPrefs.GetInt("Talisman3Atk") >= 1)
+            {
+                Debug.Log("talisman three");
+                talismanThreeBool = true;
+            }
+            else
+            {
+                Debug.Log("Talisman Three Locked");
+            }
+        }
+        if (talismanThreeBool)
+        {
+            audioSource.PlayOneShot(clip[2]); 
+            GameObject pangolinHeal = GameObject.FindGameObjectWithTag("Player");
+            PlayerHealth playerheal = pangolinHeal.GetComponent<PlayerHealth>();
+            playerheal.playerHealth += healIncrease;
+            talismanThreeCd = talismanThreeDefaultCd;
+            talismanThreeBool = false;
+        }
     }
 
     void TalismanCooldown()
@@ -102,11 +151,13 @@ public class PlayerSkills : MonoBehaviour
         {
             talismanOneCd -= Time.deltaTime;
         }
+
         talisman2Slider.value = talismanTwoCd;
         if (talismanTwoCd >= 0)
         {
             talismanTwoCd -= Time.deltaTime;
         }
+
         talisman3Slider.value = talismanThreeCd;
         if (talismanThreeCd >= 0)
         {
@@ -126,5 +177,12 @@ public class PlayerSkills : MonoBehaviour
             playerCamera.orthographicSize -= Time.deltaTime;
         }
         yield break;
+    }
+    IEnumerator TalismanTwo(PlayerAttack attack)
+    {
+        yield return new WaitForSeconds(10);
+        attack.meleeDamage -= attackIncrease;
+        yield break;
+
     }
 }

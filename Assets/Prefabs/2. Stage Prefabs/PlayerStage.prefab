@@ -395,7 +395,7 @@ MonoBehaviour:
   healthslider: {fileID: 2743270268753635923}
   playerMaxHealth: 100
   playerHealth: 0
-  playAgainScene: Stage1
+  playAgainScene: 
   deathCanvas: {fileID: 8141705614598466827}
 --- !u!1 &5356658071621763716
 GameObject:
@@ -1449,6 +1449,14 @@ PrefabInstance:
       propertyPath: 'clip.Array.data[0]'
       value: 
       objectReference: {fileID: 8300000, guid: 2947a9281f2b307469be007910d277e5, type: 3}
+    - target: {fileID: 5364380955443214878, guid: 8fb67f44f00cc1445bc2c4bd162acf0b, type: 3}
+      propertyPath: talismanTwoDefaultCd
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5364380955443214878, guid: 8fb67f44f00cc1445bc2c4bd162acf0b, type: 3}
+      propertyPath: talismanThreeDefaultCd
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6482716997488752233, guid: 8fb67f44f00cc1445bc2c4bd162acf0b, type: 3}
       propertyPath: m_Enabled
       value: 0

@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Stages/Stage1.unity
     guid: e569c9a15e07b1041b83223d6eb51f59
   - enabled: 1
+    path: Assets/Scenes/Cutscenes/GondarDeath.unity
+    guid: ee6c35527d53b2547bf620856b716c40
+  - enabled: 1
     path: Assets/Scenes/Stages/Stage2.unity
     guid: 4e6be56f253ad294b8be71a27bc55d0a
   - enabled: 1

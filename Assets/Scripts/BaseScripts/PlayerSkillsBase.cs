@@ -55,6 +55,8 @@ public class PlayerSkillsBase : MonoBehaviour
         talisman2Slider.maxValue = 50;
 
         talismanThreeCd = 0;
+        talisman3Slider.maxValue = 30;
+
     }
     void Update()
     {
@@ -66,18 +68,18 @@ public class PlayerSkillsBase : MonoBehaviour
     }
     public void CrocodileDetails()
     {
-        talismanDetailsObject.SetActive(true);
         talismanText.text = talismanDetails[0].ToString();
-    }
-    public void TamaraweDetails()
-    {
         talismanDetailsObject.SetActive(true);
+    }
+    public void TamarawDetails()
+    {
         talismanText.text = talismanDetails[1].ToString();
+        talismanDetailsObject.SetActive(true);
     }
     public void PangolinDetails()
     {
-        talismanDetailsObject.SetActive(true);
         talismanText.text = talismanDetails[2].ToString();
+        talismanDetailsObject.SetActive(true);
     }
 
     public void ExitPointer()

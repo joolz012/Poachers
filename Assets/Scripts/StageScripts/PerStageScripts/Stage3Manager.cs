@@ -60,6 +60,7 @@ public class Stage3Manager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("animalCounter") > 0 && !raidingBase)
         {
+            PlayerPrefs.SetInt("raid", 1);
             defendTimer = Random.Range(7, 8);
             StartCoroutine(BackToBase(defendTimer));
             raidingBase = true;
@@ -77,7 +78,6 @@ public class Stage3Manager : MonoBehaviour
     {
         yield return new WaitForSeconds(timer * 60);
         //show being raided;
-        PlayerPrefs.SetInt("raid", 1);
         SceneManager.LoadScene("Base");
     }
 

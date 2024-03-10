@@ -16,6 +16,8 @@ public class EnemyHealth : MonoBehaviour
     public Transform healthbar, isoCam;
     public bool nextWave = false;
     private bool dead;
+
+    public string bossPlayerPrefs;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +53,7 @@ public class EnemyHealth : MonoBehaviour
     {
         enemyAnim.Play("Death");
         yield return new WaitForSeconds(1.0f);
+        PlayerPrefs.SetFloat(bossPlayerPrefs, PlayerPrefs.GetFloat(bossPlayerPrefs) + 1);
         Destroy(gameObject);
         yield break;
     }
@@ -64,9 +67,5 @@ public class EnemyHealth : MonoBehaviour
     {
         //Debug.Log("Hit");
         health -= minus;
-    }
-
-    private void OnDestroy()
-    {
     }
 }

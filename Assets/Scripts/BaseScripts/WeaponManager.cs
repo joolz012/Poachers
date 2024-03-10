@@ -45,6 +45,16 @@ public class WeaponManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         currentMoney = PlayerPrefs.GetFloat("currentMoney");
     }
+    void Update()
+    {
+        currentMoney = PlayerPrefs.GetFloat("currentMoney");
+        moneyText.text = currentMoney.ToString();
+        FundMechanics();
+        MouseRaycast();
+
+        addMoney = PlayerPrefs.GetFloat("animalCounter") * 100;
+    }
+
     private void OnEnable()
     {
         onDetails = false;
@@ -55,7 +65,7 @@ public class WeaponManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(addMoneyTimer);
-            PlayerPrefs.SetFloat("currentMoney", +PlayerPrefs.GetFloat("currentMoney") + addMoney);
+            PlayerPrefs.SetFloat("currentMoney", PlayerPrefs.GetFloat("currentMoney") + addMoney);
         }
     }
     public void FundMechanics()
@@ -72,13 +82,7 @@ public class WeaponManager : MonoBehaviour
             startFund = false;
         }
     }
-    void Update()
-    {
-        currentMoney = PlayerPrefs.GetFloat("currentMoney");
-        moneyText.text = currentMoney.ToString();
-        FundMechanics();
-        MouseRaycast();
-    }
+
 
     void MouseRaycast()
     {

@@ -25,7 +25,6 @@ public class EnemyHealthBase : MonoBehaviour
         enemyAttackBase = GetComponent<EnemyAttackBase>();
 
         dead = false;
-        health = maxHealth;
         slider.maxValue = maxHealth;
     }
 

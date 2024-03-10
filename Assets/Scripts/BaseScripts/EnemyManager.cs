@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyManager : MonoBehaviour
 {
+    public GameObject[] boss;
     public GameObject objectToInstantiate;
+    GameObject[] taggedObjects;
+
     public Transform[] spawnPoints;
     public int maxInstantiations;
     private int instantiations = 0;
@@ -15,6 +19,7 @@ public class EnemyManager : MonoBehaviour
 
     public int defendTimer;
     public WeaponManager weaponManager;
+    public BackgroundMusicBase backgroundMusic;
     public TimerScript timerScript;
     void Start()
     {
@@ -39,10 +44,20 @@ public class EnemyManager : MonoBehaviour
         if (PlayerPrefs.GetInt("raid") >= 1 && !raidingBase)
         {
             //back to base
+            timerScript.TimerDuration(0.16666667f);
             PlayerPrefs.SetInt("raid", 0);
             weaponManager.isCoroutineRunning = true;
             StartCoroutine(InstantiateObjects());
             raidingBase = true;
+        }
+
+        taggedObjects = GameObject.FindGameObjectsWithTag("Enemy");
+        if (taggedObjects.Length <= 0)
+        {
+            if(PlayerPrefs.GetFloat("gondarPlayerPrefs") == 2)
+            {
+                SceneManager.LoadScene("gondarDeath");
+            }
         }
 
         //if (Input.GetKeyDown(KeyCode.O))
@@ -71,8 +86,10 @@ public class EnemyManager : MonoBehaviour
 
     IEnumerator InstantiateObjects()
     {
-        timerScript.TimerDuration(0.5f);
-        yield return new WaitForSeconds(30);
+        Debug.Log("Wait");
+        BossBattle();
+        yield return new WaitForSeconds(10);
+        backgroundMusic.PoacherAttacking();
         while (instantiations < maxInstantiations)
         {
             yield return new WaitForSeconds(repeatRate); // Wait for 4 seconds before the next instantiation.
@@ -91,9 +108,30 @@ public class EnemyManager : MonoBehaviour
         //weaponManager.isCoroutineRunning = false;
         //instantiations = 0;
         //raidingBase = false;
+        backgroundMusic.DefaultBgm();
         yield break;
         //Debug.Log("Stopped instantiating objects.");
     }
+
+    void BossBattle()
+    {
+        if(PlayerPrefs.GetFloat("gondarPlayerPrefs") == 1)
+        {
+            int randomIndexBoss = Random.Range(0, spawnPoints.Length);
+            Instantiate(boss[0], spawnPoints[randomIndexBoss].position, transform.rotation);
+        }
+        if (PlayerPrefs.GetFloat("bjornPlayerPrefs") == 1)
+        {
+            int randomIndexBoss = Random.Range(0, spawnPoints.Length);
+            Instantiate(boss[1], spawnPoints[randomIndexBoss].position, transform.rotation);
+        }
+        if (PlayerPrefs.GetFloat("ragnarPlayerPrefs") == 1)
+        {
+            int randomIndexBoss = Random.Range(0, spawnPoints.Length);
+            Instantiate(boss[2], spawnPoints[randomIndexBoss].position, transform.rotation);
+        }
+    }
+
 
     // You can call this method to stop instantiating objects if needed.
     public void StopInstantiating()

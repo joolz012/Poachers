@@ -245,7 +245,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 6036999056306205812}
           m_TargetAssemblyTypeName: PlayerSkillsBase, Assembly-CSharp
-          m_MethodName: CrocodileDetails
+          m_MethodName: TamarawDetails
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -335,7 +335,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7c96efb513bdcf0488442f8e58f692c3, type: 3}
+  m_Sprite: {fileID: -1460788374, guid: 571046f356234494997227c63b28bf1c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2435,7 +2435,7 @@ GameObject:
   - component: {fileID: 86231273}
   - component: {fileID: 86231274}
   m_Layer: 0
-  m_Name: Talisman2Atk
+  m_Name: Haribon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2475,13 +2475,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   essenceSpent: 0
-  essenceSpentAnimal: 
-  whatAnimal: 
-  maxLevel: 0
-  whatAnimalMax: 
-  talismanCost: 0
+  essenceSpentAnimal: haribonEssence
+  whatAnimal: haribon
+  maxLevel: 3
+  whatAnimalMax: haribonMax
+  talismanCost: 8
   talismanSave: Talisman2Atk
-  unlockCost: 0
+  unlockCost: 8
   isUnlocked: 0
   currentEssenceCostText: {fileID: 911808951}
   talismanCostText: {fileID: 1640024824}
@@ -2490,6 +2490,10 @@ MonoBehaviour:
   talismanDmgIncrease: 0
   talismanHealthSave: 
   talismanHealthIncrease: 0
+  talismanAtkSave: haribonAtk
+  talismanAtkIncrease: 10
+  talismanHealthSave2: 
+  talismanHealthIncrease2: 0
 --- !u!1 &87364528
 GameObject:
   m_ObjectHideFlags: 0
@@ -13490,6 +13494,10 @@ MonoBehaviour:
   talismanDmgIncrease: 0
   talismanHealthSave: 
   talismanHealthIncrease: 0
+  talismanAtkSave: 
+  talismanAtkIncrease: 0
+  talismanHealthSave2: 
+  talismanHealthIncrease2: 0
 --- !u!1 &421448223
 GameObject:
   m_ObjectHideFlags: 0
@@ -13987,7 +13995,7 @@ GameObject:
   - component: {fileID: 444746438}
   - component: {fileID: 444746439}
   m_Layer: 0
-  m_Name: Talisman3Atk
+  m_Name: Turtle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14027,13 +14035,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   essenceSpent: 0
-  essenceSpentAnimal: 
-  whatAnimal: 
-  maxLevel: 0
-  whatAnimalMax: 
-  talismanCost: 0
+  essenceSpentAnimal: turtleEssence
+  whatAnimal: turtle
+  maxLevel: 10
+  whatAnimalMax: turtleMax
+  talismanCost: 3
   talismanSave: Talisman3Atk
-  unlockCost: 0
+  unlockCost: 3
   isUnlocked: 0
   currentEssenceCostText: {fileID: 548102731}
   talismanCostText: {fileID: 1322803678}
@@ -14042,6 +14050,10 @@ MonoBehaviour:
   talismanDmgIncrease: 0
   talismanHealthSave: 
   talismanHealthIncrease: 0
+  talismanAtkSave: 
+  talismanAtkIncrease: 0
+  talismanHealthSave2: turtleHeal
+  talismanHealthIncrease2: 20
 --- !u!1 &445837464
 GameObject:
   m_ObjectHideFlags: 0
@@ -27084,6 +27096,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainOffice
       objectReference: {fileID: 0}
+    - target: {fileID: 182156, guid: 3fd4a442a13c4f746a030b1f898f424a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 420490, guid: 3fd4a442a13c4f746a030b1f898f424a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -27228,7 +27244,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 6036999056306205812}
           m_TargetAssemblyTypeName: PlayerSkillsBase, Assembly-CSharp
-          m_MethodName: CrocodileDetails
+          m_MethodName: PangolinDetails
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -27318,7 +27334,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 93b1da3c78e8ccc46b257d97e9a27ccc, type: 3}
+  m_Sprite: {fileID: -283881280, guid: f24da1b091d96c94bb513cdd8f750bf2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -30875,7 +30891,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 6036999056306205812}
           m_TargetAssemblyTypeName: PlayerSkillsBase, Assembly-CSharp
-          m_MethodName: CrocodileDetails
+          m_MethodName: PangolinDetails
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -30946,9 +30962,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 50
+  m_MaxValue: 30
   m_WholeNumbers: 0
-  m_Value: 50
+  m_Value: 30
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -36340,7 +36356,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 6036999056306205812}
           m_TargetAssemblyTypeName: PlayerSkillsBase, Assembly-CSharp
-          m_MethodName: CrocodileDetails
+          m_MethodName: TamarawDetails
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -38965,6 +38981,10 @@ MonoBehaviour:
   talismanDmgIncrease: 0.5
   talismanHealthSave: 
   talismanHealthIncrease: 0
+  talismanAtkSave: 
+  talismanAtkIncrease: 0
+  talismanHealthSave2: 
+  talismanHealthIncrease2: 0
 --- !u!1 &1307149320
 GameObject:
   m_ObjectHideFlags: 0
@@ -41572,6 +41592,10 @@ MonoBehaviour:
   talismanDmgIncrease: 0
   talismanHealthSave: 
   talismanHealthIncrease: 0
+  talismanAtkSave: 
+  talismanAtkIncrease: 0
+  talismanHealthSave2: 
+  talismanHealthIncrease2: 0
 --- !u!1 &1389645800
 GameObject:
   m_ObjectHideFlags: 0
@@ -42431,7 +42455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visible: 1
-  margin: 50
+  margin: 20
   canvasColor: {r: 1, g: 0.009400987, b: 0, a: 0.105882354}
   camera: {fileID: 963194227}
 --- !u!1 &1408760923
@@ -47660,87 +47684,6 @@ MonoBehaviour:
   fadeSpeed: 0
   fadeAmount: 0
   doFade: 0
---- !u!1001 &1575617442
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1144631291310265160, guid: ee2223eb3489d3d48a26193a83184e5c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -13
-      objectReference: {fileID: 0}
-    - target: {fileID: 1144631291310265160, guid: ee2223eb3489d3d48a26193a83184e5c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.37
-      objectReference: {fileID: 0}
-    - target: {fileID: 1144631291310265160, guid: ee2223eb3489d3d48a26193a83184e5c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -61
-      objectReference: {fileID: 0}
-    - target: {fileID: 1144631291310265160, guid: ee2223eb3489d3d48a26193a83184e5c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1144631291310265160, guid: ee2223eb3489d3d48a26193a83184e5c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1144631291310265160, guid: ee2223eb3489d3d48a26193a83184e5c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1144631291310265160, guid: ee2223eb3489d3d48a26193a83184e5c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1144631291310265160, guid: ee2223eb3489d3d48a26193a83184e5c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1144631291310265160, guid: ee2223eb3489d3d48a26193a83184e5c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1144631291310265160, guid: ee2223eb3489d3d48a26193a83184e5c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2172235077471055182, guid: ee2223eb3489d3d48a26193a83184e5c, type: 3}
-      propertyPath: m_Name
-      value: EnemyBase
-      objectReference: {fileID: 0}
-    - target: {fileID: 2172235077471055182, guid: ee2223eb3489d3d48a26193a83184e5c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6833056352941113280, guid: ee2223eb3489d3d48a26193a83184e5c, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6833056352941113280, guid: ee2223eb3489d3d48a26193a83184e5c, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6833056352941113280, guid: ee2223eb3489d3d48a26193a83184e5c, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8725509547280199411, guid: ee2223eb3489d3d48a26193a83184e5c, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8725509547280199411, guid: ee2223eb3489d3d48a26193a83184e5c, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ee2223eb3489d3d48a26193a83184e5c, type: 3}
 --- !u!1 &1581837341 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4295123818218441804, guid: 3fd4a442a13c4f746a030b1f898f424a, type: 3}
@@ -56162,6 +56105,10 @@ MonoBehaviour:
   talismanDmgIncrease: 0
   talismanHealthSave: pangolinHp
   talismanHealthIncrease: 100
+  talismanAtkSave: 
+  talismanAtkIncrease: 0
+  talismanHealthSave2: 
+  talismanHealthIncrease2: 0
 --- !u!1 &1861760398
 GameObject:
   m_ObjectHideFlags: 0
@@ -61865,6 +61812,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2027001354}
   - component: {fileID: 2027001353}
+  - component: {fileID: 2027001355}
   m_Layer: 0
   m_Name: BackgroundMusic
   m_TagString: Untagged
@@ -61882,8 +61830,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c8315d0bbd2a77e429a6fa9241ab889b, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
@@ -61983,6 +61931,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2027001355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027001352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 368d33e14a154114a92284082a2155db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip:
+  - {fileID: 8300000, guid: c8315d0bbd2a77e429a6fa9241ab889b, type: 3}
+  - {fileID: 8300000, guid: 18f48ceff7861cb4c897263304cf94ad, type: 3}
 --- !u!1 &2029115354
 GameObject:
   m_ObjectHideFlags: 0
@@ -67476,6 +67439,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1558f750d8e4c87479c26e7c671ba032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boss:
+  - {fileID: 2172235077471055182, guid: d894d6054b815a34499d3e8d2d5c7b87, type: 3}
+  - {fileID: 2172235077471055182, guid: cb87c353aaaf4284db176699d143ffc1, type: 3}
+  - {fileID: 2172235077471055182, guid: 1f51aeb6fbcebef46a6fc3289c2aae4f, type: 3}
   objectToInstantiate: {fileID: 2172235077471055182, guid: ee2223eb3489d3d48a26193a83184e5c, type: 3}
   spawnPoints:
   - {fileID: 1389645801}
@@ -67494,6 +67461,7 @@ MonoBehaviour:
   raidingBase: 0
   defendTimer: 0
   weaponManager: {fileID: 445837465}
+  backgroundMusic: {fileID: 2027001355}
   timerScript: {fileID: 220241284}
 --- !u!4 &2895250156487628978
 Transform:
@@ -69848,6 +69816,10 @@ PrefabInstance:
       value: AnimalBaseManagerNew
       objectReference: {fileID: 0}
     - target: {fileID: 577528352171230188, guid: 5476cf6bab5759541af479daff5954f3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 577528352171230188, guid: 5476cf6bab5759541af479daff5954f3, type: 3}
       propertyPath: m_NavMeshLayer
       value: 0
       objectReference: {fileID: 0}
@@ -70275,8 +70247,8 @@ MonoBehaviour:
   buffDuration: 10
   dmgIncrease: 0.5
   talisman2Slider: {fileID: 1199546961}
-  talismanThreeDefaultCd: 0
-  talismanHealthIncrease: 0
+  talismanThreeDefaultCd: 30
+  talismanHealthIncrease: 100
   talisman3Slider: {fileID: 1006905732}
 --- !u!82 &6036999056306205813
 AudioSource:
@@ -73056,4 +73028,3 @@ SceneRoots:
   - {fileID: 461685316}
   - {fileID: 952526119}
   - {fileID: 2027001354}
-  - {fileID: 1575617442}

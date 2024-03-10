@@ -6,19 +6,19 @@ using UnityEngine.UI;
 public class TalismanScript : MonoBehaviour
 {
     [Header("Essence Spent")]
-    public int essenceSpent;
+    public float essenceSpent;
     public string essenceSpentAnimal;
     public string whatAnimal;
-    public int maxLevel;
+    public float maxLevel;
     public string whatAnimalMax;
 
     [Header("For Talisman Cost Upgrade")]
-    public int talismanCost;
+    public float talismanCost;
 
     [Header("Tell if Talisan Unlocked")]
     public string talismanSave;
-    public int unlockCost;
-    public int isUnlocked;
+    public float unlockCost;
+    public float isUnlocked;
     
     [Header("Text")]
     public Text currentEssenceCostText;
@@ -34,9 +34,18 @@ public class TalismanScript : MonoBehaviour
     public string talismanHealthSave;
     public float talismanHealthIncrease;
 
+    [Header("For Haribon Only")]
+    public string talismanAtkSave;
+    public float talismanAtkIncrease;
+
+    [Header("For Turtle Only")]
+    public string talismanHealthSave2;
+    public float talismanHealthIncrease2;
+
     // Start is called before the first frame update
     void Start()
     {
+
         PlayerPrefs.GetInt(talismanSave);
 
         if(isUnlocked == 1)
@@ -90,6 +99,20 @@ public class TalismanScript : MonoBehaviour
             Debug.Log("Tarsier Upgraded");
         }
 
+        if (whatAnimal == "haribon")
+        {
+            PlayerPrefs.SetFloat(talismanAtkSave, PlayerPrefs.GetFloat(talismanAtkSave) + talismanAtkIncrease);
+
+            Debug.Log("Tamaraw Upgraded");
+        }
+
+        if (whatAnimal == "turtle")
+        {
+            PlayerPrefs.SetFloat(talismanHealthSave2, PlayerPrefs.GetFloat(talismanHealthSave2) + talismanHealthIncrease2);
+
+            Debug.Log("Turtle Upgraded");
+        }
+
         //defending
         if (whatAnimal == "crocodile")
         {
@@ -103,6 +126,12 @@ public class TalismanScript : MonoBehaviour
             PlayerPrefs.SetFloat(talismanDmgSave, PlayerPrefs.GetFloat(talismanDmgSave) + talismanDmgIncrease);
 
             Debug.Log("Tamaraw Upgraded");
+        }
+        if (whatAnimal == "pangolin")
+        {
+            PlayerPrefs.SetFloat(talismanHealthSave, PlayerPrefs.GetFloat(talismanHealthSave) + talismanHealthIncrease);
+
+            Debug.Log("Pangolin Upgraded");
         }
 
     }

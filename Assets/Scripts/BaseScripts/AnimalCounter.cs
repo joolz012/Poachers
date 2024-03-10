@@ -36,7 +36,7 @@ public class AnimalCounter : MonoBehaviour
         counters[0] = PlayerPrefs.GetInt("tarsier");
         counters[1] = PlayerPrefs.GetInt("tamaraw");
         counters[2] = PlayerPrefs.GetInt("haribon");
-        counters[3] = PlayerPrefs.GetInt("python");
+        counters[3] = PlayerPrefs.GetInt("turtle");
         counters[4] = PlayerPrefs.GetInt("crocodile");
         counters[5] = PlayerPrefs.GetInt("pangolin");
 

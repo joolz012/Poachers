@@ -21,6 +21,7 @@ TagManager:
   - haribon
   - python
   - pangolin
+  - Crates
   layers:
   - Default
   - TransparentFX

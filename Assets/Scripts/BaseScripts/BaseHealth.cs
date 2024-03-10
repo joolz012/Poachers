@@ -38,9 +38,9 @@ public class BaseHealth : MonoBehaviour
         CheatCodes();
         healthslider.value = baseHealth;
         healthbar.LookAt(isoCam.position);
-        if (baseHealth <= 0 && PlayerPrefs.GetInt("animalCounter") > 0)
+        if (baseHealth <= 0 && PlayerPrefs.GetFloat("animalCounter") > 0)
         {
-            PlayerPrefs.SetInt("animalCounter", PlayerPrefs.GetInt("animalCounter") - 1);
+            PlayerPrefs.SetFloat("animalCounter", PlayerPrefs.GetInt("animalCounter") - 1);
             audioSource.PlayOneShot(clip[0]);
             baseHealth = baseMaxHealth;
 
@@ -53,6 +53,14 @@ public class BaseHealth : MonoBehaviour
             DegradeWeaponTrap();
             RemoveAllEnemy();
             baseHealth = baseMaxHealth;
+            if(PlayerPrefs.GetFloat("gondarPlayerPrefs") == 1)
+            {
+                PlayerPrefs.SetFloat("gondarPlayerPrefs", PlayerPrefs.GetFloat("gondarPlayerPrefs") - 1);
+            }
+            if (PlayerPrefs.GetFloat("bjornPlayerPrefs") == 1)
+            {
+                PlayerPrefs.SetFloat("bjornPlayerPrefs", PlayerPrefs.GetFloat("bjornPlayerPrefs") - 1);
+            }
         }
 
         HealthBar();
@@ -211,33 +219,46 @@ public class BaseHealth : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.O))
         {
-            //animals
-            //tarsier
-            PlayerPrefs.SetInt("tarsier", 0);
-            PlayerPrefs.SetInt("tarsierEssence", 0);
-            PlayerPrefs.SetInt("tarsierVision", 0);
-
-            //tamaraw
-            PlayerPrefs.SetInt("tamaraw", 0);
+            //defending
 
             //crocodile
-            PlayerPrefs.SetInt("crocodileEssence", 0);
+            PlayerPrefs.SetFloat("crocodileEssence", 0);
             PlayerPrefs.SetFloat("stunDuration", 2);
 
-            //haribon
-            PlayerPrefs.SetInt("haribon", 0);
-
-            //python
-            PlayerPrefs.SetInt("python", 0);
-
-            //crocodile
-            PlayerPrefs.SetInt("crocodile", 0);
+            //tamaraw
+            PlayerPrefs.SetFloat("tamaraw", 0);
+            PlayerPrefs.SetFloat("buffDuration", 10);
+            PlayerPrefs.SetFloat("tamarawDmg", 0.5f);
+            PlayerPrefs.SetFloat("Talisman2Def", 0);
 
             //pangolin
-            PlayerPrefs.SetInt("pangolin", 0);
+            PlayerPrefs.SetFloat("pangolin", 0);
+            PlayerPrefs.SetFloat("pangolinHp", 100);
+            PlayerPrefs.SetFloat("Talisman3Def", 0);
+
+            //attaking
+
+            //tarsier
+            PlayerPrefs.SetFloat("tarsier", 0);
+            PlayerPrefs.SetFloat("tarsierEssence", 0);
+            PlayerPrefs.SetFloat("tarsierVision", 20);
+
+            //haribon
+            PlayerPrefs.SetFloat("haribonAtk", 10);
+            PlayerPrefs.SetFloat("Talisman2Atk", 0);
+
+            //python
+            PlayerPrefs.SetFloat("turtle", 0);
+            PlayerPrefs.SetFloat("turtleHeal", 20);
+            PlayerPrefs.SetFloat("Talisman3Atk", 0);
+
+            //Boss
+            PlayerPrefs.SetFloat("gondarPlayerPrefs", 0);
+            PlayerPrefs.SetFloat("bjornPlayerPrefs", 0);
+            PlayerPrefs.SetFloat("ragnarPlayerPrefs", 0);
 
             PlayerPrefs.SetInt("keySave", 0);
-            PlayerPrefs.SetInt("animalCounter", 0);
+            PlayerPrefs.SetFloat("animalCounter", 0);
             PlayerPrefs.SetInt("raid", 0);
             PlayerPrefs.SetInt("essence", 0);
             PlayerPrefs.SetInt("talisman", 0);
