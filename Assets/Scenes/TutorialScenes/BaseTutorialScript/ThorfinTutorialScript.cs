@@ -6,20 +6,23 @@ public class ThorfinTutorialScript : MonoBehaviour
 {
     Collider thorfinCollider;
     public GameObject defendDialog;
-    public GameObject talkCanvas;
+    public GameObject[] talkCanvas;
     public DefendManagerScript defendManagerScript;
+    public TutorialSounds3 tutorialSounds3;
     // Start is called before the first frame update
     void Start()
     {
         thorfinCollider = GetComponent<Collider>();
-        talkCanvas.SetActive(false);
+        talkCanvas[0].SetActive(false);
+        talkCanvas[1].SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            talkCanvas.SetActive(true);
+            talkCanvas[0].SetActive(true);
+            talkCanvas[1].SetActive(false);
         }
     }
 
@@ -27,15 +30,17 @@ public class ThorfinTutorialScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            talkCanvas.SetActive(false);
+            talkCanvas[0].SetActive(false);
+            talkCanvas[1].SetActive(true);
         }
     }
     public void ThorfinTalk()
     {
         if(defendDialog != null)
         {
+            tutorialSounds3.indexSounds += 1;
             defendManagerScript.AddIndex();
-            talkCanvas.SetActive(false);
+            talkCanvas[2].SetActive(false);
             defendDialog.GetComponent<DefendDialogScript>().ContinueDialogue();
             thorfinCollider.enabled = false; 
         }

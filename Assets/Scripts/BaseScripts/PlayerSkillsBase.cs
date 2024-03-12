@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerSkillsBase : MonoBehaviour
 {
-    AudioSource audioSource;
+    public AudioSource audioSource;
     public AudioClip[] clip;
 
     public EnemyMovement[] enemyMovements;

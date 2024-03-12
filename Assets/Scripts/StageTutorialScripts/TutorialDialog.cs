@@ -28,9 +28,13 @@ public class TutorialDialog : MonoBehaviour
 
     public int index;
 
+    public GameObject soundsManager;
+    private TutorialSounds2 tutorialSounds2;
 
     void Start()
     {
+        tutorialSounds2 = soundsManager.GetComponent<TutorialSounds2>();
+        soundsManager.SetActive(true);
         Time.timeScale = 0;
         dialogCanvas.SetActive(false);
         StartCoroutine(GameStart());
@@ -80,7 +84,7 @@ public class TutorialDialog : MonoBehaviour
                         if (!moving)
                         {
                             dialogCanvas.SetActive(false);
-                            highlights[0].SetActive(true);
+                            highlights[1].SetActive(true);
                             StopAllCoroutines();
                             StartCoroutine(Countdown());
                         }
@@ -97,6 +101,7 @@ public class TutorialDialog : MonoBehaviour
                             cameraGameObject.GetComponent<CameraScript>().enabled = true;
                             talismanGameObject.SetActive(true);
                             highlights[0].SetActive(true);
+                            highlights[1].SetActive(true);
                         }
                     }
                     else
@@ -110,6 +115,11 @@ public class TutorialDialog : MonoBehaviour
                     textComponent.text = lines[index];
                 }
             }
+        }
+
+        if (highlights[0].activeInHierarchy && Input.GetMouseButtonDown(0))
+        {
+            highlights[0].SetActive(false);
         }
     }
 
@@ -132,7 +142,7 @@ public class TutorialDialog : MonoBehaviour
 
     public IEnumerator Countdown()//highlights disable and wait
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         HighlightsDisable();
         dialogCanvas.SetActive(true);
         NextLine();
@@ -183,6 +193,8 @@ public class TutorialDialog : MonoBehaviour
         if (index < lines.Length - 1)
         {
             index++;
+            tutorialSounds2.indexSounds += 1;
+            tutorialSounds2.isPlaying = false;
             StartCoroutine(TypeLine());
             UpdateImage();
             UpdateName();

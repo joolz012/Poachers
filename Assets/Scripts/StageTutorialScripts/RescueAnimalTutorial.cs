@@ -42,6 +42,8 @@ public class RescueAnimalTutorial : MonoBehaviour
         Transform parentTransform = transform.parent;
         if (parentTransform != null)
         {
+            PlayerPrefs.SetInt("animalCounter", PlayerPrefs.GetInt("animalCounter") + 1);
+            PlayerPrefs.SetInt("tarsier", PlayerPrefs.GetInt("tarsier") + 1);
             GameObject parentGameObject = parentTransform.gameObject;
             tutorialDialog.GetComponent<TutorialDialog>().ContinueDialogue();
             player.GetComponent<PlayerMovementStage>().enabled = false;

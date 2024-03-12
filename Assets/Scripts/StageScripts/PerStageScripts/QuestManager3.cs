@@ -14,10 +14,17 @@ public class QuestManager3 : MonoBehaviour
     public GameObject questTextBox2;
     public Text currentAnimalText2, totalAnimalText2;
     public float currentAnimal2, totalAnimal2, finalAnimalCost2;
+
     [Header("Animal 3")]
     public GameObject questTextBox3;
     public Text currentAnimalText3, totalAnimalText3;
     public float currentAnimal3, totalAnimal3, finalAnimalCost3;
+
+
+    [Header("Keys")]
+    public GameObject questTextBox4;
+    public Text currentKeyText, totalKeyText;
+    public float currentKey, totalKey;
 
     [Header("Per Stage Needs")]
     public string animal1;
@@ -45,31 +52,31 @@ public class QuestManager3 : MonoBehaviour
         if (currentAnimal >= 0)
         {
             questTextBox.SetActive(true);
-            currentAnimalText.text = currentAnimal.ToString();
-
             questTextBox2.SetActive(true);
-            currentAnimalText2.text = currentAnimal2.ToString();
-
-            if (currentAnimal >= 7 && currentAnimal2 >= 5)
-            {
-                questTextBox.SetActive(false);
-                questTextBox2.SetActive(false);
-                questTextBox3.SetActive(true);
-                currentAnimalText3.text = currentAnimal3.ToString();
-            }
         }
         else if (currentAnimal < 0)
         {
             currentAnimalText.text = "0";
         }
+
+        currentAnimalText.text = currentAnimal.ToString();
         totalAnimalText.text = totalAnimal.ToString();
+
+        currentAnimalText2.text = currentAnimal2.ToString();
         totalAnimalText2.text = totalAnimal2.ToString();
+
+        currentAnimalText3.text = currentAnimal3.ToString();
         totalAnimalText3.text = totalAnimal3.ToString();
 
         if (questCounter == 0)
         {
             if(currentAnimal >= totalAnimal && currentAnimal2 >= totalAnimal2)
             {
+                questTextBox.SetActive(false);
+                questTextBox2.SetActive(false);
+                questTextBox3.SetActive(true);
+
+                currentKey = 0;
                 questCounter += 1;
             }
         }
@@ -77,10 +84,19 @@ public class QuestManager3 : MonoBehaviour
         {
             if (currentAnimal3 >= totalAnimal3)
             {
+                questTextBox3.SetActive(false);
+                currentKey = 0;
                 questCounter += 1;
             }
         }
         else if (questCounter == 2)
+        {
+            if (currentKey >= totalKey)
+            {
+                questCounter += 1;
+            }
+        }
+        else if (questCounter == 3)
         {
             gameObject.SetActive(false);
         }

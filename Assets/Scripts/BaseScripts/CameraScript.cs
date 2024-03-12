@@ -9,7 +9,7 @@ public class CameraScript : MonoBehaviour
     public float fixedYPosition;
     public float distanceZ;
     private Vector3 offset;
-
+    public LayerMask layerMask;
 
     private TransparencyScript raycastedObj;
     void LateUpdate()
@@ -41,7 +41,7 @@ public class CameraScript : MonoBehaviour
             Vector3 direction = playerTarget.position - transform.position;
             Ray ray = new Ray(transform.position, direction);
 
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            if (Physics.Raycast(ray, out RaycastHit hit, layerMask))
             {
                 TransparencyScript hitObject = hit.collider.gameObject.GetComponent<TransparencyScript>();
 
@@ -57,13 +57,13 @@ public class CameraScript : MonoBehaviour
                             raycastedObj.doFade = true;
                         }
                     }
-                    else
+                    else if (hit.collider.gameObject.tag != playerTarget.tag)
                     {
-                        // Player is hit, disable fading
+                        // Object with different tag is hit, reset fading
                         if (raycastedObj != null)
                         {
                             raycastedObj.doFade = false;
-                            raycastedObj = null; // Reset the raycastedObj
+                            raycastedObj = null;
                         }
                     }
                 }

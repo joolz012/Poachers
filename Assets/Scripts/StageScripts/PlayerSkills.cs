@@ -167,15 +167,9 @@ public class PlayerSkills : MonoBehaviour
 
     IEnumerator TalismanOne()
     {
-        while (playerCamera.orthographicSize <= 20.0f)
-        {
-            playerCamera.orthographicSize += Time.deltaTime;
-        }
+        playerCamera.orthographicSize = 20;
         yield return new WaitForSeconds(visionDuration);
-        while (playerCamera.orthographicSize >= 15.0f)
-        {
-            playerCamera.orthographicSize -= Time.deltaTime;
-        }
+        playerCamera.orthographicSize = 15;
         yield break;
     }
     IEnumerator TalismanTwo(PlayerAttack attack)

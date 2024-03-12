@@ -22,14 +22,19 @@ public class DialogScript : MonoBehaviour
     public GameObject dialogCanvas;
     public GameObject[] highlights;
     public bool moving;
-    private bool cantClick = true;
+    public bool cantClick = true;
 
     public int index;
 
     public AudioSource[] audioSource;
 
+    public GameObject soundsManager;
+    private TutorialSounds1 tutorialSounds1;
+
     void Start()
     {
+        tutorialSounds1 = soundsManager.GetComponent<TutorialSounds1>();
+        soundsManager.SetActive(true);
         dialogCanvas.SetActive(false);
         StartCoroutine(GameStart());
     }
@@ -196,6 +201,8 @@ public class DialogScript : MonoBehaviour
         if (index < lines.Length - 1)
         {
             index++;
+            tutorialSounds1.indexSounds += 1;
+            tutorialSounds1.isPlaying = false;
             StartCoroutine(TypeLine());
             UpdateImage();
             UpdateName();

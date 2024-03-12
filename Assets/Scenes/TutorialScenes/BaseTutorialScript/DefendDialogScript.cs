@@ -37,8 +37,12 @@ public class DefendDialogScript : MonoBehaviour
     public int index;
 
 
+    public GameObject soundsManager;
+    private TutorialSounds3 tutorialSounds3;
     void Start()
     {
+        tutorialSounds3 = soundsManager.GetComponent<TutorialSounds3>();
+        soundsManager.SetActive(true);
         Time.timeScale = 1;
         dialogCanvas.SetActive(false);
         StartCoroutine(GameStart());
@@ -47,6 +51,7 @@ public class DefendDialogScript : MonoBehaviour
     IEnumerator GameStart()
     {
         yield return new WaitForSeconds(3);
+        tutorialSounds3.isPlaying = false;
         dialogCanvas.SetActive(true);
         textComponent.text = string.Empty;
         nameText.text = string.Empty;
@@ -294,6 +299,8 @@ public class DefendDialogScript : MonoBehaviour
         if (index < lines.Length - 1)
         {
             index++;
+            tutorialSounds3.indexSounds += 1;
+            tutorialSounds3.isPlaying = false;
             StartCoroutine(TypeLine());
             UpdateImage();
             UpdateName();
@@ -320,6 +327,5 @@ public class DefendDialogScript : MonoBehaviour
             rawImage.texture = images[index];
         }
     }
-
 
 }

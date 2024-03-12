@@ -43,6 +43,7 @@ public class EnemyHealthBase : MonoBehaviour
         {
             enemyCollider.enabled = false;
             gameObject.tag = "Untagged";
+            enemyMovement.navMeshAgent.SetDestination(transform.position);
             enemyMovement.enabled = false;
             enemyAttackBase.enabled = false;
             StartCoroutine(Death());
@@ -53,7 +54,7 @@ public class EnemyHealthBase : MonoBehaviour
     IEnumerator Death()
     {
         enemyAnim.Play("Death");
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.8f);
         Destroy(gameObject);
         yield break;
     }

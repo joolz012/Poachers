@@ -452,6 +452,7 @@ MonoBehaviour:
   healthbar: {fileID: 3306154734617009505}
   isoCam: {fileID: 4565039704201174169, guid: 5bf3fde9b09188d4a81dec7a6af507f6, type: 3}
   nextWave: 0
+  bossPlayerPrefs: 
 --- !u!114 &7548317547238183011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -528,7 +529,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 25
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
