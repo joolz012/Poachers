@@ -71677,7 +71677,7 @@ PrefabInstance:
       objectReference: {fileID: 1638866546}
     - target: {fileID: 632872828690687189, guid: 5476cf6bab5759541af479daff5954f3, type: 3}
       propertyPath: baseMaxHealth
-      value: 50
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 632872828690687189, guid: 5476cf6bab5759541af479daff5954f3, type: 3}
       propertyPath: clip.Array.size
