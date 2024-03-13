@@ -37,11 +37,10 @@ public class WeaponManager : MonoBehaviour
     public bool onDetails;
 
     public BaseHealth baseHealth;
-    public bool isCoroutineRunning = false;
-    bool startFund = true;
 
     private void Start()
     {
+        StartFund();
         audioSource = GetComponent<AudioSource>();
         currentMoney = PlayerPrefs.GetFloat("currentMoney");
     }
@@ -49,10 +48,9 @@ public class WeaponManager : MonoBehaviour
     {
         currentMoney = PlayerPrefs.GetFloat("currentMoney");
         moneyText.text = currentMoney.ToString();
-        FundMechanics();
         MouseRaycast();
 
-        addMoney = PlayerPrefs.GetFloat("animalCounter") * 100;
+        addMoney = PlayerPrefs.GetInt("animalCounter") * 100;
     }
 
     private void OnEnable()
@@ -68,21 +66,15 @@ public class WeaponManager : MonoBehaviour
             PlayerPrefs.SetFloat("currentMoney", PlayerPrefs.GetFloat("currentMoney") + addMoney);
         }
     }
-    public void FundMechanics()
+    public void StartFund()
     {
-        if (isCoroutineRunning && !startFund)
-        {
-            //Debug.Log("Stop");
-            StopCoroutine("GiveFund");
-            startFund = true;
-        }
-        else if (!isCoroutineRunning && startFund)
-        {
-            StartCoroutine("GiveFund");
-            startFund = false;
-        }
+        StartCoroutine(GiveFund());
     }
 
+    public void StopFund()
+    {
+        StopAllCoroutines();
+    }
 
     void MouseRaycast()
     {

@@ -43,6 +43,7 @@ public class TutorialDialog : MonoBehaviour
     IEnumerator GameStart()
     {
         yield return new WaitForSeconds(3);
+        tutorialSounds2.isPlaying = false;
         dialogCanvas.SetActive(true);
         textComponent.text = string.Empty;
         nameText.text = string.Empty;
@@ -134,6 +135,8 @@ public class TutorialDialog : MonoBehaviour
     public void ContinueDialogue()
     { 
         index++;
+        tutorialSounds2.isPlaying = false;
+        tutorialSounds2.indexSounds += 1;
         dialogCanvas.SetActive(true);
         StartCoroutine(TypeLine());
         UpdateImage();

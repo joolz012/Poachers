@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class QuestManager4 : MonoBehaviour
@@ -10,10 +11,22 @@ public class QuestManager4 : MonoBehaviour
     public Text currentAnimalText, totalAnimalText;
     public float currentAnimal, totalAnimal;
 
+    public Transform bossFightTrans, playerTrans;
+    public CharacterController playerCont;
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (PlayerPrefs.GetFloat("ragnarBattle") == 1)
+        {
+            currentAnimalText.text = "";
+            totalAnimalText.text = "";
+            Text mainText = questTextBox.GetComponent<Text>();
+            mainText.text = "Defeat Ragnar";
+
+            playerCont.enabled = false; 
+            playerTrans.position = bossFightTrans.position;
+            playerCont.enabled = true;
+        }
     }
 
     // Update is called once per frame
@@ -26,12 +39,12 @@ public class QuestManager4 : MonoBehaviour
             totalAnimalText.text = totalAnimal.ToString();
         }
 
-        if(currentAnimal >= 10)
+        if(currentAnimal >= totalAnimal)
         {
-            currentAnimalText.text = "";
-            totalAnimalText.text = "";
-            Text mainText = questTextBox.GetComponent<Text>();
-            mainText.text = "Defeat Ragnar";
+            PlayerPrefs.SetFloat("ragnarBattle", 1);
+            SceneManager.LoadScene("Base");
         }
+
+
     }
 }

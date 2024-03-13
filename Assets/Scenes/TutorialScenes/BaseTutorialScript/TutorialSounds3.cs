@@ -43,6 +43,7 @@ public class TutorialSounds3 : MonoBehaviour
                 }
                 else if (indexSounds == 2)
                 {
+                    audioSource.PlayOneShot(thorfinClips[0]);
                 }
                 else if (indexSounds == 3)
                 {
@@ -50,9 +51,11 @@ public class TutorialSounds3 : MonoBehaviour
                 }
                 else if (indexSounds == 4)
                 {
+                    audioSource.PlayOneShot(thorfinClips[1]);
                 }
                 else if (indexSounds == 5)
                 {
+                    audioSource.PlayOneShot(thorfinClips[2]);
                 }
                 else if (indexSounds == 6)
                 {
@@ -60,13 +63,15 @@ public class TutorialSounds3 : MonoBehaviour
                 }
                 else if (indexSounds == 7)
                 {
+                    audioSource.PlayOneShot(thorfinClips[3]);
                 }
                 else if (indexSounds == 8)
                 {
-
+                    audioSource.PlayOneShot(thorfinClips[4]);
                 }
                 else if (indexSounds == 9)
                 {
+                    audioSource.PlayOneShot(thorfinClips[5]);
                 }
                 else if (indexSounds == 10)
                 {
@@ -74,21 +79,22 @@ public class TutorialSounds3 : MonoBehaviour
                 }
                 else if (indexSounds == 11)
                 {
+                    audioSource.PlayOneShot(thorfinClips[6]);
                 }
                 else if (indexSounds == 12)
                 {
-
+                    audioSource.PlayOneShot(thorfinClips[7]);
                 }
                 else if (indexSounds == 13)
                 {
-
+                    audioSource.PlayOneShot(thorfinClips[8]);
                 }
                 else if (indexSounds == 14)
                 {
                 }
                 else if (indexSounds == 15)
                 {
-
+                    audioSource.PlayOneShot(thorfinClips[9]);
                 }
                 else if (indexSounds == 16)
                 {
@@ -104,6 +110,7 @@ public class TutorialSounds3 : MonoBehaviour
                 }
                 else if (indexSounds == 19)
                 {
+                    audioSource.PlayOneShot(thorfinClips[10]);
                 }
                 isPlaying = true;
             }

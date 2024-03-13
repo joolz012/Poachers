@@ -991,7 +991,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crocodile
+  m_Text: '
+
+'
 --- !u!222 &180760321
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4018,6 +4020,7 @@ MonoBehaviour:
   player: {fileID: 1019414533721351121}
   rescueCanvas: {fileID: 335678183}
   tutorialDialog: {fileID: 1235001950}
+  tutorialSounds2: {fileID: 1570706216}
 --- !u!136 &1135736209
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5514,7 +5517,15 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ee70d9fe6a4fa1b4ea01b7e15e112be6, type: 3}
   - {fileID: 8300000, guid: b7707f3c44711ec4586f01e96570300b, type: 3}
   - {fileID: 8300000, guid: 7ffe41dacd533bf46beaa11d46a8c0dc, type: 3}
-  thorfinClips: []
+  thorfinClips:
+  - {fileID: 8300000, guid: 0f1b410e329c7a648ad45a0156e9f6f6, type: 3}
+  - {fileID: 8300000, guid: b5f06cb51c0814346963e09ea837b58d, type: 3}
+  - {fileID: 8300000, guid: 7c79e734383c6524abc6d797b11f2c56, type: 3}
+  - {fileID: 8300000, guid: b6125241fde938743b00930d40c9bcf3, type: 3}
+  - {fileID: 8300000, guid: 0af657cd6574adf4a95eb8926d544cff, type: 3}
+  - {fileID: 8300000, guid: 94e88b2cadadc74448c9721c41fbd607, type: 3}
+  - {fileID: 8300000, guid: a14c93019e3c0ff489c30276a08b71d1, type: 3}
+  - {fileID: 8300000, guid: f90ac614cd5ef7744afe132cb7408f28, type: 3}
   isPlaying: 1
   indexSounds: 0
 --- !u!4 &1570706217
@@ -6078,7 +6089,7 @@ GameObject:
   - component: {fileID: 1666813303}
   - component: {fileID: 1666813302}
   m_Layer: 5
-  m_Name: Crocodile
+  m_Name: Tarsier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6213,7 +6224,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -956061965, guid: 2a8d4777c34610c4788ed1de0066998b, type: 3}
+  m_Sprite: {fileID: 933022955, guid: d41cfd069b450464aaf5a20736f1e761, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9081,6 +9092,9 @@ MonoBehaviour:
   smoothSpeed: 5
   fixedYPosition: 20
   distanceZ: -50
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &3937706686972204656
 MonoBehaviour:
   m_ObjectHideFlags: 0

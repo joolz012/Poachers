@@ -1,7 +1,9 @@
+using HUDIndicator;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class QuestManager : MonoBehaviour
@@ -16,7 +18,10 @@ public class QuestManager : MonoBehaviour
     public Text currentKeyText, totalKeyText;
     public float currentKey, totalKey;
 
-    private int questCounter;
+    public int questCounter;
+    private bool doOnce = false;
+
+    public GameObject[] indicator;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,10 +35,13 @@ public class QuestManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(currentAnimal >= 0)
+        Debug.Log("Animals: " + PlayerPrefs.GetInt("animalCounter"));
+        if(currentAnimal >= 0 && !doOnce)
         {
+            indicator[0].SetActive(true);
             questTextBox.SetActive(true);
             questTextBox2.SetActive(true);
+            doOnce = true;
         }
         else if(currentAnimal < 0)
         {
@@ -48,8 +56,9 @@ public class QuestManager : MonoBehaviour
         if (currentAnimal >= totalAnimal && currentKey >= totalKey)
         {
             questCounter += 1;
-            if (questCounter != 2)
+            if (questCounter == 1)
             {
+                indicator[1].SetActive(true);
                 //animals
                 currentAnimal = 0;
                 totalAnimal = finalAnimalCost;
@@ -59,13 +68,25 @@ public class QuestManager : MonoBehaviour
             }
             else if(questCounter == 2)
             {
+                indicator[2].SetActive(true);
                 questTextBox.SetActive(false);
+                //keys
+                currentKey = 0;
                 totalKey = 4;
+
             }
         }
         else if(questCounter == 3)
         {
             gameObject.SetActive(false);
         }
+
+        if (currentKey >= 4)
+        {
+            gameObject.SetActive(false);
+            questCounter += 1;
+            SceneManager.LoadScene("Base");
+        }
+
     }
 }

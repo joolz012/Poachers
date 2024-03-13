@@ -35,6 +35,11 @@ public class PlayerHealth : MonoBehaviour
         {
             SceneManager.LoadScene("Base");
         }
+
+        if(transform.position.y < 30)
+        {
+            SceneManager.LoadScene(playAgainScene);
+        }
     }
 
     public void PlayAgain()

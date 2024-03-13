@@ -18,6 +18,7 @@ public class EnemyHealth : MonoBehaviour
     private bool dead;
 
     public string bossPlayerPrefs;
+    public bool isBoss = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,7 +54,10 @@ public class EnemyHealth : MonoBehaviour
     {
         enemyAnim.Play("Death");
         yield return new WaitForSeconds(1.0f);
-        PlayerPrefs.SetFloat(bossPlayerPrefs, PlayerPrefs.GetFloat(bossPlayerPrefs) + 1);
+        if (isBoss)
+        {
+            PlayerPrefs.SetFloat(bossPlayerPrefs, PlayerPrefs.GetFloat(bossPlayerPrefs) + 1);
+        }
         Destroy(gameObject);
         yield break;
     }

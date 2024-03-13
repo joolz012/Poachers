@@ -11,6 +11,7 @@ public class TalismanScript : MonoBehaviour
     public string whatAnimal;
     public float maxLevel;
     public string whatAnimalMax;
+    public string whatAnimalEssence;
 
     [Header("For Talisman Cost Upgrade")]
     public float talismanCost;
@@ -45,7 +46,7 @@ public class TalismanScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        PlayerPrefs.SetInt(whatAnimalEssence, PlayerPrefs.GetInt(whatAnimal));
         PlayerPrefs.GetInt(talismanSave);
 
         if(isUnlocked == 1)
@@ -67,23 +68,24 @@ public class TalismanScript : MonoBehaviour
     public void TalismanDefOne()
     {
         Debug.Log("Click");
-        if(PlayerPrefs.GetInt(whatAnimal) > 0 && PlayerPrefs.GetInt(whatAnimalMax) < maxLevel)
+        if(PlayerPrefs.GetInt(whatAnimalEssence) > 0 && PlayerPrefs.GetInt(whatAnimalMax) < maxLevel)
         {
-            PlayerPrefs.SetInt(whatAnimal, PlayerPrefs.GetInt(whatAnimal) - 1);
+            //PlayerPrefs.SetInt(whatAnimal, PlayerPrefs.GetInt(whatAnimal) - 1);
             PlayerPrefs.SetInt(essenceSpentAnimal, PlayerPrefs.GetInt(essenceSpentAnimal) + 1);
+
             if (PlayerPrefs.GetInt(talismanSave) == 1)
             {
                 if (PlayerPrefs.GetInt(essenceSpentAnimal) >= talismanCost)
                 {
                     UpgradeTalisman();
-                    essenceSpent = 0;
+                    PlayerPrefs.SetInt(essenceSpentAnimal, 0);
                 }
             }
             else if(PlayerPrefs.GetInt(talismanSave) == 0)
             {
-                if (essenceSpent >= unlockCost)
+                if (PlayerPrefs.GetInt(essenceSpentAnimal) >= unlockCost)
                 {
-                    essenceSpent = 0;
+                    PlayerPrefs.SetInt(essenceSpentAnimal, 0);
                     PlayerPrefs.SetInt(talismanSave, 1);
                 }
             }

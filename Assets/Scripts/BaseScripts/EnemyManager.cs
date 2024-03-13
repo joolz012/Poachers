@@ -8,7 +8,6 @@ public class EnemyManager : MonoBehaviour
     public GameObject[] boss;
     public GameObject objectToInstantiate;
     GameObject[] taggedObjects;
-
     public Transform[] spawnPoints;
     public int maxInstantiations;
     private int instantiations = 0;
@@ -21,10 +20,17 @@ public class EnemyManager : MonoBehaviour
     public WeaponManager weaponManager;
     public BackgroundMusicBase backgroundMusic;
     public TimerScript timerScript;
+
+    public bool miniDefence = false;
     void Start()
     {
         //PlayerPrefs.SetInt("animalCounter", 2);
         raidingBase = false;
+        if (PlayerPrefs.GetFloat("ragnarBattle") == 1)
+        {
+            maxInstantiations = 22;
+            miniDefence = true;
+        }
     }
 
     private void Update()
@@ -44,9 +50,8 @@ public class EnemyManager : MonoBehaviour
         if (PlayerPrefs.GetInt("raid") >= 1 && !raidingBase)
         {
             //back to base
-            timerScript.TimerDuration(0.16666667f);
+            timerScript.TimerDuration(1f);
             PlayerPrefs.SetInt("raid", 0);
-            weaponManager.isCoroutineRunning = true;
             StartCoroutine(InstantiateObjects());
             raidingBase = true;
         }
@@ -58,7 +63,29 @@ public class EnemyManager : MonoBehaviour
             {
                 SceneManager.LoadScene("gondarDeath");
             }
+            if (PlayerPrefs.GetFloat("bjornPlayerPrefs") == 2)
+            {
+                SceneManager.LoadScene("bjornDeath");
+            }
+            if (PlayerPrefs.GetFloat("ragnarPlayerPrefs") == 2)
+            {
+                SceneManager.LoadScene("ragnarDeath");
+            }
         }
+        //if (taggedObjects.Length <= 0)
+        //{
+        //    if (PlayerPrefs.GetFloat("bjornPlayerPrefs") == 2)
+        //    {
+        //        SceneManager.LoadScene("bjornDeath");
+        //    }
+        //}
+        //if (taggedObjects.Length <= 0)
+        //{
+        //    if (PlayerPrefs.GetFloat("ragnarPlayerPrefs") == 2)
+        //    {
+        //        SceneManager.LoadScene("ragnarDeath");
+        //    }
+        //}
 
         //if (Input.GetKeyDown(KeyCode.O))
         //{
@@ -88,11 +115,12 @@ public class EnemyManager : MonoBehaviour
     {
         Debug.Log("Wait");
         BossBattle();
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(60);
+        weaponManager.StopFund();
         backgroundMusic.PoacherAttacking();
         while (instantiations < maxInstantiations)
         {
-            yield return new WaitForSeconds(repeatRate); // Wait for 4 seconds before the next instantiation.
+            yield return new WaitForSeconds(repeatRate);
             if (canInstantiate)
             {
                 // Get a random index from the spawnPoints array
@@ -104,10 +132,15 @@ public class EnemyManager : MonoBehaviour
                 instantiations++;
             }
         }
-        //yield return new WaitForSeconds(60.0f);
+        yield return new WaitForSeconds(20.0f);
         //weaponManager.isCoroutineRunning = false;
         //instantiations = 0;
         //raidingBase = false;
+        if (miniDefence)
+        {
+            SceneManager.LoadScene("Stage4");
+            miniDefence = false;
+        }
         backgroundMusic.DefaultBgm();
         yield break;
         //Debug.Log("Stopped instantiating objects.");
@@ -137,5 +170,6 @@ public class EnemyManager : MonoBehaviour
     public void StopInstantiating()
     {
         StopAllCoroutines();
+        weaponManager.StartFund();
     }
 }

@@ -6822,7 +6822,18 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 35e2bce2b912d124098ca127c2495f2e, type: 3}
   - {fileID: 8300000, guid: 4765954180592ac41b4a012168f634c5, type: 3}
   - {fileID: 8300000, guid: 661b4a3101c94144fad6590474bc9c2c, type: 3}
-  thorfinClips: []
+  thorfinClips:
+  - {fileID: 8300000, guid: 51a310e3a7c3edf41abb1bae708c0f63, type: 3}
+  - {fileID: 8300000, guid: 8da881dcc6ece0345a33d29c59fa3285, type: 3}
+  - {fileID: 8300000, guid: b3bc2e50ca4091544a3280d7bac3a2fe, type: 3}
+  - {fileID: 8300000, guid: 53e4d86e8eabe344ebb411836458ebc3, type: 3}
+  - {fileID: 8300000, guid: 00461b1922ea9574ba62891d1a141028, type: 3}
+  - {fileID: 8300000, guid: 235e56ec198913d4c89406392ded945d, type: 3}
+  - {fileID: 8300000, guid: 8677c22f78658cd4b8ad16a092e6d857, type: 3}
+  - {fileID: 8300000, guid: 35bc395de75ec534bb80d99062b6c37d, type: 3}
+  - {fileID: 8300000, guid: a3dde25dba8b14846b914fee8ddde1c5, type: 3}
+  - {fileID: 8300000, guid: b96a3e7511634174a88e09e320ffbbf9, type: 3}
+  - {fileID: 8300000, guid: d8eddb4dd2a702e49ac9aef3bfdfc421, type: 3}
   isPlaying: 1
   indexSounds: 0
 --- !u!82 &216281805
@@ -16222,6 +16233,9 @@ MonoBehaviour:
   smoothSpeed: 5
   fixedYPosition: 20
   distanceZ: -50
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!81 &427116124
 AudioListener:
   m_ObjectHideFlags: 0
@@ -31324,6 +31338,7 @@ MonoBehaviour:
   distanceToEnemy: 30
   targets: []
   enemyManager: {fileID: 0}
+  animalCounter: {fileID: 0}
 --- !u!64 &924907395
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -73353,6 +73368,7 @@ MonoBehaviour:
   distanceToEnemy: 30
   targets: []
   enemyManager: {fileID: 0}
+  animalCounter: {fileID: 0}
 --- !u!224 &1841984007424210858
 RectTransform:
   m_ObjectHideFlags: 0

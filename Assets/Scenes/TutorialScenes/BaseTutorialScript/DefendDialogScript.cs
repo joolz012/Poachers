@@ -96,6 +96,7 @@ public class DefendDialogScript : MonoBehaviour
                         {
                             StopAllCoroutines();
                             StartCoroutine(WaitAttack());
+                            StartCoroutine(WaitSpeak());
                             ballista.GetComponent<WeaponScript>().enabled = true;
                             enemyOne.SetActive(true);
                             defendManagerScript.AddIndex();
@@ -172,6 +173,7 @@ public class DefendDialogScript : MonoBehaviour
             {
                 moving = false;
                 HighlightsDisable();
+                cantClick = false;
                 StartCoroutine(WaitAttack());
                 GameObject[] weapons = GameObject.FindGameObjectsWithTag("Weapon");
                 foreach (GameObject weapon in weapons)
@@ -262,6 +264,11 @@ public class DefendDialogScript : MonoBehaviour
         moving = false;
         cantClick = false;
         Debug.Log("Cooldown");
+    }
+    IEnumerator WaitSpeak()//wait attack
+    {
+        yield return new WaitForSeconds(waitTime);
+        tutorialSounds3.isPlaying = false;
     }
     IEnumerator CooldownDialog()//close dialog no movement
     {

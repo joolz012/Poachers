@@ -39,6 +39,7 @@ public class ThorfinTutorialScript : MonoBehaviour
         if(defendDialog != null)
         {
             tutorialSounds3.indexSounds += 1;
+            tutorialSounds3.isPlaying = false;
             defendManagerScript.AddIndex();
             talkCanvas[2].SetActive(false);
             defendDialog.GetComponent<DefendDialogScript>().ContinueDialogue();

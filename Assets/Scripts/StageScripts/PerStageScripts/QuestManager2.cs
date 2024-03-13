@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class QuestManager2 : MonoBehaviour
@@ -28,13 +29,17 @@ public class QuestManager2 : MonoBehaviour
 
     [Header("QuestCounter")]
     public int questCounter;
+    public GameObject[] indicator;
+
+    private bool doOnce = false;
     // Start is called before the first frame update
     void Start()
     {
         questTextBox.SetActive(false);
         questTextBox2.SetActive(false);
+        questTextBox3.SetActive(false);
         gameObject.SetActive(true);
-        questCounter = 0;
+        questCounter = -1;
         currentAnimal = -1;
         currentAnimal2 = 0;
     }
@@ -42,9 +47,13 @@ public class QuestManager2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentAnimal >= 0)
+        if (currentAnimal >= 0 && !doOnce)
         {
+            indicator[0].SetActive(true);
             questTextBox.SetActive(true);
+            questTextBox3.SetActive(true);
+            questCounter++;
+            doOnce = true;
         }
         else if (currentAnimal < 0)
         {
@@ -58,12 +67,13 @@ public class QuestManager2 : MonoBehaviour
         totalAnimalText2.text = totalAnimal2.ToString();
 
         currentKeyText.text = currentKey.ToString();
-        totalKeyText.text = totalKeyText.ToString();
+        totalKeyText.text = totalKey.ToString();
 
         if (questCounter == 0)
         {
             if (currentAnimal >= totalAnimal && currentKey >= totalKey)
             {
+                indicator[1].SetActive(true);
                 //animals
                 currentAnimal = 0;
                 totalAnimal = finalAnimalCost;
@@ -76,24 +86,28 @@ public class QuestManager2 : MonoBehaviour
             }
         }
         else if (questCounter == 1)
-        { 
+        {
             if (currentAnimal >= totalAnimal && currentAnimal2 >= totalAnimal2 && currentKey >= totalKey)
             {
+                indicator[2].SetActive(true);
                 questTextBox.SetActive(false);
                 questTextBox2.SetActive(false);
+                //keys
+                currentKey = 0;
                 totalKey = 6;
                 questCounter += 1;
             }
         }
         else if (questCounter == 2)
         {
-            if(currentKey >= totalKey)
+            if (currentKey >= totalKey)
             {
                 questCounter += 1;
             }
         }
         else if (questCounter == 3)
         {
+            SceneManager.LoadScene("Base");
             gameObject.SetActive(false);
         }
     }

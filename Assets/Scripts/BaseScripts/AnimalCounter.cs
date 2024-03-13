@@ -17,6 +17,7 @@ public class AnimalCounter : MonoBehaviour
 
     private bool doOnce = false;
 
+
     private void Start()
     {
 
@@ -28,6 +29,11 @@ public class AnimalCounter : MonoBehaviour
         if (PlayerPrefs.GetInt("animalCounter") <= 0)
         {
             PlayerPrefs.SetInt("raid", 0);
+        }
+
+        if(Input.GetKeyDown(KeyCode.B))
+        {
+            PlayerPrefs.SetInt("aninmalCounter", PlayerPrefs.GetInt("animalCounter") - 1);
         }
     }
 
@@ -42,6 +48,7 @@ public class AnimalCounter : MonoBehaviour
 
         animalSpawnerCounter = PlayerPrefs.GetInt("animalCounter");
         animalCounter = animalSpawnerCounter;
+
 
         //get last animal
         if (instantiatedAnimals.Count > 0)
@@ -86,7 +93,6 @@ public class AnimalCounter : MonoBehaviour
         {
             // Determine the last instantiated animal
             GameObject removedAnimal = instantiatedAnimals[instantiatedAnimals.Count - 1];
-
             // Update the specific animal counter instead of all counters
             int removedAnimalIndex = -1;
             for (int i = 0; i < counters.Length; i++)
@@ -116,6 +122,12 @@ public class AnimalCounter : MonoBehaviour
     public void SetAnimalCounter(int newValue)
     {
         animalCounter = newValue;
+    }
+
+    public void DecreaseAnimal()
+    {
+        PlayerPrefs.SetInt("animalCounter", PlayerPrefs.GetInt("animalCounter") - 1);
+
     }
 
     public void StageOne()

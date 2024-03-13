@@ -65,6 +65,8 @@ public class StageManager : MonoBehaviour
             StartCoroutine(BackToBase(defendTimer));
             raidingBase = true;
         }
+
+
         GatePass();
     }
 

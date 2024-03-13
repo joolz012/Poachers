@@ -9,6 +9,7 @@ public class TutorialSounds1 : MonoBehaviour
     private AudioSource audioSource;
     public AudioClip[] rockyClips;
     public AudioClip[] bubblesClips;
+    public AudioClip[] thorfinClips;
     public bool isPlaying = true;
 
     public int indexSounds;
@@ -34,6 +35,7 @@ public class TutorialSounds1 : MonoBehaviour
                 audioSource.Stop();
                 if (indexSounds == 0)
                 {
+                    audioSource.PlayOneShot(thorfinClips[0]);
                 }
                 else if (indexSounds == 1)
                 {
@@ -60,7 +62,7 @@ public class TutorialSounds1 : MonoBehaviour
                 }
                 else if (indexSounds == 6)
                 {
-
+                    audioSource.PlayOneShot(thorfinClips[1]);
                 }
                 else if (indexSounds == 7)
                 {
@@ -68,15 +70,15 @@ public class TutorialSounds1 : MonoBehaviour
                 }
                 else if (indexSounds == 8)
                 {
-
+                    audioSource.PlayOneShot(thorfinClips[2]);
                 }
                 else if (indexSounds == 9)
                 {
-
+                    audioSource.PlayOneShot(thorfinClips[3]);
                 }
                 else if (indexSounds == 10)
                 {
-
+                    audioSource.PlayOneShot(thorfinClips[4]);
                 }
                 else if (indexSounds == 11)
                 {
@@ -84,11 +86,11 @@ public class TutorialSounds1 : MonoBehaviour
                 }
                 else if (indexSounds == 12)
                 {
-
+                    audioSource.PlayOneShot(thorfinClips[5]);
                 }
                 else if (indexSounds == 13)
                 {
-
+                    audioSource.PlayOneShot(thorfinClips[6]);
                 }
                 else if (indexSounds == 14)
                 {
@@ -96,7 +98,7 @@ public class TutorialSounds1 : MonoBehaviour
                 }
                 else if (indexSounds == 15)
                 {
-
+                    audioSource.PlayOneShot(thorfinClips[7]);
                 }
                 else if (indexSounds == 16)
                 {
@@ -104,9 +106,11 @@ public class TutorialSounds1 : MonoBehaviour
                 }
                 else if (indexSounds == 17)
                 {
+                    audioSource.PlayOneShot(thorfinClips[8]);
                 }
                 else if (indexSounds == 18)
                 {
+                    audioSource.PlayOneShot(thorfinClips[9]);
                 }
                 else if (indexSounds == 19)
                 {
@@ -114,6 +118,7 @@ public class TutorialSounds1 : MonoBehaviour
                 }
                 else if (indexSounds == 20)
                 {
+                    audioSource.PlayOneShot(thorfinClips[10]);
                 }
                 else if (indexSounds == 21)
                 {
@@ -125,6 +130,7 @@ public class TutorialSounds1 : MonoBehaviour
                 }
                 else if (indexSounds == 23)
                 {
+                    audioSource.PlayOneShot(thorfinClips[11]);
                 }
                 else if (indexSounds == 24)
                 {
@@ -132,7 +138,7 @@ public class TutorialSounds1 : MonoBehaviour
                 }
                 else if (indexSounds == 25)
                 {
-
+                    audioSource.PlayOneShot(thorfinClips[12]);
                 }
                 else if (indexSounds == 26)
                 {
@@ -144,7 +150,7 @@ public class TutorialSounds1 : MonoBehaviour
                 }
                 else if (indexSounds == 28)
                 {
-
+                    audioSource.PlayOneShot(thorfinClips[13]);
                 }
                 isPlaying = true;
             }

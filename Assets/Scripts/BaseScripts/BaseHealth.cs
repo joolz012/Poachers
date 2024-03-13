@@ -20,6 +20,7 @@ public class BaseHealth : MonoBehaviour
     public GameObject[] targets;
 
     public EnemyManager enemyManager;
+    public AnimalCounter animalCounter;
 
     // Start is called before the first frame update
     void Start()
@@ -38,9 +39,10 @@ public class BaseHealth : MonoBehaviour
         CheatCodes();
         healthslider.value = baseHealth;
         healthbar.LookAt(isoCam.position);
-        if (baseHealth <= 0 && PlayerPrefs.GetFloat("animalCounter") > 0)
+        if (baseHealth <= 0 && PlayerPrefs.GetInt("animalCounter") > 0)
         {
-            PlayerPrefs.SetFloat("animalCounter", PlayerPrefs.GetInt("animalCounter") - 1);
+            Debug.Log("DecreaseHealth");
+            animalCounter.DecreaseAnimal();
             audioSource.PlayOneShot(clip[0]);
             baseHealth = baseMaxHealth;
 
@@ -220,35 +222,45 @@ public class BaseHealth : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.O))
         {
             //defending
-
             //crocodile
-            PlayerPrefs.SetFloat("crocodileEssence", 0);
+            PlayerPrefs.SetInt("crocodile", 0);
+            PlayerPrefs.SetInt("crocodileMax", 0);
+            PlayerPrefs.SetInt("crocodileEssence", 0);
             PlayerPrefs.SetFloat("stunDuration", 2);
 
             //tamaraw
-            PlayerPrefs.SetFloat("tamaraw", 0);
+            PlayerPrefs.SetInt("tamaraw", 0);
+            PlayerPrefs.SetInt("tamarawMax", 0);
+            PlayerPrefs.SetInt("tamarawEssence", 0);
             PlayerPrefs.SetFloat("buffDuration", 10);
             PlayerPrefs.SetFloat("tamarawDmg", 0.5f);
             PlayerPrefs.SetFloat("Talisman2Def", 0);
 
             //pangolin
-            PlayerPrefs.SetFloat("pangolin", 0);
+            PlayerPrefs.SetInt("pangolin", 0);
+            PlayerPrefs.SetInt("pangolinMax", 0);
+            PlayerPrefs.SetInt("pangolinEssence", 0);
             PlayerPrefs.SetFloat("pangolinHp", 100);
             PlayerPrefs.SetFloat("Talisman3Def", 0);
 
             //attaking
-
             //tarsier
-            PlayerPrefs.SetFloat("tarsier", 0);
-            PlayerPrefs.SetFloat("tarsierEssence", 0);
+            PlayerPrefs.SetInt("tarsier", 0);
+            PlayerPrefs.SetInt("tarsierMax", 0);
+            PlayerPrefs.SetInt("tarsierEssence", 0);
             PlayerPrefs.SetFloat("tarsierVision", 20);
 
             //haribon
+            PlayerPrefs.SetInt("haribon", 0);
+            PlayerPrefs.SetInt("haribonMax", 0);
+            PlayerPrefs.SetInt("haribonEssence", 0);
             PlayerPrefs.SetFloat("haribonAtk", 10);
             PlayerPrefs.SetFloat("Talisman2Atk", 0);
 
             //python
-            PlayerPrefs.SetFloat("turtle", 0);
+            PlayerPrefs.SetInt("turtle", 0);
+            PlayerPrefs.SetInt("turtleMax", 0);
+            PlayerPrefs.SetInt("turtleEssence", 0);
             PlayerPrefs.SetFloat("turtleHeal", 20);
             PlayerPrefs.SetFloat("Talisman3Atk", 0);
 
@@ -258,17 +270,45 @@ public class BaseHealth : MonoBehaviour
             PlayerPrefs.SetFloat("ragnarPlayerPrefs", 0);
 
             PlayerPrefs.SetInt("keySave", 0);
-            PlayerPrefs.SetFloat("animalCounter", 0);
+            PlayerPrefs.SetInt("animalCounter", 0);
             PlayerPrefs.SetInt("raid", 0);
             PlayerPrefs.SetInt("essence", 0);
             PlayerPrefs.SetInt("talisman", 0);
             PlayerPrefs.SetInt("baseLevel", 0);
             PlayerPrefs.SetFloat("currentMoney", 100);
+
+
+            PlayerPrefs.SetFloat("ragnarBattle", 0);
+
+            SceneManager.LoadScene("Base");
         }
-        //if (Input.GetKeyDown(KeyCode.I))
-        //{
-        //    PlayerPrefs.SetInt("animalCounter", 1);
-        //}
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            //PlayerPrefs.SetInt("animalCounter", 1);
+            PlayerPrefs.SetInt("crocodileMax", 0);
+            PlayerPrefs.SetInt("tamarawMax", 0);
+            PlayerPrefs.SetInt("pangolinMax", 0);
+            PlayerPrefs.SetInt("tarsierMax", 0);
+            PlayerPrefs.SetInt("haribonMax", 0);
+            PlayerPrefs.SetInt("turtleMax", 0);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            SceneManager.LoadScene("Stage1");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            SceneManager.LoadScene("Stage2");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            SceneManager.LoadScene("Stage3");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            SceneManager.LoadScene("Stage4");
+        }
         //if (Input.GetKeyDown(KeyCode.K))
         //{
         //    PlayerPrefs.SetInt("talismanOne", 0);

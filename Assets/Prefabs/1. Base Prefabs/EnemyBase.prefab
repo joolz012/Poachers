@@ -534,6 +534,8 @@ MonoBehaviour:
   healthbar: {fileID: 3670306619361451763}
   isoCam: {fileID: 4565039704201174169, guid: 5bf3fde9b09188d4a81dec7a6af507f6, type: 3}
   nextWave: 0
+  isBoss: 0
+  cutSceneName: 
 --- !u!114 &-5309071098719154400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -549,6 +551,7 @@ MonoBehaviour:
   enemyAnimator: {fileID: 971340851333524686}
   waypoints:
   - {fileID: 519371395338077197, guid: 5476cf6bab5759541af479daff5954f3, type: 3}
+  navMeshAgent: {fileID: 0}
   enemyMovementSpeed: 10
   stoppingRange: 19
   attackingBase: 0
@@ -569,7 +572,7 @@ MonoBehaviour:
   enemyAnimator: {fileID: 971340851333524686}
   enemyDamage: 10
   baseTransform: {fileID: 519371395338077197, guid: 5476cf6bab5759541af479daff5954f3, type: 3}
-  timeBetweenShots: 1
+  timeBetweenShots: 0.9
   isNotAttacking: 0
   fireRadius: 20
 --- !u!82 &3346184675302212019

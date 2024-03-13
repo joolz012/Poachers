@@ -143,7 +143,7 @@ public class PlayerSkillsBase : MonoBehaviour
         }
         if (talismanTwoBool)
         {
-            audioSource.PlayOneShot(clip[1]);
+            //audioSource.PlayOneShot(clip[1]);
             foreach (WeaponScript weapon in weaponScript)
             {
                 if (weapon != null)
@@ -156,7 +156,7 @@ public class PlayerSkillsBase : MonoBehaviour
                     Debug.Log("No Tower");
                 }
             }
-            talismanThreeCd = talismanTwoDefaultCd;
+            talismanTwoCd = talismanTwoDefaultCd;
             talismanTwoBool = false;
         }
 
@@ -175,7 +175,7 @@ public class PlayerSkillsBase : MonoBehaviour
         }
         if (talismanThreeBool)
         {
-            audioSource.PlayOneShot(clip[2]);
+            //audioSource.PlayOneShot(clip[2]);
 
             GameObject baseObject = GameObject.FindGameObjectWithTag("Base");
             BaseHealth baseHealth = baseObject.GetComponent<BaseHealth>();

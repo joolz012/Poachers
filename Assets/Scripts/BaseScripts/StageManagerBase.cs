@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StageManagerBase : MonoBehaviour
 {
-    public int keyCounter;
+    public float keyCounter;
     public GameObject[] stages;
     // Start is called before the first frame update
     void Start()
@@ -13,7 +13,7 @@ public class StageManagerBase : MonoBehaviour
         {
             stage.SetActive(false);
         }
-        keyCounter = PlayerPrefs.GetInt("keySave");
+        keyCounter = PlayerPrefs.GetFloat("keySave");
     }
 
     // Update is called once per frame

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossScriptStage : MonoBehaviour
 {
-    public string bossPlayerPrefs;
+    public string cutScene;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +14,11 @@ public class BossScriptStage : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnDisable()
+    {
+        Debug.Log("Destroyed");
     }
 
 }

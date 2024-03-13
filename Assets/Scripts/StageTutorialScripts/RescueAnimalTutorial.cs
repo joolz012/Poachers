@@ -9,6 +9,8 @@ public class RescueAnimalTutorial : MonoBehaviour
 
     public GameObject rescueCanvas;
     public GameObject tutorialDialog;
+
+    public TutorialSounds2 tutorialSounds2;
     // Start is called before the first frame update
     void Start()
     {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class EnemyHealthBase : MonoBehaviour
@@ -17,6 +18,11 @@ public class EnemyHealthBase : MonoBehaviour
     public Transform healthbar, isoCam;
     public bool nextWave = false;
     private bool dead;
+
+    [Header("For Boss Only")]
+    public bool isBoss = false;
+    public string cutSceneName;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +61,10 @@ public class EnemyHealthBase : MonoBehaviour
     {
         enemyAnim.Play("Death");
         yield return new WaitForSeconds(0.8f);
+        if (isBoss)
+        {
+            SceneManager.LoadScene(cutSceneName);
+        }
         Destroy(gameObject);
         yield break;
     }

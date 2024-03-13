@@ -23,6 +23,7 @@ public class GondarDialogManager : MonoBehaviour
     public Texture2D[] images;
     public RawImage rawImage;
 
+    public string bossPlayerPrefs;
     public int index;
     public bool canClick = false;
     // Start is called before the first frame update
@@ -43,7 +44,7 @@ public class GondarDialogManager : MonoBehaviour
                 {
                     if (index == 0)
                     {
-                        PlayerPrefs.SetFloat("gondarPlayerPrefs", PlayerPrefs.GetFloat("gondarPlayerPrefs") + 1);
+                        PlayerPrefs.SetFloat(bossPlayerPrefs, PlayerPrefs.GetFloat(bossPlayerPrefs) + 1);
                         PlayerPrefs.SetFloat("currentMoney", PlayerPrefs.GetFloat("currentMoney") + 500);
                         SceneManager.LoadScene("Base");
                     }

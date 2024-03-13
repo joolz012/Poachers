@@ -86,6 +86,7 @@ public class QuestManager3 : MonoBehaviour
             {
                 questTextBox3.SetActive(false);
                 currentKey = 0;
+                totalKey = 8;
                 questCounter += 1;
             }
         }

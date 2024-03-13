@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 3346184675302212019}
   - component: {fileID: -2086006583704581295}
   - component: {fileID: -4570515656063458576}
+  - component: {fileID: 5389750787516093812}
   m_Layer: 0
   m_Name: GondarBase
   m_TagString: Enemy
@@ -133,6 +134,8 @@ MonoBehaviour:
   healthbar: {fileID: 3670306619361451763}
   isoCam: {fileID: 4565039704201174169, guid: 5bf3fde9b09188d4a81dec7a6af507f6, type: 3}
   nextWave: 0
+  isBoss: 1
+  cutSceneName: GondarDeath
 --- !u!114 &-5309071098719154400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +151,7 @@ MonoBehaviour:
   enemyAnimator: {fileID: 8726412129569516495}
   waypoints:
   - {fileID: 519371395338077197, guid: 5476cf6bab5759541af479daff5954f3, type: 3}
+  navMeshAgent: {fileID: 0}
   enemyMovementSpeed: 10
   stoppingRange: 19
   attackingBase: 0
@@ -312,6 +316,19 @@ MonoBehaviour:
     margin: 0
     width: 30
     height: 30
+--- !u!114 &5389750787516093812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2172235077471055182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45ed8fb104a993e4f954e80164183c19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cutScene: 
 --- !u!1 &2518913680937039856
 GameObject:
   m_ObjectHideFlags: 0

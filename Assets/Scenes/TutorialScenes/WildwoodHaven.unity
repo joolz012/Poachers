@@ -14114,6 +14114,21 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e1b969399365acc4aa71d38e62346549, type: 3}
   - {fileID: 8300000, guid: fb80f1e197f278648bf8c6d767c1a59a, type: 3}
   - {fileID: 8300000, guid: 885a6ff3971fd674faf875caccde245f, type: 3}
+  thorfinClips:
+  - {fileID: 8300000, guid: 73e0741bdb14ab14f97cc6850c3f8796, type: 3}
+  - {fileID: 8300000, guid: 369961829101b144a8e86459e4420217, type: 3}
+  - {fileID: 8300000, guid: 0869d8a366248e84d96d6ead4e6de1fa, type: 3}
+  - {fileID: 8300000, guid: 0b05faffe1a020c478bb6900f2bd3f2e, type: 3}
+  - {fileID: 8300000, guid: 24d80527122592647887e1a7080faa0e, type: 3}
+  - {fileID: 8300000, guid: a8cbfffc62b428c44bd65da7f924c875, type: 3}
+  - {fileID: 8300000, guid: f5de01e22b599fa4eb6bc8b8a2f1d673, type: 3}
+  - {fileID: 8300000, guid: 2d90626339fe1bf498b028fe071c7109, type: 3}
+  - {fileID: 8300000, guid: a709566b75a73d04eafc876948428b4d, type: 3}
+  - {fileID: 8300000, guid: 2d40d3ed15dce8745a1cdd058a99d907, type: 3}
+  - {fileID: 8300000, guid: 9e62769402d90bb46a5690eb0a6f51b5, type: 3}
+  - {fileID: 8300000, guid: 9e0ce759703dafa4c8619b8044c4ea0f, type: 3}
+  - {fileID: 8300000, guid: 01d9aaeaf03e40b45af1e95391ae6968, type: 3}
+  - {fileID: 8300000, guid: 25589fa45144d844da430cdca7de7833, type: 3}
   isPlaying: 1
   indexSounds: 0
 --- !u!82 &896033991
@@ -36915,6 +36930,7 @@ MonoBehaviour:
   distanceToEnemy: 30
   targets: []
   enemyManager: {fileID: 0}
+  animalCounter: {fileID: 0}
 --- !u!23 &262098503956155980
 MeshRenderer:
   m_ObjectHideFlags: 0

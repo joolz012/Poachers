@@ -46,6 +46,7 @@ public class DialogScript : MonoBehaviour
         textComponent.text = string.Empty;
         nameText.text = string.Empty;
         StartDialogue();
+        tutorialSounds1.isPlaying = false;
         cantClick = false;
         yield break;
     }
