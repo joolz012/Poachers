@@ -293,20 +293,25 @@ public class BaseHealth : MonoBehaviour
             PlayerPrefs.SetInt("turtleMax", 0);
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha7))
+        if (Input.GetKeyDown(KeyCode.Alpha6))
         {
             SceneManager.LoadScene("Stage1");
         }
-        if (Input.GetKeyDown(KeyCode.Alpha8))
+        if (Input.GetKeyDown(KeyCode.Alpha7))
         {
             SceneManager.LoadScene("Stage2");
         }
-        if (Input.GetKeyDown(KeyCode.Alpha9))
+        if (Input.GetKeyDown(KeyCode.Alpha8))
         {
             SceneManager.LoadScene("Stage3");
         }
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            SceneManager.LoadScene("Stage4");
+        }
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
+            PlayerPrefs.SetFloat("ragnarBattle", 1);
             SceneManager.LoadScene("Stage4");
         }
         //if (Input.GetKeyDown(KeyCode.K))

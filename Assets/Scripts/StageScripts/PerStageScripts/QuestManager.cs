@@ -18,6 +18,11 @@ public class QuestManager : MonoBehaviour
     public Text currentKeyText, totalKeyText;
     public float currentKey, totalKey;
 
+    [Header("Enemies")]
+    public GameObject questTextBox3;
+    public Text currentEnemyText, totalEnemyText;
+    public float currentEnemy, totalEnemy;
+
     public int questCounter;
     private bool doOnce = false;
 
@@ -27,6 +32,7 @@ public class QuestManager : MonoBehaviour
     {
         questTextBox.SetActive(false);
         questTextBox2.SetActive(false);
+        questTextBox3.SetActive(false);
         gameObject.SetActive(true);
         questCounter = 0;
         currentAnimal = -1;
@@ -41,6 +47,7 @@ public class QuestManager : MonoBehaviour
             indicator[0].SetActive(true);
             questTextBox.SetActive(true);
             questTextBox2.SetActive(true);
+            questTextBox3.SetActive(true);
             doOnce = true;
         }
         else if(currentAnimal < 0)
@@ -53,7 +60,10 @@ public class QuestManager : MonoBehaviour
         currentKeyText.text = currentKey.ToString();
         totalKeyText.text = totalKey.ToString();
 
-        if (currentAnimal >= totalAnimal && currentKey >= totalKey)
+        currentEnemyText.text = currentEnemy.ToString();
+        totalEnemyText.text = totalEnemy.ToString();
+
+        if (currentAnimal >= totalAnimal && currentKey >= totalKey && currentEnemy >= totalEnemy)
         {
             questCounter += 1;
             if (questCounter == 1)
@@ -65,6 +75,9 @@ public class QuestManager : MonoBehaviour
 
                 //keys
                 currentKey = 0;
+
+                //enemies
+                currentEnemy = 0;
             }
             else if(questCounter == 2)
             {
@@ -73,6 +86,9 @@ public class QuestManager : MonoBehaviour
                 //keys
                 currentKey = 0;
                 totalKey = 4;
+
+                //enemies
+                currentEnemy = 0;
 
             }
         }

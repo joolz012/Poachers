@@ -22,6 +22,9 @@ TagManager:
   - python
   - pangolin
   - Crates
+  - AnimalSpawn
+  - AnimalSpawn2
+  - AnimalSpawn3
   layers:
   - Default
   - TransparentFX

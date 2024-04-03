@@ -1,0 +1,882 @@
+; FBX 7.7.0 project file
+; ----------------------------------------------------
+
+FBXHeaderExtension:  {
+	FBXHeaderVersion: 1004
+	FBXVersion: 7700
+	CreationTimeStamp:  {
+		Version: 1000
+		Year: 2024
+		Month: 3
+		Day: 23
+		Hour: 11
+		Minute: 33
+		Second: 24
+		Millisecond: 152
+	}
+	Creator: "FBX SDK/FBX Plugins version 2020.3.4"
+	OtherFlags:  {
+		TCDefinition: 127
+	}
+	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
+		Type: "UserData"
+		Version: 100
+		MetaData:  {
+			Version: 100
+			Title: ""
+			Subject: ""
+			Author: ""
+			Keywords: ""
+			Revision: ""
+			Comment: ""
+		}
+		Properties70:  {
+			P: "DocumentUrl", "KString", "Url", "", "C:\Users\kimbe\OneDrive\Documents\maya\projects\default\scenes\FbxExport\Stage3\Lights.fbx"
+			P: "SrcDocumentUrl", "KString", "Url", "", "C:\Users\kimbe\OneDrive\Documents\maya\projects\default\scenes\FbxExport\Stage3\Lights.fbx"
+			P: "Original", "Compound", "", ""
+			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
+			P: "Original|ApplicationName", "KString", "", "", "Maya"
+			P: "Original|ApplicationVersion", "KString", "", "", "2024"
+			P: "Original|DateTime_GMT", "DateTime", "", "", "23/03/2024 03:33:24.147"
+			P: "Original|FileName", "KString", "", "", "C:\Users\kimbe\OneDrive\Documents\maya\projects\default\scenes\FbxExport\Stage3\Lights.fbx"
+			P: "LastSaved", "Compound", "", ""
+			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
+			P: "LastSaved|ApplicationName", "KString", "", "", "Maya"
+			P: "LastSaved|ApplicationVersion", "KString", "", "", "2024"
+			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "23/03/2024 03:33:24.147"
+			P: "Original|ApplicationActiveProject", "KString", "", "", "C:\Users\kimbe\OneDrive\Documents\maya\projects\default\scenes"
+			P: "Original|ApplicationNativeFile", "KString", "", "", "C:\Users\kimbe\OneDrive\Documents\maya\projects\default\scenes\Stage 3 - Copy.mb"
+		}
+	}
+}
+GlobalSettings:  {
+	Version: 1000
+	Properties70:  {
+		P: "UpAxis", "int", "Integer", "",1
+		P: "UpAxisSign", "int", "Integer", "",1
+		P: "FrontAxis", "int", "Integer", "",2
+		P: "FrontAxisSign", "int", "Integer", "",1
+		P: "CoordAxis", "int", "Integer", "",0
+		P: "CoordAxisSign", "int", "Integer", "",1
+		P: "OriginalUpAxis", "int", "Integer", "",1
+		P: "OriginalUpAxisSign", "int", "Integer", "",1
+		P: "UnitScaleFactor", "double", "Number", "",1
+		P: "OriginalUnitScaleFactor", "double", "Number", "",1
+		P: "AmbientColor", "ColorRGB", "Color", "",0,0,0
+		P: "DefaultCamera", "KString", "", "", "Producer Perspective"
+		P: "TimeMode", "enum", "", "",11
+		P: "TimeProtocol", "enum", "", "",2
+		P: "SnapOnFrameMode", "enum", "", "",0
+		P: "TimeSpanStart", "KTime", "Time", "",46186158000
+		P: "TimeSpanStop", "KTime", "Time", "",48110581250
+		P: "CustomFrameRate", "double", "Number", "",-1
+		P: "TimeMarker", "Compound", "", ""
+		P: "CurrentTimeMarker", "int", "Integer", "",-1
+	}
+}
+
+; Documents Description
+;------------------------------------------------------------------
+
+Documents:  {
+	Count: 1
+	Document: 2067996169952, "", "Scene" {
+		Properties70:  {
+			P: "SourceObject", "object", "", ""
+			P: "ActiveAnimStackName", "KString", "", "", "Take 001"
+		}
+		RootNode: 0
+	}
+}
+
+; Document References
+;------------------------------------------------------------------
+
+References:  {
+}
+
+; Object definitions
+;------------------------------------------------------------------
+
+Definitions:  {
+	Version: 100
+	Count: 44
+	ObjectType: "GlobalSettings" {
+		Count: 1
+	}
+	ObjectType: "NodeAttribute" {
+		Count: 15
+		PropertyTemplate: "FbxNull" {
+			Properties70:  {
+				P: "Color", "ColorRGB", "Color", "",0.8,0.8,0.8
+				P: "Size", "double", "Number", "",100
+				P: "Look", "enum", "", "",1
+			}
+		}
+	}
+	ObjectType: "Model" {
+		Count: 15
+		PropertyTemplate: "FbxNode" {
+			Properties70:  {
+				P: "QuaternionInterpolate", "enum", "", "",0
+				P: "RotationOffset", "Vector3D", "Vector", "",0,0,0
+				P: "RotationPivot", "Vector3D", "Vector", "",0,0,0
+				P: "ScalingOffset", "Vector3D", "Vector", "",0,0,0
+				P: "ScalingPivot", "Vector3D", "Vector", "",0,0,0
+				P: "TranslationActive", "bool", "", "",0
+				P: "TranslationMin", "Vector3D", "Vector", "",0,0,0
+				P: "TranslationMax", "Vector3D", "Vector", "",0,0,0
+				P: "TranslationMinX", "bool", "", "",0
+				P: "TranslationMinY", "bool", "", "",0
+				P: "TranslationMinZ", "bool", "", "",0
+				P: "TranslationMaxX", "bool", "", "",0
+				P: "TranslationMaxY", "bool", "", "",0
+				P: "TranslationMaxZ", "bool", "", "",0
+				P: "RotationOrder", "enum", "", "",0
+				P: "RotationSpaceForLimitOnly", "bool", "", "",0
+				P: "RotationStiffnessX", "double", "Number", "",0
+				P: "RotationStiffnessY", "double", "Number", "",0
+				P: "RotationStiffnessZ", "double", "Number", "",0
+				P: "AxisLen", "double", "Number", "",10
+				P: "PreRotation", "Vector3D", "Vector", "",0,0,0
+				P: "PostRotation", "Vector3D", "Vector", "",0,0,0
+				P: "RotationActive", "bool", "", "",0
+				P: "RotationMin", "Vector3D", "Vector", "",0,0,0
+				P: "RotationMax", "Vector3D", "Vector", "",0,0,0
+				P: "RotationMinX", "bool", "", "",0
+				P: "RotationMinY", "bool", "", "",0
+				P: "RotationMinZ", "bool", "", "",0
+				P: "RotationMaxX", "bool", "", "",0
+				P: "RotationMaxY", "bool", "", "",0
+				P: "RotationMaxZ", "bool", "", "",0
+				P: "InheritType", "enum", "", "",0
+				P: "ScalingActive", "bool", "", "",0
+				P: "ScalingMin", "Vector3D", "Vector", "",0,0,0
+				P: "ScalingMax", "Vector3D", "Vector", "",1,1,1
+				P: "ScalingMinX", "bool", "", "",0
+				P: "ScalingMinY", "bool", "", "",0
+				P: "ScalingMinZ", "bool", "", "",0
+				P: "ScalingMaxX", "bool", "", "",0
+				P: "ScalingMaxY", "bool", "", "",0
+				P: "ScalingMaxZ", "bool", "", "",0
+				P: "GeometricTranslation", "Vector3D", "Vector", "",0,0,0
+				P: "GeometricRotation", "Vector3D", "Vector", "",0,0,0
+				P: "GeometricScaling", "Vector3D", "Vector", "",1,1,1
+				P: "MinDampRangeX", "double", "Number", "",0
+				P: "MinDampRangeY", "double", "Number", "",0
+				P: "MinDampRangeZ", "double", "Number", "",0
+				P: "MaxDampRangeX", "double", "Number", "",0
+				P: "MaxDampRangeY", "double", "Number", "",0
+				P: "MaxDampRangeZ", "double", "Number", "",0
+				P: "MinDampStrengthX", "double", "Number", "",0
+				P: "MinDampStrengthY", "double", "Number", "",0
+				P: "MinDampStrengthZ", "double", "Number", "",0
+				P: "MaxDampStrengthX", "double", "Number", "",0
+				P: "MaxDampStrengthY", "double", "Number", "",0
+				P: "MaxDampStrengthZ", "double", "Number", "",0
+				P: "PreferedAngleX", "double", "Number", "",0
+				P: "PreferedAngleY", "double", "Number", "",0
+				P: "PreferedAngleZ", "double", "Number", "",0
+				P: "LookAtProperty", "object", "", ""
+				P: "UpVectorProperty", "object", "", ""
+				P: "Show", "bool", "", "",1
+				P: "NegativePercentShapeSupport", "bool", "", "",1
+				P: "DefaultAttributeIndex", "int", "Integer", "",-1
+				P: "Freeze", "bool", "", "",0
+				P: "LODBox", "bool", "", "",0
+				P: "Lcl Translation", "Lcl Translation", "", "A",0,0,0
+				P: "Lcl Rotation", "Lcl Rotation", "", "A",0,0,0
+				P: "Lcl Scaling", "Lcl Scaling", "", "A",1,1,1
+				P: "Visibility", "Visibility", "", "A",1
+				P: "Visibility Inheritance", "Visibility Inheritance", "", "",1
+			}
+		}
+	}
+	ObjectType: "Video" {
+		Count: 13
+		PropertyTemplate: "FbxVideo" {
+			Properties70:  {
+				P: "Path", "KString", "XRefUrl", "", ""
+				P: "RelPath", "KString", "XRefUrl", "", ""
+				P: "Color", "ColorRGB", "Color", "",0.8,0.8,0.8
+				P: "ClipIn", "KTime", "Time", "",0
+				P: "ClipOut", "KTime", "Time", "",0
+				P: "Offset", "KTime", "Time", "",0
+				P: "PlaySpeed", "double", "Number", "",0
+				P: "FreeRunning", "bool", "", "",0
+				P: "Loop", "bool", "", "",0
+				P: "Mute", "bool", "", "",0
+				P: "AccessMode", "enum", "", "",0
+				P: "ImageSequence", "bool", "", "",0
+				P: "ImageSequenceOffset", "int", "Integer", "",0
+				P: "FrameRate", "double", "Number", "",0
+				P: "LastFrame", "int", "Integer", "",0
+				P: "Width", "int", "Integer", "",0
+				P: "Height", "int", "Integer", "",0
+				P: "StartFrame", "int", "Integer", "",0
+				P: "StopFrame", "int", "Integer", "",0
+				P: "InterlaceMode", "enum", "", "",0
+			}
+		}
+	}
+}
+
+; Object properties
+;------------------------------------------------------------------
+
+Objects:  {
+	NodeAttribute: 2068930637072, "NodeAttribute::", "Null" {
+		Properties70:  {
+			P: "Look", "enum", "", "",0
+		}
+		TypeFlags: "Null"
+	}
+	NodeAttribute: 2068930633552, "NodeAttribute::", "Null" {
+		Properties70:  {
+			P: "Look", "enum", "", "",0
+		}
+		TypeFlags: "Null"
+	}
+	NodeAttribute: 2067076214704, "NodeAttribute::", "Light" {
+		Properties70:  {
+			P: "LightType", "enum", "", "",2
+			P: "Intensity", "Number", "", "A",336.683410644531
+			P: "InnerAngle", "Number", "", "A",40
+			P: "OuterAngle", "Number", "", "A",60
+			P: "FileName", "KString", "", "", "spotLight1"
+			P: "CastShadows", "bool", "", "",1
+		}
+		TypeFlags: "Light"
+		GeometryVersion: 124
+	}
+	NodeAttribute: 2067076214128, "NodeAttribute::", "Light" {
+		Properties70:  {
+			P: "LightType", "enum", "", "",2
+			P: "Intensity", "Number", "", "A",201.005035400391
+			P: "InnerAngle", "Number", "", "A",57.8914914481942
+			P: "OuterAngle", "Number", "", "A",77.8914914481942
+			P: "FileName", "KString", "", "", "spotLight2"
+			P: "CastShadows", "bool", "", "",1
+		}
+		TypeFlags: "Light"
+		GeometryVersion: 124
+	}
+	NodeAttribute: 2067076213552, "NodeAttribute::", "Light" {
+		Properties70:  {
+			P: "LightType", "enum", "", "",2
+			P: "Intensity", "Number", "", "A",201.005035400391
+			P: "InnerAngle", "Number", "", "A",41.6111208959966
+			P: "OuterAngle", "Number", "", "A",61.6111208959966
+			P: "FileName", "KString", "", "", "spotLight3"
+			P: "CastShadows", "bool", "", "",1
+		}
+		TypeFlags: "Light"
+		GeometryVersion: 124
+	}
+	NodeAttribute: 2068788565984, "NodeAttribute::", "Light" {
+		Properties70:  {
+			P: "LightType", "enum", "", "",2
+			P: "Intensity", "Number", "", "A",201.005035400391
+			P: "InnerAngle", "Number", "", "A",41.6111208959966
+			P: "OuterAngle", "Number", "", "A",61.6111208959966
+			P: "FileName", "KString", "", "", "spotLight4"
+			P: "CastShadows", "bool", "", "",1
+		}
+		TypeFlags: "Light"
+		GeometryVersion: 124
+	}
+	NodeAttribute: 2068788564832, "NodeAttribute::", "Light" {
+		Properties70:  {
+			P: "LightType", "enum", "", "",2
+			P: "Intensity", "Number", "", "A",130.653259277344
+			P: "InnerAngle", "Number", "", "A",55.1780963002854
+			P: "OuterAngle", "Number", "", "A",75.1780963002854
+			P: "FileName", "KString", "", "", "spotLight6"
+			P: "CastShadows", "bool", "", "",1
+		}
+		TypeFlags: "Light"
+		GeometryVersion: 124
+	}
+	NodeAttribute: 2068788566560, "NodeAttribute::", "Light" {
+		Properties70:  {
+			P: "LightType", "enum", "", "",2
+			P: "Intensity", "Number", "", "A",201.005035400391
+			P: "InnerAngle", "Number", "", "A",50.6557712772741
+			P: "OuterAngle", "Number", "", "A",70.6557712772741
+			P: "FileName", "KString", "", "", "spotLight7"
+			P: "CastShadows", "bool", "", "",1
+		}
+		TypeFlags: "Light"
+		GeometryVersion: 124
+	}
+	NodeAttribute: 2068788565408, "NodeAttribute::", "Light" {
+		Properties70:  {
+			P: "LightType", "enum", "", "",2
+			P: "Intensity", "Number", "", "A",437.185913085938
+			P: "InnerAngle", "Number", "", "A",110.350463190247
+			P: "OuterAngle", "Number", "", "A",130.350463190247
+			P: "FileName", "KString", "", "", "spotLight8"
+			P: "CastShadows", "bool", "", "",1
+		}
+		TypeFlags: "Light"
+		GeometryVersion: 124
+	}
+	NodeAttribute: 2068788567136, "NodeAttribute::", "Light" {
+		Properties70:  {
+			P: "LightType", "enum", "", "",2
+			P: "Intensity", "Number", "", "A",532.663269042969
+			P: "InnerAngle", "Number", "", "A",110.350463190247
+			P: "OuterAngle", "Number", "", "A",130.350463190247
+			P: "FileName", "KString", "", "", "spotLight9"
+			P: "CastShadows", "bool", "", "",1
+		}
+		TypeFlags: "Light"
+		GeometryVersion: 124
+	}
+	NodeAttribute: 2068788564256, "NodeAttribute::", "Light" {
+		Properties70:  {
+			P: "LightType", "enum", "", "",2
+			P: "Intensity", "Number", "", "A",437.185913085938
+			P: "InnerAngle", "Number", "", "A",65.1272116191143
+			P: "OuterAngle", "Number", "", "A",85.1272116191143
+			P: "FileName", "KString", "", "", "spotLight10"
+			P: "CastShadows", "bool", "", "",1
+		}
+		TypeFlags: "Light"
+		GeometryVersion: 124
+	}
+	NodeAttribute: 2068870247360, "NodeAttribute::", "Light" {
+		Properties70:  {
+			P: "LightType", "enum", "", "",2
+			P: "Intensity", "Number", "", "A",437.185913085938
+			P: "InnerAngle", "Number", "", "A",54.2736313627341
+			P: "OuterAngle", "Number", "", "A",74.2736313627341
+			P: "FileName", "KString", "", "", "spotLight11"
+			P: "CastShadows", "bool", "", "",1
+		}
+		TypeFlags: "Light"
+		GeometryVersion: 124
+	}
+	NodeAttribute: 2068870250240, "NodeAttribute::", "Light" {
+		Properties70:  {
+			P: "LightType", "enum", "", "",2
+			P: "Intensity", "Number", "", "A",291.457305908203
+			P: "InnerAngle", "Number", "", "A",12.6682400446889
+			P: "OuterAngle", "Number", "", "A",32.6682400446889
+			P: "FileName", "KString", "", "", "spotLight12"
+			P: "CastShadows", "bool", "", "",1
+		}
+		TypeFlags: "Light"
+		GeometryVersion: 124
+	}
+	NodeAttribute: 2068870247936, "NodeAttribute::", "Light" {
+		Properties70:  {
+			P: "LightType", "enum", "", "",2
+			P: "Intensity", "Number", "", "A",291.457305908203
+			P: "InnerAngle", "Number", "", "A",12.6682400446889
+			P: "OuterAngle", "Number", "", "A",32.6682400446889
+			P: "FileName", "KString", "", "", "spotLight13"
+			P: "CastShadows", "bool", "", "",1
+		}
+		TypeFlags: "Light"
+		GeometryVersion: 124
+	}
+	NodeAttribute: 2068870249664, "NodeAttribute::", "Light" {
+		Properties70:  {
+			P: "LightType", "enum", "", "",2
+			P: "Intensity", "Number", "", "A",261.306518554688
+			P: "InnerAngle", "Number", "", "A",73.2673968952131
+			P: "OuterAngle", "Number", "", "A",93.2673968952131
+			P: "FileName", "KString", "", "", "spotLight14"
+			P: "CastShadows", "bool", "", "",1
+		}
+		TypeFlags: "Light"
+		GeometryVersion: 124
+	}
+	Model: 2066180706928, "Model::Lights", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationPivot", "Vector3D", "Vector", "",-1194.58541870117,350.032863616943,357.038604736328
+			P: "ScalingPivot", "Vector3D", "Vector", "",-1194.58541870117,350.032863616943,357.038604736328
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 2066180711568, "Model::pasted__Stage_4", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationPivot", "Vector3D", "Vector", "",-630.786254882812,281.526027679443,368.499938964844
+			P: "ScalingPivot", "Vector3D", "Vector", "",-630.786254882812,281.526027679443,368.499938964844
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 2066180744048, "Model::spotLight1", "Light" {
+		Version: 232
+		Properties70:  {
+			P: "PostRotation", "Vector3D", "Vector", "",-90,-0,-0
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-1053.93361403542,777.689833235791,446.752642186614
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",77.6487145664033,77.6487145664033,1
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 2066180746368, "Model::spotLight2", "Light" {
+		Version: 232
+		Properties70:  {
+			P: "PostRotation", "Vector3D", "Vector", "",-90,-0,-0
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-301.608686828574,777.689833235791,-191.719229230564
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",77.6487145664033,77.6487145664033,1
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 2066180748688, "Model::spotLight3", "Light" {
+		Version: 232
+		Properties70:  {
+			P: "PostRotation", "Vector3D", "Vector", "",-90,-0,-0
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",27.4663951798477,777.689833235791,-204.212956886155
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",77.6487145664033,77.6487145664033,1
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 2066180753328, "Model::spotLight4", "Light" {
+		Version: 232
+		Properties70:  {
+			P: "PostRotation", "Vector3D", "Vector", "",-90,-0,-0
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",282.861835949105,777.689833235791,-204.212956886155
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",77.6487145664033,77.6487145664033,1
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 2066180764928, "Model::spotLight6", "Light" {
+		Version: 232
+		Properties70:  {
+			P: "PostRotation", "Vector3D", "Vector", "",-90,-0,-0
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-1580.06655619734,777.689833235791,-347.371733669304
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",77.6487145664033,77.6487145664033,1
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 2066180751008, "Model::spotLight7", "Light" {
+		Version: 232
+		Properties70:  {
+			P: "PostRotation", "Vector3D", "Vector", "",-90,-0,-0
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-1586.42916849881,777.689833235791,-72.9050471533427
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",77.6487145664033,77.6487145664033,1
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 2066180781168, "Model::spotLight8", "Light" {
+		Version: 232
+		Properties70:  {
+			P: "PostRotation", "Vector3D", "Vector", "",-90,-0,-0
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-919.64362163856,777.689833235791,-191.719229230564
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",77.6487145664033,77.6487145664033,1
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 2066180785808, "Model::spotLight9", "Light" {
+		Version: 232
+		Properties70:  {
+			P: "PostRotation", "Vector3D", "Vector", "",-90,-0,-0
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-2189.15182850806,777.689833235791,-191.719229230564
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",77.6487145664033,77.6487145664033,1
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 2066180820608, "Model::spotLight10", "Light" {
+		Version: 232
+		Properties70:  {
+			P: "PostRotation", "Vector3D", "Vector", "",-90,-0,-0
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-956.397567118598,777.689833235791,1173.42731717083
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",77.6487145664033,77.6487145664033,1
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 2066180792768, "Model::spotLight11", "Light" {
+		Version: 232
+		Properties70:  {
+			P: "PostRotation", "Vector3D", "Vector", "",-90,-0,-0
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",193.475870042574,777.689833235791,1231.18351721089
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",77.6487145664033,77.6487145664033,1
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 2066180853088, "Model::spotLight12", "Light" {
+		Version: 232
+		Properties70:  {
+			P: "PostRotation", "Vector3D", "Vector", "",-90,-0,-0
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-253.959881761804,777.689833235791,1231.18351721089
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",77.6487145664033,77.6487145664033,1
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 2066180850768, "Model::spotLight13", "Light" {
+		Version: 232
+		Properties70:  {
+			P: "PostRotation", "Vector3D", "Vector", "",-90,-0,-0
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-431.455056031309,777.689833235791,1231.18351721089
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",77.6487145664033,77.6487145664033,1
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 2066180836848, "Model::spotLight14", "Light" {
+		Version: 232
+		Properties70:  {
+			P: "PostRotation", "Vector3D", "Vector", "",-90,-0,-0
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",620.070039271777,777.689833235791,-204.212956886155
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",77.6487145664033,77.6487145664033,1
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Video: 2068931710320, "Video::spotLight1", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "spotLight1"
+			P: "RelPath", "KString", "XRefUrl", "", "..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2024\spotLight1"
+		}
+		UseMipMap: 0
+		Filename: "spotLight1"
+		RelativeFilename: "..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2024\spotLight1"
+	}
+	Video: 2068931715600, "Video::spotLight2", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "spotLight2"
+			P: "RelPath", "KString", "XRefUrl", "", "..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2024\spotLight2"
+		}
+		UseMipMap: 0
+		Filename: "spotLight2"
+		RelativeFilename: "..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2024\spotLight2"
+	}
+	Video: 2068931708880, "Video::spotLight3", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "spotLight3"
+			P: "RelPath", "KString", "XRefUrl", "", "..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2024\spotLight3"
+		}
+		UseMipMap: 0
+		Filename: "spotLight3"
+		RelativeFilename: "..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2024\spotLight3"
+	}
+	Video: 2068931698800, "Video::spotLight4", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "spotLight4"
+			P: "RelPath", "KString", "XRefUrl", "", "..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2024\spotLight4"
+		}
+		UseMipMap: 0
+		Filename: "spotLight4"
+		RelativeFilename: "..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2024\spotLight4"
+	}
+	Video: 2068931723760, "Video::spotLight6", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "spotLight6"
+			P: "RelPath", "KString", "XRefUrl", "", "..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2024\spotLight6"
+		}
+		UseMipMap: 0
+		Filename: "spotLight6"
+		RelativeFilename: "..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2024\spotLight6"
+	}
+	Video: 2068931717040, "Video::spotLight7", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "spotLight7"
+			P: "RelPath", "KString", "XRefUrl", "", "..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2024\spotLight7"
+		}
+		UseMipMap: 0
+		Filename: "spotLight7"
+		RelativeFilename: "..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2024\spotLight7"
+	}
+	Video: 2068931709360, "Video::spotLight8", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "spotLight8"
+			P: "RelPath", "KString", "XRefUrl", "", "..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2024\spotLight8"
+		}
+		UseMipMap: 0
+		Filename: "spotLight8"
+		RelativeFilename: "..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2024\spotLight8"
+	}
+	Video: 2068931723280, "Video::spotLight9", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "spotLight9"
+			P: "RelPath", "KString", "XRefUrl", "", "..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2024\spotLight9"
+		}
+		UseMipMap: 0
+		Filename: "spotLight9"
+		RelativeFilename: "..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2024\spotLight9"
+	}
+	Video: 2068931712720, "Video::spotLight10", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "spotLight10"
+			P: "RelPath", "KString", "XRefUrl", "", "..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2024\spotLight10"
+		}
+		UseMipMap: 0
+		Filename: "spotLight10"
+		RelativeFilename: "..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2024\spotLight10"
+	}
+	Video: 2068931720400, "Video::spotLight11", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "spotLight11"
+			P: "RelPath", "KString", "XRefUrl", "", "..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2024\spotLight11"
+		}
+		UseMipMap: 0
+		Filename: "spotLight11"
+		RelativeFilename: "..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2024\spotLight11"
+	}
+	Video: 2068931707920, "Video::spotLight12", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "spotLight12"
+			P: "RelPath", "KString", "XRefUrl", "", "..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2024\spotLight12"
+		}
+		UseMipMap: 0
+		Filename: "spotLight12"
+		RelativeFilename: "..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2024\spotLight12"
+	}
+	Video: 2068931714640, "Video::spotLight13", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "spotLight13"
+			P: "RelPath", "KString", "XRefUrl", "", "..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2024\spotLight13"
+		}
+		UseMipMap: 0
+		Filename: "spotLight13"
+		RelativeFilename: "..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2024\spotLight13"
+	}
+	Video: 2068931702640, "Video::spotLight14", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "spotLight14"
+			P: "RelPath", "KString", "XRefUrl", "", "..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2024\spotLight14"
+		}
+		UseMipMap: 0
+		Filename: "spotLight14"
+		RelativeFilename: "..\..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2024\spotLight14"
+	}
+}
+
+; Object connections
+;------------------------------------------------------------------
+
+Connections:  {
+	
+	;Model::Lights, Model::RootNode
+	C: "OO",2066180706928,0
+	
+	;NodeAttribute::, Model::Lights
+	C: "OO",2068930637072,2066180706928
+	
+	;Model::pasted__Stage_4, Model::Lights
+	C: "OO",2066180711568,2066180706928
+	
+	;Model::spotLight1, Model::Lights
+	C: "OO",2066180744048,2066180706928
+	
+	;Model::spotLight2, Model::Lights
+	C: "OO",2066180746368,2066180706928
+	
+	;Model::spotLight3, Model::Lights
+	C: "OO",2066180748688,2066180706928
+	
+	;Model::spotLight4, Model::Lights
+	C: "OO",2066180753328,2066180706928
+	
+	;Model::spotLight6, Model::Lights
+	C: "OO",2066180764928,2066180706928
+	
+	;Model::spotLight7, Model::Lights
+	C: "OO",2066180751008,2066180706928
+	
+	;Model::spotLight8, Model::Lights
+	C: "OO",2066180781168,2066180706928
+	
+	;Model::spotLight9, Model::Lights
+	C: "OO",2066180785808,2066180706928
+	
+	;Model::spotLight10, Model::Lights
+	C: "OO",2066180820608,2066180706928
+	
+	;Model::spotLight11, Model::Lights
+	C: "OO",2066180792768,2066180706928
+	
+	;Model::spotLight12, Model::Lights
+	C: "OO",2066180853088,2066180706928
+	
+	;Model::spotLight13, Model::Lights
+	C: "OO",2066180850768,2066180706928
+	
+	;Model::spotLight14, Model::Lights
+	C: "OO",2066180836848,2066180706928
+	
+	;NodeAttribute::, Model::pasted__Stage_4
+	C: "OO",2068930633552,2066180711568
+	
+	;NodeAttribute::, Model::spotLight1
+	C: "OO",2067076214704,2066180744048
+	
+	;Video::spotLight1, Model::spotLight1
+	C: "OO",2068931710320,2066180744048
+	
+	;NodeAttribute::, Model::spotLight2
+	C: "OO",2067076214128,2066180746368
+	
+	;Video::spotLight2, Model::spotLight2
+	C: "OO",2068931715600,2066180746368
+	
+	;NodeAttribute::, Model::spotLight3
+	C: "OO",2067076213552,2066180748688
+	
+	;Video::spotLight3, Model::spotLight3
+	C: "OO",2068931708880,2066180748688
+	
+	;NodeAttribute::, Model::spotLight4
+	C: "OO",2068788565984,2066180753328
+	
+	;Video::spotLight4, Model::spotLight4
+	C: "OO",2068931698800,2066180753328
+	
+	;NodeAttribute::, Model::spotLight6
+	C: "OO",2068788564832,2066180764928
+	
+	;Video::spotLight6, Model::spotLight6
+	C: "OO",2068931723760,2066180764928
+	
+	;NodeAttribute::, Model::spotLight7
+	C: "OO",2068788566560,2066180751008
+	
+	;Video::spotLight7, Model::spotLight7
+	C: "OO",2068931717040,2066180751008
+	
+	;NodeAttribute::, Model::spotLight8
+	C: "OO",2068788565408,2066180781168
+	
+	;Video::spotLight8, Model::spotLight8
+	C: "OO",2068931709360,2066180781168
+	
+	;NodeAttribute::, Model::spotLight9
+	C: "OO",2068788567136,2066180785808
+	
+	;Video::spotLight9, Model::spotLight9
+	C: "OO",2068931723280,2066180785808
+	
+	;NodeAttribute::, Model::spotLight10
+	C: "OO",2068788564256,2066180820608
+	
+	;Video::spotLight10, Model::spotLight10
+	C: "OO",2068931712720,2066180820608
+	
+	;NodeAttribute::, Model::spotLight11
+	C: "OO",2068870247360,2066180792768
+	
+	;Video::spotLight11, Model::spotLight11
+	C: "OO",2068931720400,2066180792768
+	
+	;NodeAttribute::, Model::spotLight12
+	C: "OO",2068870250240,2066180853088
+	
+	;Video::spotLight12, Model::spotLight12
+	C: "OO",2068931707920,2066180853088
+	
+	;NodeAttribute::, Model::spotLight13
+	C: "OO",2068870247936,2066180850768
+	
+	;Video::spotLight13, Model::spotLight13
+	C: "OO",2068931714640,2066180850768
+	
+	;NodeAttribute::, Model::spotLight14
+	C: "OO",2068870249664,2066180836848
+	
+	;Video::spotLight14, Model::spotLight14
+	C: "OO",2068931702640,2066180836848
+}

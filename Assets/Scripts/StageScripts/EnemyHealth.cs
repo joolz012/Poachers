@@ -19,9 +19,14 @@ public class EnemyHealth : MonoBehaviour
 
     public string bossPlayerPrefs;
     public bool isBoss = false;
+
+    private QuestManager questManager;
     // Start is called before the first frame update
     void Start()
     {
+        GameObject questMan = GameObject.Find("QuestCanvas");
+        questManager = questMan.GetComponent<QuestManager>();
+
         attackPlayer = GetComponent<EnemyAttackPlayer>();
         enemyPatrol = GetComponent<EnemyPatrol>();
 
@@ -53,6 +58,7 @@ public class EnemyHealth : MonoBehaviour
     IEnumerator Death()
     {
         enemyAnim.Play("Death");
+        questManager.currentEnemy += 1;
         yield return new WaitForSeconds(1.0f);
         if (isBoss)
         {

@@ -11,6 +11,7 @@ public class StageManager : MonoBehaviour
     public int defendTimer;
     public bool raidingBase;
 
+    public QuestManager questManager;
     public TimerScript timerScript;
 
 
@@ -83,11 +84,11 @@ public class StageManager : MonoBehaviour
         {
             gateGameObjects[0].SetActive(false);
         }
-        if (!animalsGameObjects[1].activeInHierarchy)
+        if (questManager.questCounter == 1)
         {
             gateGameObjects[1].SetActive(false);
         }
-        if (!animalsGameObjects[2].activeInHierarchy)
+        if (questManager.questCounter == 2)
         {
             gateGameObjects[2].SetActive(false);
         }
