@@ -47,13 +47,14 @@ public class BulletController : MonoBehaviour
         }
 
 
-        float distanceCovered = (Time.time - startTime) * speed;
+        //float distanceCovered = (Time.time - startTime) * speed;
 
 
-        float journeyFraction = distanceCovered / journeyLength;
+        //float journeyFraction = distanceCovered / journeyLength;
 
 
-        transform.position = Vector3.Lerp(transform.position, target.position, journeyFraction);
+        transform.position = Vector3.Lerp(transform.position, target.position, speed * Time.deltaTime);
+        transform.LookAt(target.position);
     }
 
 

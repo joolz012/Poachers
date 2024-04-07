@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class WeaponScript : MonoBehaviour
 {
+    public Animator towerAnim;
+
     [Header("Weapon Stats")]
     public int currentLevel;
     public float attackDamage;
@@ -70,6 +72,10 @@ public class WeaponScript : MonoBehaviour
         {
             AttackTarget();
         }
+        else
+        {
+            towerAnim.Play("Idle");
+        }
     }
 
     GameObject FindEnemyNearBase()
@@ -120,12 +126,13 @@ public class WeaponScript : MonoBehaviour
         //targetRotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
         ballista.rotation = Quaternion.Lerp(ballista.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
-
+        towerAnim.speed = shotsPerSecond;
+        towerAnim.Play("Attack");
         float distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
 
         if (distanceToTarget <= attackRange && Time.time - timeSinceLastShot >= 1 / shotsPerSecond)
         {
-            GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
+            GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
             attackSound.Play();
             BulletController bulletController = bullet.GetComponent<BulletController>();
             if (bulletController != null)

@@ -74,7 +74,7 @@ public class AnimalCounter : MonoBehaviour
                     for (int k = 0; k < counters[j]; k++)
                     {
                         respawnRandom = Random.Range(0, animalSpawnerTrans.Length);
-                        GameObject newAnimal = Instantiate(animalPrefab[j], animalSpawnerTrans[respawnRandom].position, Quaternion.identity);
+                        GameObject newAnimal = Instantiate(animalPrefab[j], animalSpawnerTrans[respawnRandom].position, transform.rotation);
                         instantiatedAnimals.Add(newAnimal);
                     }
                 }

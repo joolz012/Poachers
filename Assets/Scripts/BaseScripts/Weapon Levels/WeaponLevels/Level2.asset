@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 2
   damageIncrease: 20
-  rangeIncrease: 45
+  rangeIncrease: 70
   attackSpeedIncrease: 1.2

@@ -5108,7 +5108,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questManager: {fileID: 0}
-  questAdd: 0
   whatAnimal: tarsier
   rescueCanvas: {fileID: 1980932697}
 --- !u!136 &112903142
@@ -5677,7 +5676,7 @@ MonoBehaviour:
   unlockKeyCost: 0.16666667
   checkKey: 1
   defaultKeySave: 0
-  questManager: {fileID: 36806518}
+  questManager: {fileID: 0}
 --- !u!136 &124644886
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6201,7 +6200,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questManager: {fileID: 0}
-  questAdd: 0
   whatAnimal: tarsier
   rescueCanvas: {fileID: 917700576}
 --- !u!136 &130372083
@@ -6599,7 +6597,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questManager: {fileID: 0}
-  questAdd: 0
   whatAnimal: tarsier
   rescueCanvas: {fileID: 2055585251}
 --- !u!136 &135639776
@@ -7004,7 +7001,7 @@ MonoBehaviour:
   unlockKeyCost: 0.16666667
   checkKey: 1
   defaultKeySave: 0
-  questManager: {fileID: 36806518}
+  questManager: {fileID: 0}
 --- !u!1 &143587885
 GameObject:
   m_ObjectHideFlags: 0
@@ -7600,7 +7597,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questManager: {fileID: 0}
-  questAdd: 0
   whatAnimal: tarsier
   rescueCanvas: {fileID: 1517188312}
 --- !u!136 &155095301
@@ -10095,7 +10091,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questManager: {fileID: 0}
-  questAdd: 0
   whatAnimal: tarsier
   rescueCanvas: {fileID: 525161531}
 --- !u!136 &206901091
@@ -24393,8 +24388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d17f2e4ce48686478ad64cee16c9da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questManager: {fileID: 36806518}
-  questAdd: 0
+  questManager: {fileID: 0}
   whatAnimal: tarsier
   rescueCanvas: {fileID: 144368872}
 --- !u!136 &451203398
@@ -32198,7 +32192,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questManager: {fileID: 0}
-  questAdd: 0
   whatAnimal: tarsier
   rescueCanvas: {fileID: 616089737}
 --- !u!136 &546148041
@@ -36693,7 +36686,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questManager: {fileID: 0}
-  questAdd: 0
   whatAnimal: tarsier
   rescueCanvas: {fileID: 1152228379}
 --- !u!136 &617591120
@@ -40118,7 +40110,7 @@ MonoBehaviour:
   unlockKeyCost: 0.16666667
   checkKey: 1
   defaultKeySave: 0
-  questManager: {fileID: 36806518}
+  questManager: {fileID: 0}
 --- !u!136 &671969661
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -44520,7 +44512,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questManager: {fileID: 0}
-  questAdd: 0
   whatAnimal: tarsier
   rescueCanvas: {fileID: 415703968}
 --- !u!136 &747734151
@@ -48452,7 +48443,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questManager: {fileID: 0}
-  questAdd: 0
   whatAnimal: tarsier
   rescueCanvas: {fileID: 223282979}
 --- !u!136 &828209460
@@ -50887,7 +50877,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questManager: {fileID: 0}
-  questAdd: 0
   whatAnimal: tarsier
   rescueCanvas: {fileID: 1900802451}
 --- !u!136 &872638514
@@ -55593,7 +55582,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questManager: {fileID: 0}
-  questAdd: 0
   whatAnimal: tarsier
   rescueCanvas: {fileID: 415467942}
 --- !u!136 &957730715
@@ -56141,7 +56129,7 @@ MonoBehaviour:
   unlockKeyCost: 0.16666667
   checkKey: 1
   defaultKeySave: 0
-  questManager: {fileID: 36806518}
+  questManager: {fileID: 0}
 --- !u!136 &966196429
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -58379,7 +58367,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questManager: {fileID: 0}
-  questAdd: 0
   whatAnimal: tarsier
   rescueCanvas: {fileID: 667901833}
 --- !u!136 &1009483311
@@ -63346,7 +63333,7 @@ MonoBehaviour:
   unlockKeyCost: 0.16666667
   checkKey: 1
   defaultKeySave: 0
-  questManager: {fileID: 36806518}
+  questManager: {fileID: 0}
 --- !u!136 &1086794176
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -67121,7 +67108,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questManager: {fileID: 0}
-  questAdd: 0
   whatAnimal: tarsier
   rescueCanvas: {fileID: 536594356}
 --- !u!136 &1165638166
@@ -75317,7 +75303,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questManager: {fileID: 0}
-  questAdd: 0
   whatAnimal: tarsier
   rescueCanvas: {fileID: 1396010250}
 --- !u!136 &1323452280
@@ -87062,7 +87047,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questManager: {fileID: 0}
-  questAdd: 0
   whatAnimal: tarsier
   rescueCanvas: {fileID: 399099886}
 --- !u!136 &1549392967
@@ -89223,7 +89207,7 @@ MonoBehaviour:
   unlockKeyCost: 0.16666667
   checkKey: 1
   defaultKeySave: 0
-  questManager: {fileID: 36806518}
+  questManager: {fileID: 0}
 --- !u!136 &1580955774
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -95600,7 +95584,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questManager: {fileID: 36806518}
-  questAdd: 0
   whatAnimal: tarsier
   rescueCanvas: {fileID: 930048745}
 --- !u!136 &1698283603
@@ -100010,7 +99993,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questManager: {fileID: 0}
-  questAdd: 0
   whatAnimal: tarsier
   rescueCanvas: {fileID: 1071397270}
 --- !u!136 &1790988977
@@ -108662,7 +108644,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questManager: {fileID: 0}
-  questAdd: 0
   whatAnimal: tarsier
   rescueCanvas: {fileID: 1652050261}
 --- !u!136 &1971011587
@@ -109499,7 +109480,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questManager: {fileID: 0}
-  questAdd: 0
   whatAnimal: tarsier
   rescueCanvas: {fileID: 83277553}
 --- !u!136 &1977917808
@@ -116564,7 +116544,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questManager: {fileID: 0}
-  questAdd: 0
   whatAnimal: tarsier
   rescueCanvas: {fileID: 325276669}
 --- !u!136 &2109601675
@@ -118336,8 +118315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d17f2e4ce48686478ad64cee16c9da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questManager: {fileID: 36806518}
-  questAdd: 0
+  questManager: {fileID: 0}
   whatAnimal: tarsier
   rescueCanvas: {fileID: 3274602646580937851}
 --- !u!114 &1869584451398826037

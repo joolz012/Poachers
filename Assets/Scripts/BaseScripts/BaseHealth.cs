@@ -280,10 +280,6 @@ public class BaseHealth : MonoBehaviour
 
             PlayerPrefs.SetFloat("ragnarBattle", 0);
 
-            SceneManager.LoadScene("Base");
-        }
-        if (Input.GetKeyDown(KeyCode.I))
-        {
             //PlayerPrefs.SetInt("animalCounter", 1);
             PlayerPrefs.SetInt("crocodileMax", 0);
             PlayerPrefs.SetInt("tamarawMax", 0);
@@ -291,6 +287,12 @@ public class BaseHealth : MonoBehaviour
             PlayerPrefs.SetInt("tarsierMax", 0);
             PlayerPrefs.SetInt("haribonMax", 0);
             PlayerPrefs.SetInt("turtleMax", 0);
+
+            SceneManager.LoadScene("Base");
+        }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha6))
@@ -307,6 +309,7 @@ public class BaseHealth : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha9))
         {
+            PlayerPrefs.SetFloat("ragnarBattle", 0);
             SceneManager.LoadScene("Stage4");
         }
         if (Input.GetKeyDown(KeyCode.Alpha0))

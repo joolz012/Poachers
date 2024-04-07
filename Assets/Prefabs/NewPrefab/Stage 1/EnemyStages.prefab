@@ -453,6 +453,9 @@ MonoBehaviour:
   isoCam: {fileID: 4565039704201174169, guid: 5bf3fde9b09188d4a81dec7a6af507f6, type: 3}
   nextWave: 0
   bossPlayerPrefs: 
+  isBoss: 0
+  scriptName: 
+  script: {fileID: 0}
 --- !u!114 &7548317547238183011
 MonoBehaviour:
   m_ObjectHideFlags: 0
