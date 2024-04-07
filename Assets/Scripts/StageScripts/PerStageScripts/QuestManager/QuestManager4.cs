@@ -9,7 +9,6 @@ public class QuestManager4 : MonoBehaviour
 {
     [Header("Animal 1")]
     public GameObject questTextBox;
-    TextMeshPro mainText;
     public Text currentAnimalText, totalAnimalText;
     public float currentAnimal, totalAnimal;
 
@@ -18,16 +17,18 @@ public class QuestManager4 : MonoBehaviour
     public Text currentEnemyText, totalEnemyText;
     public float currentEnemy, totalEnemy;
 
+    public TextMeshProUGUI mainText;
+    public GameObject slash;
     public Transform bossFightTrans, playerTrans;
     public CharacterController playerCont;
     // Start is called before the first frame update
     void Start()
     {
-        mainText = questTextBox.GetComponent<TextMeshPro>();
         if (PlayerPrefs.GetFloat("ragnarBattle") == 1)
         {
-            currentAnimalText.text = "";
-            totalAnimalText.text = "";
+            slash.SetActive(false);
+            currentEnemyText.gameObject.SetActive(false);
+            totalEnemyText.gameObject.SetActive(false);
 
             playerCont.enabled = false; 
             playerTrans.position = bossFightTrans.position;

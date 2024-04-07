@@ -5499,12 +5499,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 1888089790}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 6637c964780c0d04a958e76ca9a5b4d3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6896
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6637c964780c0d04a958e76ca9a5b4d3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.08090377
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6637c964780c0d04a958e76ca9a5b4d3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.40934017
+      value: 0.351
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6637c964780c0d04a958e76ca9a5b4d3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5542,6 +5546,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6637c964780c0d04a958e76ca9a5b4d3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b2b249213b7576f44bda5913288b3d50, type: 2}
     - target: {fileID: 919132149155446097, guid: 6637c964780c0d04a958e76ca9a5b4d3, type: 3}
       propertyPath: m_Name
       value: InnerWall1
@@ -5610,7 +5618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeSpeed: 0.5
-  fadeAmount: 0.8
+  fadeAmount: 0.6
   doFade: 0
 --- !u!1 &336200088
 GameObject:
@@ -6013,6 +6021,12 @@ MonoBehaviour:
   - {fileID: 1928860270}
   - {fileID: 1764516530}
   - {fileID: 1602692369}
+  mainText: {fileID: 2057295358}
+  slash: {fileID: 313518737}
+  firstAnimal: {fileID: 273503587}
+  bossFightTrans: {fileID: 801462746}
+  playerTrans: {fileID: 373063132}
+  playerCont: {fileID: 373063134}
 --- !u!1 &348168251
 GameObject:
   m_ObjectHideFlags: 0
@@ -6624,6 +6638,11 @@ Transform:
 --- !u!95 &373063133 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4788543657172561303, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
+  m_PrefabInstance: {fileID: 373063131}
+  m_PrefabAsset: {fileID: 0}
+--- !u!143 &373063134 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: -5588596408195436889, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
   m_PrefabInstance: {fileID: 373063131}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &374599370
@@ -12763,6 +12782,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnString: AnimalSpawn2
   spawnPoints: []
+--- !u!1 &801462745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 801462746}
+  m_Layer: 9
+  m_Name: GondarSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &801462746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801462745}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 264.5, y: 46.51, z: 236.29999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &817875621 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2040542448765327740, guid: 87716a6d30c0a8841bab93e9cf85be04, type: 3}
@@ -33690,13 +33740,14 @@ SceneRoots:
   - {fileID: 2022998552}
   - {fileID: 144868831}
   - {fileID: 373063131}
+  - {fileID: 801462746}
   - {fileID: 1009245999}
   - {fileID: 1158987003}
-  - {fileID: 2042222443}
   - {fileID: 1642815296}
   - {fileID: 300585435}
   - {fileID: 702816773}
   - {fileID: 1198543581265152751}
+  - {fileID: 2042222443}
   - {fileID: 138746257}
   - {fileID: 1460765997}
   - {fileID: 211335507}

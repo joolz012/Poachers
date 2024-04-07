@@ -90,6 +90,7 @@ public class EnemyHealth : MonoBehaviour
         if (isBoss)
         {
             PlayerPrefs.SetFloat(bossPlayerPrefs, PlayerPrefs.GetFloat(bossPlayerPrefs) + 1);
+            SceneManager.LoadScene("Base");
         }
         Destroy(gameObject);
         yield break;

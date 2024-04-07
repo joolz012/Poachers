@@ -14,7 +14,6 @@ public class StageManager : MonoBehaviour
     public QuestManager questManager;
     public TimerScript timerScript;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -26,32 +25,6 @@ public class StageManager : MonoBehaviour
             StartCoroutine(BackToBase(defendTimer));
         }
         animalCounter = PlayerPrefs.GetInt("animalCounter", animalCounter);
-
-        //if (animalCounter <= 3)
-        //{
-        //    foreach (GameObject gameObject in animalsGameObjects)
-        //    {
-        //        gameObject.SetActive(false);
-        //    }
-        //    if (animalCounter <= 2)
-        //    {
-        //        animalsGameObjects[2].SetActive(true);
-
-        //        if (animalCounter <= 1)
-        //        {
-        //            animalsGameObjects[2].SetActive(true);
-        //            animalsGameObjects[1].SetActive(true);
-
-        //            if (animalCounter <= 0)
-        //            {
-        //                foreach (GameObject gameObject in animalsGameObjects)
-        //                {
-        //                    gameObject.SetActive(true);
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
     }
 
     // Update is called once per frame

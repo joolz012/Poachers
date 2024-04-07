@@ -278,6 +278,8 @@ public class BaseHealth : MonoBehaviour
             PlayerPrefs.SetFloat("currentMoney", 100);
 
 
+            PlayerPrefs.SetFloat("gondarBattle", 0);
+            PlayerPrefs.SetFloat("bjornBattle", 0);
             PlayerPrefs.SetFloat("ragnarBattle", 0);
 
             //PlayerPrefs.SetInt("animalCounter", 1);
@@ -290,23 +292,34 @@ public class BaseHealth : MonoBehaviour
 
             SceneManager.LoadScene("Base");
         }
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-
-        }
 
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
             SceneManager.LoadScene("Stage1");
         }
+
         if (Input.GetKeyDown(KeyCode.Alpha7))
         {
+            PlayerPrefs.SetFloat("gondarBattle", 0);
             SceneManager.LoadScene("Stage2");
         }
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            PlayerPrefs.SetFloat("gondarBattle", 1);
+            SceneManager.LoadScene("Stage2");
+        }
+
         if (Input.GetKeyDown(KeyCode.Alpha8))
         {
+            PlayerPrefs.SetFloat("bjornBattle", 0);
             SceneManager.LoadScene("Stage3");
         }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            PlayerPrefs.SetFloat("bjornBattle", 1);
+            SceneManager.LoadScene("Stage3");
+        }
+
         if (Input.GetKeyDown(KeyCode.Alpha9))
         {
             PlayerPrefs.SetFloat("ragnarBattle", 0);

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,19 +38,50 @@ public class QuestManager3 : MonoBehaviour
 
     [Header("QuestCounter")]
     public int questCounter;
+
+    public TextMeshProUGUI mainText;
+    public GameObject slash;
+    public GameObject firstAnimal;
+    public Transform bossFightTrans, playerTrans;
+    public CharacterController playerCont;
+
     // Start is called before the first frame update
     void Start()
     {
-        questTextBox.SetActive(false);
-        questTextBox2.SetActive(false);
-        questTextBox3.SetActive(false);
-        questTextBox4.SetActive(false);
-        questTextBox5.SetActive(false);
-        gameObject.SetActive(true);
-        questCounter = 0;
-        currentAnimal = -1;
-        currentAnimal2 = 0;
-        currentAnimal3 = 0;
+        if (PlayerPrefs.GetFloat("bjornBattle") == 1)
+        {
+            firstAnimal.SetActive(false);
+            questTextBox.SetActive(false); 
+            questTextBox2.SetActive(false);
+            questTextBox3.SetActive(false);
+            questTextBox4.SetActive(false);
+            questTextBox5.SetActive(true);
+            slash.SetActive(false);
+            currentEnemyText.gameObject.SetActive(false);
+            totalEnemyText.gameObject.SetActive(false);
+
+            playerCont.enabled = false;
+            playerTrans.position = bossFightTrans.position;
+            playerCont.enabled = true;
+            questCounter = 0;
+            currentAnimal = -1;
+            currentAnimal2 = 0;
+            currentAnimal3 = 0;
+            mainText.text = "Defeat Ragnar";
+        }
+        else if (PlayerPrefs.GetFloat("bjornBattle") == 0)
+        {
+            questTextBox.SetActive(false);
+            questTextBox2.SetActive(false);
+            questTextBox3.SetActive(false);
+            questTextBox4.SetActive(false);
+            questTextBox5.SetActive(false);
+            gameObject.SetActive(true);
+            questCounter = 0;
+            currentAnimal = -1;
+            currentAnimal2 = 0;
+            currentAnimal3 = 0;
+        }
     }
 
     // Update is called once per frame
