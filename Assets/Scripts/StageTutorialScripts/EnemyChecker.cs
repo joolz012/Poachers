@@ -34,9 +34,9 @@ public class EnemyChecker : MonoBehaviour
     private bool CheckForTag()
     {
         // Find all GameObjects with the specified tag in the hierarchy
-        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag(tagToCheck);
+        enemyGameobjects = GameObject.FindGameObjectsWithTag(tagToCheck);
 
         // Return true if any GameObjects with the specified tag are found, otherwise return false
-        return objectsWithTag.Length > 0;
+        return enemyGameobjects.Length > 0;
     }
 }

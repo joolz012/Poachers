@@ -9,7 +9,6 @@ public class PlayerHealth : MonoBehaviour
     public Slider healthslider;
     public float playerMaxHealth;
     public float playerHealth;
-    public string playAgainScene;
 
     public GameObject deathCanvas;
     // Start is called before the first frame update
@@ -35,17 +34,8 @@ public class PlayerHealth : MonoBehaviour
         {
             SceneManager.LoadScene("Base");
         }
-
-        if(transform.position.y < 30)
-        {
-            SceneManager.LoadScene(playAgainScene);
-        }
     }
 
-    public void PlayAgain()
-    {
-        SceneManager.LoadScene(playAgainScene);
-    }
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");

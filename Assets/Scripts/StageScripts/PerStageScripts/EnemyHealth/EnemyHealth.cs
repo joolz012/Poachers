@@ -141,9 +141,9 @@ public class EnemyHealth : MonoBehaviour
                 questManager4.currentEnemy += 1;
             }
         }
-        else
+        else if (script == null)
         {
-            Debug.LogError("Unexpected component type: " + script.GetType().Name);
+            Debug.LogError("No Quest Manager");
         }
     }
 }
