@@ -27,32 +27,6 @@ public class Stage3Manager : MonoBehaviour
             StartCoroutine(BackToBase(defendTimer));
         }
         animalCounter = PlayerPrefs.GetInt("animalCounter", animalCounter);
-
-        //if (animalCounter <= 3)
-        //{
-        //    foreach (GameObject gameObject in animalsGameObjects)
-        //    {
-        //        gameObject.SetActive(false);
-        //    }
-        //    if (animalCounter <= 2)
-        //    {
-        //        animalsGameObjects[2].SetActive(true);
-
-        //        if (animalCounter <= 1)
-        //        {
-        //            animalsGameObjects[2].SetActive(true);
-        //            animalsGameObjects[1].SetActive(true);
-
-        //            if (animalCounter <= 0)
-        //            {
-        //                foreach (GameObject gameObject in animalsGameObjects)
-        //                {
-        //                    gameObject.SetActive(true);
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
     }
 
     // Update is called once per frame
@@ -71,6 +45,22 @@ public class Stage3Manager : MonoBehaviour
         if (!bjornGameObject.activeInHierarchy)
         {
             PlayerPrefs.SetInt(bjornPlayerPrefs, 1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            PlayerPrefs.SetFloat("gondarBattle", 1);
+            SceneManager.LoadScene("Stage2");
+        }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            PlayerPrefs.SetFloat("bjornBattle", 1);
+            SceneManager.LoadScene("Stage3");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            PlayerPrefs.SetFloat("ragnarBattle", 1);
+            SceneManager.LoadScene("Stage4");
         }
     }
 

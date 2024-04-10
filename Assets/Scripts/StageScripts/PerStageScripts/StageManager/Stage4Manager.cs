@@ -33,7 +33,22 @@ public class Stage4Manager : MonoBehaviour
             StartCoroutine(BackToBase(defendTimer));
             raidingBase = true;
         }
-        //Debug.Log(PlayerPrefs.GetInt("animalCounter"));
+
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            PlayerPrefs.SetFloat("gondarBattle", 1);
+            SceneManager.LoadScene("Stage2");
+        }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            PlayerPrefs.SetFloat("bjornBattle", 1);
+            SceneManager.LoadScene("Stage3");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            PlayerPrefs.SetFloat("ragnarBattle", 1);
+            SceneManager.LoadScene("Stage4");
+        }
     }
 
     IEnumerator BackToBase(float timer)

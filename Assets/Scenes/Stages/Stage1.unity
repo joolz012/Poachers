@@ -45690,6 +45690,11 @@ Transform:
   - {fileID: 158826793}
   m_Father: {fileID: 180495184}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &769438324 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8164426930875568281, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
+  m_PrefabInstance: {fileID: 3832270524148400127}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &769784971
 GameObject:
   m_ObjectHideFlags: 0
@@ -89612,6 +89617,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7342144903444774375, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
   m_PrefabInstance: {fileID: 3832270524148400127}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1588131763 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -5650786456799884033, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
+  m_PrefabInstance: {fileID: 3832270524148400127}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1adba4f29f4b70944b7b42c62051243a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1588131764 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4648371291114245199, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
+  m_PrefabInstance: {fileID: 3832270524148400127}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eeef7a9d84bd324b9e70cf6d5eb3492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1588223042
 GameObject:
   m_ObjectHideFlags: 0
@@ -118799,9 +118826,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2109163779}
     - target: {fileID: 116059836182523423, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
+      propertyPath: playerAnim
+      value: 
+      objectReference: {fileID: 769438324}
+    - target: {fileID: 116059836182523423, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
+      propertyPath: playerAttack
+      value: 
+      objectReference: {fileID: 1588131764}
+    - target: {fileID: 116059836182523423, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
       propertyPath: playAgainScene
       value: Stage1
       objectReference: {fileID: 0}
+    - target: {fileID: 116059836182523423, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
+      propertyPath: playerMovementStage
+      value: 
+      objectReference: {fileID: 1588131763}
     - target: {fileID: 221528322460434686, guid: 93f2fc508f986e74785d0c3fecbe2eb0, type: 3}
       propertyPath: playerCamera
       value: 
