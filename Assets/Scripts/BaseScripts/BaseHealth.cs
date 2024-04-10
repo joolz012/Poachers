@@ -334,10 +334,16 @@ public class BaseHealth : MonoBehaviour
             PlayerPrefs.SetFloat("ragnarBattle", 0);
             SceneManager.LoadScene("Stage4");
         }
+
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             PlayerPrefs.SetFloat("ragnarBattle", 1);
             SceneManager.LoadScene("Stage4");
+        }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            SceneManager.LoadScene("MainMenu");
         }
         //if (Input.GetKeyDown(KeyCode.K))
         //{

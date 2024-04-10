@@ -37,6 +37,11 @@ public class MainMenuScript : MonoBehaviour
         {
             continueButton.SetActive(false);
         }
+
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            PlayerPrefs.SetFloat("newGame", 0);
+        }
     }
 
     IEnumerator LightMovement()
