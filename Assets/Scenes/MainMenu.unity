@@ -1299,8 +1299,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 959855600}
-  - {fileID: 537060392}
   - {fileID: 1639420613}
+  - {fileID: 537060392}
   - {fileID: 98127238}
   - {fileID: 983919493}
   m_Father: {fileID: 1986458671}
@@ -16699,7 +16699,12 @@ MonoBehaviour:
   - {fileID: 1342943631}
   - {fileID: 374961148}
   - {fileID: 1103219327}
-  essenceText: {fileID: 1275375514}
+  crodocileText: {fileID: 0}
+  tamarawText: {fileID: 0}
+  pangolinText: {fileID: 0}
+  tarsierText: {fileID: 0}
+  haribonText: {fileID: 0}
+  turtleText: {fileID: 0}
 --- !u!23 &1161063137
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22832,7 +22837,12 @@ MonoBehaviour:
   - {fileID: 1342943631}
   - {fileID: 374961148}
   - {fileID: 1103219327}
-  essenceText: {fileID: 1275375514}
+  crodocileText: {fileID: 0}
+  tamarawText: {fileID: 0}
+  pangolinText: {fileID: 0}
+  tarsierText: {fileID: 0}
+  haribonText: {fileID: 0}
+  turtleText: {fileID: 0}
 --- !u!65 &1612990908
 BoxCollider:
   m_ObjectHideFlags: 0

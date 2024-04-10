@@ -19,7 +19,7 @@ public class TutorialDialog : MonoBehaviour
 
     public TutorialDialogManager tutorialDialogManager;
     public MouseScriptTutorial mouseScriptTutorial;
-    public GameObject player;
+    public GameObject player, inviWall;
     public GameObject cameraGameObject;
     public GameObject dialogCanvas, talismanGameObject;
     public GameObject[] highlights;
@@ -98,6 +98,7 @@ public class TutorialDialog : MonoBehaviour
                             player.GetComponent<PlayerMovementStage>().enabled = true;
                             player.GetComponent<PlayerAttack>().enabled = true;
                             player.GetComponent<PlayerHealth>().enabled = true;
+                            inviWall.SetActive(false);
                             //player.GetComponent<PlayerSKills>().enabled = true;
                             cameraGameObject.GetComponent<CameraScript>().enabled = true;
                             talismanGameObject.SetActive(true);
