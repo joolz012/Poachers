@@ -42,6 +42,48 @@ public class StageManager : MonoBehaviour
 
 
         GatePass();
+        ChangeScene();
+    }
+
+    void ChangeScene()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            SceneManager.LoadScene("Stage1");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            PlayerPrefs.SetFloat("gondarBattle", 0);
+            SceneManager.LoadScene("Stage2");
+        }
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            PlayerPrefs.SetFloat("gondarBattle", 1);
+            SceneManager.LoadScene("Stage2");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            PlayerPrefs.SetFloat("bjornBattle", 0);
+            SceneManager.LoadScene("Stage3");
+        }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            PlayerPrefs.SetFloat("bjornBattle", 1);
+            SceneManager.LoadScene("Stage3");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            PlayerPrefs.SetFloat("ragnarBattle", 0);
+            SceneManager.LoadScene("Stage4");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            PlayerPrefs.SetFloat("ragnarBattle", 1);
+            SceneManager.LoadScene("Stage4");
+        }
     }
 
     IEnumerator BackToBase(float timer)
