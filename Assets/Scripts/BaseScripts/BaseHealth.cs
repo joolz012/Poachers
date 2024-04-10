@@ -29,8 +29,16 @@ public class BaseHealth : MonoBehaviour
         baseHealth = baseMaxHealth;
         healthslider.value = baseHealth;
         healthslider.maxValue = baseMaxHealth;
-    }
 
+        //new Game
+        if(PlayerPrefs.GetFloat("newGame") == 0)
+        {
+            DegradeWeaponBase();
+            DegradeWeaponTrap();
+            DegradeBase();
+            PlayerPrefs.SetFloat("newGame", 1);
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -219,6 +227,7 @@ public class BaseHealth : MonoBehaviour
             DegradeWeaponTrap();
             DegradeBase();
         }
+
         if (Input.GetKeyDown(KeyCode.O))
         {
             //defending

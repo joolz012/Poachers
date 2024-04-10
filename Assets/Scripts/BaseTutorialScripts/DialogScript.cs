@@ -33,6 +33,7 @@ public class DialogScript : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
         tutorialSounds1 = soundsManager.GetComponent<TutorialSounds1>();
         soundsManager.SetActive(true);
         dialogCanvas.SetActive(false);
