@@ -114,8 +114,8 @@ public class EnemyManager : MonoBehaviour
     IEnumerator InstantiateObjects()
     {
         Debug.Log("Wait");
-        BossBattle();
         yield return new WaitForSeconds(60);
+        BossBattle();
         weaponManager.StopFund();
         backgroundMusic.PoacherAttacking();
         while (instantiations < maxInstantiations)
