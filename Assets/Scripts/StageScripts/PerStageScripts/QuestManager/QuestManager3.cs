@@ -67,7 +67,7 @@ public class QuestManager3 : MonoBehaviour
             currentAnimal = -1;
             currentAnimal2 = 0;
             currentAnimal3 = 0;
-            mainText.text = "Defeat Ragnar";
+            mainText.text = "Defeat Bjorn";
         }
         else if (PlayerPrefs.GetFloat("bjornBattle") == 0)
         {

@@ -38,6 +38,11 @@ public class Stage4Manager : MonoBehaviour
 
     void ChangeScene()
     {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            SceneManager.LoadScene("Base");
+        }
+
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
             SceneManager.LoadScene("Stage1");
@@ -48,6 +53,7 @@ public class Stage4Manager : MonoBehaviour
             PlayerPrefs.SetFloat("gondarBattle", 0);
             SceneManager.LoadScene("Stage2");
         }
+
         if (Input.GetKeyDown(KeyCode.U))
         {
             PlayerPrefs.SetFloat("gondarBattle", 1);

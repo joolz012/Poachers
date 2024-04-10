@@ -28287,10 +28287,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainOffice
       objectReference: {fileID: 0}
-    - target: {fileID: 182156, guid: 3fd4a442a13c4f746a030b1f898f424a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 420490, guid: 3fd4a442a13c4f746a030b1f898f424a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -28331,45 +28327,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 338976714651133435, guid: 3fd4a442a13c4f746a030b1f898f424a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 516591348316886455, guid: 3fd4a442a13c4f746a030b1f898f424a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 543450652555113947}
-    - target: {fileID: 516591348316886455, guid: 3fd4a442a13c4f746a030b1f898f424a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpgradeBase
-      objectReference: {fileID: 0}
     - target: {fileID: 516591348316886455, guid: 3fd4a442a13c4f746a030b1f898f424a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 543450652555113946}
+    - target: {fileID: 1065262391102681430, guid: 3fd4a442a13c4f746a030b1f898f424a, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2344174308655199950, guid: 3fd4a442a13c4f746a030b1f898f424a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 543450652555113947}
-    - target: {fileID: 2344174308655199950, guid: 3fd4a442a13c4f746a030b1f898f424a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnDetails
-      objectReference: {fileID: 0}
-    - target: {fileID: 3174930865019346556, guid: 3fd4a442a13c4f746a030b1f898f424a, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3269037842506588889, guid: 3fd4a442a13c4f746a030b1f898f424a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -9.3
+    - target: {fileID: 3665570890370156397, guid: 3fd4a442a13c4f746a030b1f898f424a, type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4295123818218441804, guid: 3fd4a442a13c4f746a030b1f898f424a, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5422680849384506186, guid: 3fd4a442a13c4f746a030b1f898f424a, type: 3}
+      propertyPath: m_Text
+      value: Main Office Health
+      objectReference: {fileID: 0}
     - target: {fileID: 7417551149556382543, guid: 3fd4a442a13c4f746a030b1f898f424a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 543450652555113947}
-    - target: {fileID: 7417551149556382543, guid: 3fd4a442a13c4f746a030b1f898f424a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CloseCanvas
+    - target: {fileID: 7749492803081260569, guid: 3fd4a442a13c4f746a030b1f898f424a, type: 3}
+      propertyPath: m_Text
+      value: Main Office Level
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -43710,6 +43706,17 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000078201294, y: -0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1382442949 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3665570890370156397, guid: 3fd4a442a13c4f746a030b1f898f424a, type: 3}
+  m_PrefabInstance: {fileID: 871916759}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1386225364
 GameObject:
   m_ObjectHideFlags: 0
@@ -72982,6 +72989,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5078349601042374416, guid: 5476cf6bab5759541af479daff5954f3, type: 3}
+      propertyPath: baseLevel
+      value: 
+      objectReference: {fileID: 1382442949}
     - target: {fileID: 5078349601042374416, guid: 5476cf6bab5759541af479daff5954f3, type: 3}
       propertyPath: baseHealthText
       value: 

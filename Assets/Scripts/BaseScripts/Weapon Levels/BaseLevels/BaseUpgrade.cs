@@ -13,7 +13,7 @@ public class BaseUpgrade : MonoBehaviour
 
     public float upgradeCost;
 
-    public Text baseHealthText;
+    public Text baseHealthText, baseLevel;
 
     private void Start()
     {
@@ -26,6 +26,7 @@ public class BaseUpgrade : MonoBehaviour
             baseHealth.baseLevel = currentUpgrade.level;
             baseHealth.baseMaxHealth = currentUpgrade.baseHealth;
             baseHealthText.text = currentUpgrade.baseHealth.ToString();
+            baseLevel.text = currentUpgrade.level.ToString();
         }
         else
         {
@@ -48,6 +49,7 @@ public class BaseUpgrade : MonoBehaviour
                 baseHealth.baseMaxHealth = currentUpgrade.baseHealth;
 
                 baseHealthText.text = currentUpgrade.baseHealth.ToString();
+                baseLevel.text = currentUpgrade.level.ToString();
                 Debug.Log("Upgraded to level " + currentUpgrade.level);
             }
             else

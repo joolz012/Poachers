@@ -47,6 +47,11 @@ public class Stage3Manager : MonoBehaviour
 
     void ChangeScene()
     {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            SceneManager.LoadScene("Base");
+        }
+
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
             SceneManager.LoadScene("Stage1");
