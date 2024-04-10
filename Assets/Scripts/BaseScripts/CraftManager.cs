@@ -9,7 +9,7 @@ public class CraftManager : MonoBehaviour
     public GameObject craftOpener, craftPanel;
     public GameObject[] enableGameObjects, disableGameObjects;
 
-    public Text essenceText;
+    public Text crodocileText, tamarawText, pangolinText, tarsierText, haribonText, turtleText;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +21,20 @@ public class CraftManager : MonoBehaviour
     void Update()
     {
         //Debug.Log("Tarsier: " + PlayerPrefs.GetInt("tarsier"));
-        essenceText.text = PlayerPrefs.GetInt("essence").ToString();
+        AnimalsEssence();
 
     }
+
+    void AnimalsEssence()
+    {
+        crodocileText.text = PlayerPrefs.GetInt("crocodile2").ToString();
+        tamarawText.text = PlayerPrefs.GetInt("tamaraw2").ToString();
+        pangolinText.text = PlayerPrefs.GetInt("pangolin2").ToString();
+        tarsierText.text = PlayerPrefs.GetInt("tarsier2").ToString();
+        haribonText.text = PlayerPrefs.GetInt("haribon2").ToString();
+        turtleText.text = PlayerPrefs.GetInt("turtle2").ToString();
+    }
+
     public void UpdateEssenceCounter(int newValue)
     {
         essenceCounter = newValue;

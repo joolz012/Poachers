@@ -52,7 +52,6 @@ public class TalismanScript : MonoBehaviour
         if(isUnlocked == 1)
         {
             PlayerPrefs.SetInt(talismanSave, 1);
-
         }
     }
 
@@ -63,14 +62,15 @@ public class TalismanScript : MonoBehaviour
 
         currentEssenceCostText.text = essenceSpent.ToString();
         talismanCostText.text = talismanCost.ToString();
-    }
 
+
+    }
     public void TalismanDefOne()
     {
         Debug.Log("Click");
         if(PlayerPrefs.GetInt(whatAnimalEssence) > 0 && PlayerPrefs.GetInt(whatAnimalMax) < maxLevel)
         {
-            //PlayerPrefs.SetInt(whatAnimal, PlayerPrefs.GetInt(whatAnimal) - 1);
+            PlayerPrefs.SetInt(whatAnimalEssence, PlayerPrefs.GetInt(whatAnimalEssence) - 1);
             PlayerPrefs.SetInt(essenceSpentAnimal, PlayerPrefs.GetInt(essenceSpentAnimal) + 1);
 
             if (PlayerPrefs.GetInt(talismanSave) == 1)

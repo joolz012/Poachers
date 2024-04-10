@@ -146,21 +146,21 @@ public class PlayerSkills : MonoBehaviour
 
     void TalismanCooldown()
     {
-        talisman1Slider.value = talismanOneCd;
         if(talismanOneCd >= 0)
         {
+            talisman1Slider.value = talismanOneCd;
             talismanOneCd -= Time.deltaTime;
         }
 
-        talisman2Slider.value = talismanTwoCd;
-        if (talismanTwoCd >= 0)
+        if (talismanTwoCd >= 0 && PlayerPrefs.GetInt("Talisman2Atk") == 1)
         {
+            talisman2Slider.value = talismanTwoCd;
             talismanTwoCd -= Time.deltaTime;
         }
 
-        talisman3Slider.value = talismanThreeCd;
-        if (talismanThreeCd >= 0)
+        if (talismanThreeCd >= 0 && PlayerPrefs.GetInt("Talisman3Atk") == 1)
         {
+            talisman3Slider.value = talismanThreeCd;
             talismanThreeCd -= Time.deltaTime;
         }
     }
