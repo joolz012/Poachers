@@ -21,6 +21,7 @@ public class QuestManager4 : MonoBehaviour
     public GameObject slash;
     public Transform bossFightTrans, playerTrans;
     public CharacterController playerCont;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,15 +53,12 @@ public class QuestManager4 : MonoBehaviour
             totalEnemyText.text = totalEnemy.ToString();
         }
 
-
         if (currentAnimal >= totalAnimal && currentEnemy >= totalEnemy)
         {
             //enemy
-            currentEnemy = 0;
+            //currentEnemy = 0;
             PlayerPrefs.SetFloat("ragnarBattle", 1);
             SceneManager.LoadScene("Base");
         }
-
-
     }
 }

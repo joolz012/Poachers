@@ -138,6 +138,7 @@ public class EnemyManager : MonoBehaviour
         //raidingBase = false;
         if (miniDefence)
         {
+            PlayerPrefs.SetFloat("ragnarBattle", 1);
             SceneManager.LoadScene("Stage4");
             miniDefence = false;
         }
@@ -158,11 +159,11 @@ public class EnemyManager : MonoBehaviour
             int randomIndexBoss = Random.Range(0, spawnPoints.Length);
             Instantiate(boss[1], spawnPoints[randomIndexBoss].position, transform.rotation);
         }
-        if (PlayerPrefs.GetFloat("ragnarPlayerPrefs") == 1)
-        {
-            int randomIndexBoss = Random.Range(0, spawnPoints.Length);
-            Instantiate(boss[2], spawnPoints[randomIndexBoss].position, transform.rotation);
-        }
+        //if (PlayerPrefs.GetFloat("ragnarPlayerPrefs") == 1)
+        //{
+        //    int randomIndexBoss = Random.Range(0, spawnPoints.Length);
+        //    Instantiate(boss[2], spawnPoints[randomIndexBoss].position, transform.rotation);
+        //}
     }
 
 

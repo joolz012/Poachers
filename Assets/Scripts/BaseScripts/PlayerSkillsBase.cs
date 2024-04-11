@@ -45,7 +45,7 @@ public class PlayerSkillsBase : MonoBehaviour
     {
         talismanDetails[0] = "<b>Crocodile Talisman</b> \nStun All Enemies";
         talismanDetails[1] = "<b>Tamaraw Talisman</b> \nBuff Defensive Towers";
-        talismanDetails[2] = "<b>Pangolin Talisman</b> \nIncrease Health Points of Towers";
+        talismanDetails[2] = "<b>Pangolin Talisman</b> \nIncrease Health Points of Rehab Center";
         audioSource = GetComponent<AudioSource>();
 
         talismanOneCd = 0;
