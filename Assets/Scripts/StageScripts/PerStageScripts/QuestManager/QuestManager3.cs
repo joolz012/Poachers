@@ -69,19 +69,6 @@ public class QuestManager3 : MonoBehaviour
             currentAnimal3 = 0;
             mainText.text = "Defeat Bjorn";
         }
-        else if (PlayerPrefs.GetFloat("bjornBattle") == 0)
-        {
-            questTextBox.SetActive(false);
-            questTextBox2.SetActive(false);
-            questTextBox3.SetActive(false);
-            questTextBox4.SetActive(false);
-            questTextBox5.SetActive(false);
-            gameObject.SetActive(true);
-            questCounter = 0;
-            currentAnimal = -1;
-            currentAnimal2 = 0;
-            currentAnimal3 = 0;
-        }
     }
 
     // Update is called once per frame
@@ -109,7 +96,7 @@ public class QuestManager3 : MonoBehaviour
         totalAnimalText3.text = totalAnimal3.ToString();
 
         currentKeyText.text = currentKey.ToString();
-        totalKeyText.text = totalKeyText.ToString();
+        totalKeyText.text = totalKey.ToString();
 
         currentEnemyText.text = currentEnemy.ToString();
         totalEnemyText.text = totalEnemy.ToString();

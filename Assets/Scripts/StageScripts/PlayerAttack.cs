@@ -20,6 +20,7 @@ public class PlayerAttack : MonoBehaviour
     {
         health = GetComponent<PlayerHealth>();
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -55,17 +56,13 @@ public class PlayerAttack : MonoBehaviour
             if (collider.GetComponent<EnemyHealth>() != null)
             {
                 EnemyHealth enemyHealth = collider.GetComponent<EnemyHealth>();
-                // Calculate direction to the enemy
                 Vector3 directionToEnemy = collider.transform.position - transform.position;
                 float angleToEnemy = Vector3.Angle(transform.forward, directionToEnemy);
 
-                // Check if the enemy is within the specified angle range
                 if (angleToEnemy <= detectionAngle * 0.5f)
                 {
-                    // Enemy is within range and angle, do something (e.g., attack, chase, etc.)
-                    Debug.Log("Enemy detected!");
+                    Debug.Log("Enemy Attacked");
 
-                    // You can add your logic to handle the detected enemy here
                     enemyHealth.TakeDamage(meleeDamage);
                 }
             }
@@ -80,11 +77,9 @@ public class PlayerAttack : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        // Draw a wire sphere to visualize the attack range
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
 
-        // Draw a cone to visualize the attack angle
         DrawAttackAngleGizmo();
     }
 

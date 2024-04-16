@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class WeaponUpgradeManager : MonoBehaviour
 {
-    public WeaponUpgrade[] upgrades; // Assign your upgrades in the inspector
+    public WeaponUpgrade[] upgrades;
     public int currentUpgradeLevel;
     public string saveWeapon;
 
@@ -30,6 +30,7 @@ public class WeaponUpgradeManager : MonoBehaviour
     }
     private void Update()
     {
+        //reset
         if (Input.GetKeyDown(KeyCode.P))
         {
             PlayerPrefs.SetInt(saveWeapon, 0);
@@ -53,7 +54,7 @@ public class WeaponUpgradeManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("All upgrades applied");
+            Debug.LogWarning("Max Level");
         }
     }
 

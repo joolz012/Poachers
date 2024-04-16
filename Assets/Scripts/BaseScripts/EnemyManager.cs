@@ -61,15 +61,15 @@ public class EnemyManager : MonoBehaviour
         {
             if(PlayerPrefs.GetFloat("gondarPlayerPrefs") == 2)
             {
-                SceneManager.LoadScene("gondarDeath");
+                SceneManager.LoadScene("GondarDeath");
             }
             if (PlayerPrefs.GetFloat("bjornPlayerPrefs") == 2)
             {
-                SceneManager.LoadScene("bjornDeath");
+                SceneManager.LoadScene("GondarDeath");
             }
             if (PlayerPrefs.GetFloat("ragnarPlayerPrefs") == 2)
             {
-                SceneManager.LoadScene("ragnarDeath");
+                SceneManager.LoadScene("GondarDeath");
             }
         }
         //if (taggedObjects.Length <= 0)

@@ -25,6 +25,7 @@ TagManager:
   - AnimalSpawn
   - AnimalSpawn2
   - AnimalSpawn3
+  - EnemyGroup
   layers:
   - Default
   - TransparentFX
