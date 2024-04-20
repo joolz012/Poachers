@@ -34,6 +34,10 @@ public class PlayerSkills : MonoBehaviour
     private float talismanThreeCd;
     private bool talismanThreeBool;
     public Slider talisman3Slider;
+
+
+    [Header("Talisman Effects")]
+    public GameObject[] talismanEffects;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +45,10 @@ public class PlayerSkills : MonoBehaviour
         talismanDetails[1] = "<b>Haribon Talisman</b> \nIncrease Damage";
         talismanDetails[2] = "<b>Turtle Talisman</b> \nIncrease Health";
 
+        foreach(GameObject effects in talismanEffects)
+        {
+            effects.SetActive(false);
+        }
         audioSource = GetComponent<AudioSource>();
         talismanOneCd = 0;
     }

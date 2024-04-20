@@ -345,6 +345,14 @@ public class BaseHealth : MonoBehaviour
         {
             SceneManager.LoadScene("MainMenu");
         }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            SceneManager.LoadScene("FinalCutscene");
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            SceneManager.LoadScene("GondarDeath");
+        }
         //if (Input.GetKeyDown(KeyCode.K))
         //{
         //    PlayerPrefs.SetInt("talismanOne", 0);

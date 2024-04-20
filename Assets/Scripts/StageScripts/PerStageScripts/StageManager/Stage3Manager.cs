@@ -89,6 +89,14 @@ public class Stage3Manager : MonoBehaviour
             PlayerPrefs.SetFloat("ragnarBattle", 1);
             SceneManager.LoadScene("Stage4");
         }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            SceneManager.LoadScene("FinalCutscene");
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            SceneManager.LoadScene("GondarDeath");
+        }
     }
 
     IEnumerator BackToBase(float timer)

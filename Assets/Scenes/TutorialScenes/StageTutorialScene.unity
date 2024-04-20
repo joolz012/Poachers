@@ -6108,9 +6108,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 842508881}
           m_TargetAssemblyTypeName: PlayerSkillsBase, Assembly-CSharp
-          m_MethodName: CrocodileDetails
+          m_MethodName: 
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -6646,6 +6646,7 @@ RectTransform:
   - {fileID: 489461289}
   - {fileID: 1026964208}
   - {fileID: 49853447}
+  - {fileID: 1646177287}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -9278,6 +9279,78 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6810606194074719695, guid: f19b607c2b0783f4e9282a8373dd1e29, type: 3}
+--- !u!1 &1646177286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1646177287}
+  - component: {fileID: 1646177289}
+  - component: {fileID: 1646177288}
+  m_Layer: 5
+  m_Name: Tarsier
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1646177287
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646177286}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1142313369}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1646177288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646177286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: 392d593ea1c58b44585ca9f518d462e8, type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1646177289
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646177286}
+  m_CullTransparentMesh: 1
 --- !u!4 &1670677896 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4549940337438601415, guid: 661790fbd824c564982260085a7473fc, type: 3}
@@ -13698,6 +13771,14 @@ PrefabInstance:
     - target: {fileID: 5364380955443214878, guid: 8fb67f44f00cc1445bc2c4bd162acf0b, type: 3}
       propertyPath: talismanText
       value: 
+      objectReference: {fileID: 1976107}
+    - target: {fileID: 5364380955443214878, guid: 8fb67f44f00cc1445bc2c4bd162acf0b, type: 3}
+      propertyPath: talismanImage
+      value: 
+      objectReference: {fileID: 1646177288}
+    - target: {fileID: 5364380955443214878, guid: 8fb67f44f00cc1445bc2c4bd162acf0b, type: 3}
+      propertyPath: visionDuration
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5364380955443214878, guid: 8fb67f44f00cc1445bc2c4bd162acf0b, type: 3}
       propertyPath: clip.Array.size
@@ -13706,15 +13787,15 @@ PrefabInstance:
     - target: {fileID: 5364380955443214878, guid: 8fb67f44f00cc1445bc2c4bd162acf0b, type: 3}
       propertyPath: talisman1Slider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1055489399}
     - target: {fileID: 5364380955443214878, guid: 8fb67f44f00cc1445bc2c4bd162acf0b, type: 3}
       propertyPath: talisman2Slider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 513077777}
     - target: {fileID: 5364380955443214878, guid: 8fb67f44f00cc1445bc2c4bd162acf0b, type: 3}
       propertyPath: talisman3Slider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 574069364}
     - target: {fileID: 5364380955443214878, guid: 8fb67f44f00cc1445bc2c4bd162acf0b, type: 3}
       propertyPath: 'clip.Array.data[0]'
       value: 
@@ -13722,7 +13803,7 @@ PrefabInstance:
     - target: {fileID: 5364380955443214878, guid: 8fb67f44f00cc1445bc2c4bd162acf0b, type: 3}
       propertyPath: talismanDetailsObject
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 489461288}
     - target: {fileID: 6482716997488752233, guid: 8fb67f44f00cc1445bc2c4bd162acf0b, type: 3}
       propertyPath: m_Enabled
       value: 0
