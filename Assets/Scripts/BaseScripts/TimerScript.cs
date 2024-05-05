@@ -14,7 +14,6 @@ public class TimerScript : MonoBehaviour
     void Start()
     {
         isRunning = false;
-        // Load the timer from PlayerPrefs
     }
 
     void Update()
@@ -26,7 +25,6 @@ public class TimerScript : MonoBehaviour
 
             if (currentTime <= 0)
             {
-                // Timer has reached zero, you can handle the timer completion here
                 Debug.Log("Timer has reached zero!");
                 ResetTimer();
             }
@@ -47,7 +45,6 @@ public class TimerScript : MonoBehaviour
 
     void ResetTimer()
     {
-        // Reset timer to the initial value
         isRunning = false;
         timerGameO.SetActive(false);
         minutesText.text = "00";
@@ -56,11 +53,9 @@ public class TimerScript : MonoBehaviour
 
     void UpdateTimerText()
     {
-        // Calculate minutes and seconds
         int minutes = Mathf.FloorToInt(currentTime / 60);
         int seconds = Mathf.FloorToInt(currentTime % 60);
 
-        // Update the UI text
         minutesText.text = minutes.ToString("00");
         secondsText.text = seconds.ToString("00");
     }
