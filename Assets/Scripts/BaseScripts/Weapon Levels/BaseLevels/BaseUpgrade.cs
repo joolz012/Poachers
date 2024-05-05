@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BaseUpgrade : MonoBehaviour
 {
-    public BaseDefUpgrade[] upgrades; // Assign your upgrades in the inspector
+    public BaseDefUpgrade[] upgrades;
     public int currentUpgradeLevel;
 
     public GameObject baseUpgradeCanvas, baseDetailsCanvas;
@@ -87,23 +87,19 @@ public class BaseUpgrade : MonoBehaviour
 
     private void Update()
     {
-        // Cast a ray from the mouse position into the scene
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        // Check if the left mouse button is clicked
+        
         if (Input.GetMouseButtonDown(0))
         {
-            // Check if the ray hits a collider of this GameObject
             if (Physics.Raycast(ray, out hit))
             {
                 if (hit.collider.CompareTag("MainOffice") && !onCanvas)
                 {
-                    // If the GameObject is clicked, activate the method
                     BaseCanvas();
                 }
                 if (hit.collider.CompareTag("Weapon") || hit.collider.CompareTag("Trap"))
                 {
-                    // If the GameObject is clicked, activate the method
                     onCanvas = false;
                     baseUpgradeCanvas.SetActive(false);
                 }
