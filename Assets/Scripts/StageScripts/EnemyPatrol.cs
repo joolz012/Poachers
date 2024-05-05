@@ -84,19 +84,15 @@ public class EnemyPatrol : MonoBehaviour
 
         if (parentTransform != null)
         {
-            // Find all child GameObjects with the specified tag under the parent
             GameObject[] waypointObjects = parentTransform.GetComponentsInChildren<Transform>()
                                                         .Where(child => child.CompareTag("WayPoint"))
                                                         .Select(child => child.gameObject)
                                                         .ToArray();
 
-            // Resize the waypointTransforms array to match the number of waypoints found
             moveSpots = new Transform[waypointObjects.Length];
 
-            // Assign positions to the Transform array
             for (int i = 0; i < waypointObjects.Length; i++)
             {
-                // Store the transform component of each waypoint GameObject
                 moveSpots[i] = waypointObjects[i].transform;
             }
         }
@@ -283,7 +279,6 @@ public class EnemyPatrol : MonoBehaviour
 
         if (distance <= chaseRadius && distance > distToPlayer && !playerAttacking)
         {
-            // Chase the player
             enemyAnimator.Play("Run");
             navEnemy.SetDestination(PlayerMovementStage.playerPos);
             navEnemy.speed = runSpeed;
