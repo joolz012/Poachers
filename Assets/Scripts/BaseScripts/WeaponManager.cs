@@ -159,7 +159,6 @@ public class WeaponManager : MonoBehaviour
     {
         if (canvasObject != null)
         {
-            // Only set currentUpgradeCanvas to null if it matches the canvasObject.
             if (currentUpgradeCanvas == canvasObject)
             {
                 detailsPanel.SetActive(false);
