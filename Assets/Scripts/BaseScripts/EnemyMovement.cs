@@ -22,7 +22,7 @@ public class EnemyMovement : MonoBehaviour
         if (navMeshAgent == null)
         {
             Debug.LogError("NavMeshAgent component not found on the enemy GameObject.");
-            enabled = false; // Disable the script if NavMeshAgent is not found.
+            enabled = false;
         }
         else
         {
@@ -55,11 +55,9 @@ public class EnemyMovement : MonoBehaviour
         {
             currentWaypoint++;
 
-            // Check if the enemy has completed the path
             if (currentWaypoint >= waypoints.Length)
             {
-                // The enemy has reached the end of the path. Implement staying logic here.
-                enabled = false; // Disable the script or add staying logic here.
+                enabled = false; 
             }
             else
             {
@@ -70,7 +68,6 @@ public class EnemyMovement : MonoBehaviour
     public void SetDestination()
     {
         enemyAnimator.Play("Walk");
-        // Set the destination to the current waypoint
         navMeshAgent.SetDestination(waypoints[currentWaypoint].position);
     }
 
@@ -85,14 +82,12 @@ public class EnemyMovement : MonoBehaviour
             navMeshAgent.acceleration = 25;
             stunned = false;
 
-            // Invoke a method to remove the stun after a specified duration
             Invoke(nameof(RemoveStun), stunDuration);
         }
     }
 
     private void RemoveStun()
     {
-        // Resume the NavMeshAgent movement and set stunned to false
         gameObject.GetComponent<EnemyAttackBase>().enabled = true;
         navMeshAgent.isStopped = false;
         navMeshAgent.speed = enemyMovementSpeed;
