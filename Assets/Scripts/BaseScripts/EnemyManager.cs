@@ -123,10 +123,8 @@ public class EnemyManager : MonoBehaviour
             yield return new WaitForSeconds(repeatRate);
             if (canInstantiate)
             {
-                // Get a random index from the spawnPoints array
                 int randomIndex = Random.Range(0, spawnPoints.Length);
 
-                // Get the random spawn point's position
                 Vector3 randomPosition = spawnPoints[randomIndex].position;
                 Instantiate(objectToInstantiate, spawnPoints[randomIndex].position, transform.rotation);
                 instantiations++;
@@ -167,7 +165,6 @@ public class EnemyManager : MonoBehaviour
     }
 
 
-    // You can call this method to stop instantiating objects if needed.
     public void StopInstantiating()
     {
         StopAllCoroutines();
