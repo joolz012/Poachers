@@ -38,12 +38,10 @@ public class DialogManager : MonoBehaviour
     {
         if (indexManager < moveSpots.Length)
         {
-            // Calculate target position
             Vector3 targetPosition = moveSpots[indexManager].position + offset;
-            targetPosition.y = fixedYPosition; // Keep Y position fixed
-            targetPosition.z += distanceZ; // Adjust Z position
+            targetPosition.y = fixedYPosition; 
+            targetPosition.z += distanceZ; 
 
-            // Use Lerp to smoothly move the camera towards the target position
             Vector3 smoothedPosition = Vector3.Lerp(cameraTrans.position, targetPosition, smoothSpeed * Time.deltaTime);
             cameraTrans.position = smoothedPosition;
         }
