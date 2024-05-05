@@ -52,17 +52,13 @@ public class PlayerAttackBase : MonoBehaviour
             if (collider.GetComponent<EnemyHealthBase>() != null)
             {
                 EnemyHealthBase enemyHealthBase = collider.GetComponent<EnemyHealthBase>();
-                // Calculate direction to the enemy
                 Vector3 directionToEnemy = collider.transform.position - transform.position;
                 float angleToEnemy = Vector3.Angle(transform.forward, directionToEnemy);
 
-                // Check if the enemy is within the specified angle range
                 if (angleToEnemy <= detectionAngle * 0.5f)
                 {
-                    // Enemy is within range and angle, do something (e.g., attack, chase, etc.)
                     Debug.Log("Enemy detected!");
 
-                    // You can add your logic to handle the detected enemy here
                     enemyHealthBase.TakeDamage(meleeDamage);
                 }
             }
@@ -72,11 +68,9 @@ public class PlayerAttackBase : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        // Draw a wire sphere to visualize the attack range
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
 
-        // Draw a cone to visualize the attack angle
         DrawAttackAngleGizmo();
     }
 
