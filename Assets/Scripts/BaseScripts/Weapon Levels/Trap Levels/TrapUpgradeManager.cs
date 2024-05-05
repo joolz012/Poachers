@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 public class TrapUpgradeManager : MonoBehaviour
 {
-    public TrapUpgrade[] upgrades; // Assign your upgrades in the inspector
+    public TrapUpgrade[] upgrades;
     public int currentUpgradeLevel;
     public string saveTrap;
 
