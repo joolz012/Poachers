@@ -11,7 +11,7 @@ public class AnimalCounter : MonoBehaviour
     public Transform[] animalSpawnerTrans;
     private int respawnRandom;
 
-    public GameObject[] animalPrefab; // Assign your animal prefab in the Inspector
+    public GameObject[] animalPrefab;
     private string whatAnimal;
     public int[] counters = new int[6];
 
@@ -59,16 +59,14 @@ public class AnimalCounter : MonoBehaviour
         }
 
 
-        // Check if animalCounter has increased
+        //check if animalCounter has increased
         if (animalCounter > instantiatedAnimals.Count)
         {
             // Instantiate new animals
             //int numToInstantiate = animalCounter - instantiatedAnimals.Count;
 
-            // Loop through the counters array
             for (int j = 0; j < counters.Length; j++)
             {
-                // If the counter is greater than 0, instantiate the corresponding game object
                 if (counters[j] != 0)
                 {
                     for (int k = 0; k < counters[j]; k++)
@@ -82,7 +80,6 @@ public class AnimalCounter : MonoBehaviour
         }
         else if (animalCounter < instantiatedAnimals.Count)
         {
-            // Ensure there are animals to remove
             if (instantiatedAnimals.Count > 0)
             {
                 doOnce = true;
@@ -91,9 +88,7 @@ public class AnimalCounter : MonoBehaviour
 
         if (doOnce)
         {
-            // Determine the last instantiated animal
             GameObject removedAnimal = instantiatedAnimals[instantiatedAnimals.Count - 1];
-            // Update the specific animal counter instead of all counters
             int removedAnimalIndex = -1;
             for (int i = 0; i < counters.Length; i++)
             {
@@ -118,7 +113,6 @@ public class AnimalCounter : MonoBehaviour
         }
     }
 
-    // You can call this method to update the animalCounter value
     public void SetAnimalCounter(int newValue)
     {
         animalCounter = newValue;
