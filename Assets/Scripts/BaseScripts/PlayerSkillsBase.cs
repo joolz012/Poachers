@@ -12,7 +12,6 @@ public class PlayerSkillsBase : MonoBehaviour
     public EnemyMovement[] enemyMovements;
     public WeaponScript[] weaponScript;
 
-    // Find all GameObjects with the "Enemy" tag
     //GameObject[] enemyObjects;
     [Header("Talisman Details")]
     public GameObject talismanDetailsObject;
@@ -213,7 +212,6 @@ public class PlayerSkillsBase : MonoBehaviour
     {
         GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("Enemy");
 
-        // List to hold found scripts
         List<EnemyMovement> foundScripts = new List<EnemyMovement>();
 
         foreach (GameObject obj in taggedObjects)
@@ -225,7 +223,6 @@ public class PlayerSkillsBase : MonoBehaviour
             }
         }
 
-        // Convert list to array
         enemyMovements = foundScripts.ToArray();
     }
 
