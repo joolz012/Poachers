@@ -39,16 +39,12 @@ public class WeaponScript : MonoBehaviour
     }
     void Update()
     {
-        //Level UI
         levelText.text = currentLevel.ToString();
 
-        // Check if index is within the bounds of the array
         if (currentLevel >= 0 && currentLevel - 1 < towerDesign.Length)
         {
-            // Loop through all tower designs
             for (int i = 0; i < towerDesign.Length; i++)
             {
-                // Activate the tower design at the specified index and disable others
                 towerDesign[i].SetActive(i == currentLevel - 1);
             }
         }
