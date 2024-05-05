@@ -20,10 +20,9 @@ public class CameraScript : MonoBehaviour
         }
 
         Vector3 targetPosition = playerTarget.position + offset;
-        targetPosition.y = playerTarget.position.y + fixedYPosition; // Keep Y position fixed
-        targetPosition.z += distanceZ; // Adjust Z position
+        targetPosition.y = playerTarget.position.y + fixedYPosition; 
+        targetPosition.z += distanceZ; 
 
-        // Use Lerp to smoothly move the camera towards the target position
         transform.position = Vector3.Lerp(transform.position, targetPosition, smoothSpeed * Time.deltaTime);
     }
 
@@ -49,7 +48,6 @@ public class CameraScript : MonoBehaviour
                 {
                     if (hit.collider.gameObject != playerTarget.gameObject)
                     {
-                        // Other object is hit, enable fading
                         if (raycastedObj != hitObject)
                         {
                             Debug.Log("Fade");
@@ -69,12 +67,11 @@ public class CameraScript : MonoBehaviour
                 }
                 else
                 {
-                    // Reset raycastedObj and disable fading
                     if (raycastedObj != null)
                     {
                         Debug.Log("Not Fade (No TransparencyScript)");
                         raycastedObj.doFade = false;
-                        raycastedObj = null; // Reset the raycastedObj
+                        raycastedObj = null; 
                     }
                 }
             }
@@ -85,7 +82,7 @@ public class CameraScript : MonoBehaviour
                 {
                     Debug.Log("Not Fade (Ray did not hit anything)");
                     raycastedObj.doFade = false;
-                    raycastedObj = null; // Reset the raycastedObj
+                    raycastedObj = null; 
                 }
             }
         }
