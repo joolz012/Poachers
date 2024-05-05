@@ -23,10 +23,8 @@ public class EnemyGroupSpawner : MonoBehaviour
 
     //    for (int i = 0; i < waypointsToInstantiate; i++)
     //    {
-    //        // Instantiate the waypoint as a child of the parentTransform
     //        GameObject waypointGo = Instantiate(waypointPrefabs[i], parentTransform);
 
-    //        // Set the local position to the spawn position (relative to the parent)
     //        waypointGo.transform.localPosition = spawnPositions[i].position - parentTransform.position;
     //    }
     //}
