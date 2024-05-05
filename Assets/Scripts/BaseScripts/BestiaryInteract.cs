@@ -41,7 +41,6 @@ public class BestiaryInteract : MonoBehaviour
         {
             bestiaryPages[i].SetActive(false);
         }
-        // Activate the current GameObject
         bestiaryPages[index].SetActive(true);
     }
 
