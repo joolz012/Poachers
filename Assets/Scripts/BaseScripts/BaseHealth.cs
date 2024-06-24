@@ -31,7 +31,7 @@ public class BaseHealth : MonoBehaviour
         healthslider.maxValue = baseMaxHealth;
 
         //new Game
-        if(PlayerPrefs.GetFloat("newGame") == 0)
+        if (PlayerPrefs.GetFloat("newGame") == 0)
         {
             DegradeWeaponBase();
             DegradeWeaponTrap();
@@ -55,7 +55,7 @@ public class BaseHealth : MonoBehaviour
             baseHealth = baseMaxHealth;
 
         }
-        else if(baseHealth <= 0 && PlayerPrefs.GetInt("animalCounter") <= 0)
+        else if (baseHealth <= 0 && PlayerPrefs.GetInt("animalCounter") <= 0)
         {
             audioSource.PlayOneShot(clip[0]);
             DegradeBase();
@@ -63,7 +63,7 @@ public class BaseHealth : MonoBehaviour
             DegradeWeaponTrap();
             RemoveAllEnemy();
             baseHealth = baseMaxHealth;
-            if(PlayerPrefs.GetFloat("gondarPlayerPrefs") == 1)
+            if (PlayerPrefs.GetFloat("gondarPlayerPrefs") == 1)
             {
                 PlayerPrefs.SetFloat("gondarPlayerPrefs", PlayerPrefs.GetFloat("gondarPlayerPrefs") - 1);
             }
@@ -122,7 +122,7 @@ public class BaseHealth : MonoBehaviour
     private void DegradeBase()
     {
         BaseHealth baseHealth = GetComponent<BaseHealth>();
-        BaseUpgrade baseUpgrade = GetComponent<BaseUpgrade>(); 
+        BaseUpgrade baseUpgrade = GetComponent<BaseUpgrade>();
         if (baseUpgrade != null)
         {
             if (baseUpgrade.currentUpgradeLevel >= 2)
@@ -352,6 +352,10 @@ public class BaseHealth : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
         {
             SceneManager.LoadScene("GondarDeath");
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            PlayerPrefs.SetFloat("currentMoney", 99999999);
         }
         //if (Input.GetKeyDown(KeyCode.K))
         //{

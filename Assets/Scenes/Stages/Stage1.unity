@@ -1709,7 +1709,7 @@ MonoBehaviour:
   currentAnimalText: {fileID: 512393043}
   totalAnimalText: {fileID: 901089451}
   currentAnimal: 0
-  totalAnimal: 5
+  totalAnimal: 4
   finalAnimalCost: 15
   questTextBox2: {fileID: 812921933}
   currentKeyText: {fileID: 767625113}
@@ -23339,6 +23339,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 868de1e7538caf346a92f5e26396ac83, type: 3}
       propertyPath: m_Name
       value: Stage1SeeableWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 868de1e7538caf346a92f5e26396ac83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1386659214261137147, guid: 868de1e7538caf346a92f5e26396ac83, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

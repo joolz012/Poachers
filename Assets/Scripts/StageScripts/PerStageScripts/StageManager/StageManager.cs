@@ -19,7 +19,7 @@ public class StageManager : MonoBehaviour
     {
         raidingBase = false;
         Time.timeScale = 1;
-        if(PlayerPrefs.GetInt("animalCounter") > 0)
+        if (PlayerPrefs.GetInt("animalCounter") > 0)
         {
             defendTimer = Random.Range(7, 8);
             StartCoroutine(BackToBase(defendTimer));
@@ -31,7 +31,7 @@ public class StageManager : MonoBehaviour
     void Update()
     {
         //Debug.Log(PlayerPrefs.GetInt("animalCounter"));
-        if(PlayerPrefs.GetInt("animalCounter") > 0 && !raidingBase)
+        if (PlayerPrefs.GetInt("animalCounter") > 0 && !raidingBase)
         {
             PlayerPrefs.SetInt("raid", 1);
             defendTimer = Random.Range(7, 8);

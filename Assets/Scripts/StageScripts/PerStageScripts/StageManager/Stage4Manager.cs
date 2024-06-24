@@ -8,6 +8,7 @@ public class Stage4Manager : MonoBehaviour
     public int animalCounter;
     public int defendTimer;
     public bool raidingBase;
+    public TimerScript timerScript;
 
 
     // Start is called before the first frame update
@@ -30,6 +31,7 @@ public class Stage4Manager : MonoBehaviour
         {
             PlayerPrefs.SetInt("raid", 1);
             defendTimer = Random.Range(7, 8);
+            timerScript.TimerDuration(defendTimer);
             StartCoroutine(BackToBase(defendTimer));
             raidingBase = true;
         }

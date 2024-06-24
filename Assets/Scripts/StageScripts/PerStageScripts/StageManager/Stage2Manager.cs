@@ -14,6 +14,7 @@ public class Stage2Manager : MonoBehaviour
     public bool raidingBase;
 
     public QuestManager2 questManager2;
+    public TimerScript timerScript;
 
 
     // Start is called before the first frame update
@@ -40,8 +41,10 @@ public class Stage2Manager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("animalCounter") > 0 && !raidingBase)
         {
+            Debug.Log("Time On");
             PlayerPrefs.SetInt("raid", 1);
             defendTimer = Random.Range(7, 8);
+            timerScript.TimerDuration(defendTimer);
             StartCoroutine(BackToBase(defendTimer));
             raidingBase = true;
         }

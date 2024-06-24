@@ -42,7 +42,7 @@ public class QuestManager : MonoBehaviour
     void Update()
     {
         Debug.Log("Animals: " + PlayerPrefs.GetInt("animalCounter"));
-        if(currentAnimal >= 0 && !doOnce)
+        if (currentAnimal >= 0 && !doOnce)
         {
             indicator[0].SetActive(true);
             questTextBox.SetActive(true);
@@ -50,7 +50,7 @@ public class QuestManager : MonoBehaviour
             questTextBox3.SetActive(true);
             doOnce = true;
         }
-        else if(currentAnimal < 0)
+        else if (currentAnimal < 0)
         {
             currentAnimalText.text = "0";
         }
@@ -61,7 +61,7 @@ public class QuestManager : MonoBehaviour
         totalKeyText.text = totalKey.ToString();
 
         currentEnemyText.text = currentEnemy.ToString();
-        totalEnemyText.text= totalEnemy.ToString();
+        totalEnemyText.text = totalEnemy.ToString();
 
 
         if (currentAnimal >= totalAnimal && currentKey >= totalKey && currentKey >= totalEnemy)
@@ -72,6 +72,7 @@ public class QuestManager : MonoBehaviour
                 indicator[1].SetActive(true);
                 //animals
                 currentAnimal = 0;
+                finalAnimalCost = 6;
                 totalAnimal = finalAnimalCost;
 
                 //keys
@@ -81,20 +82,23 @@ public class QuestManager : MonoBehaviour
                 currentKey = 0;
 
             }
-            else if(questCounter == 2)
+            else if (questCounter == 2)
             {
                 indicator[2].SetActive(true);
-                questTextBox.SetActive(false);
+                questTextBox.SetActive(true);
+                //animals
+                finalAnimalCost = 8;
+                totalAnimal = finalAnimalCost;
                 //keys
                 currentKey = 0;
                 totalKey = 4;
 
-                
+
                 //enemy
                 currentKey = 0;
             }
         }
-        else if(questCounter == 3)
+        else if (questCounter == 3)
         {
             gameObject.SetActive(false);
         }
